@@ -11,8 +11,8 @@
     <title>Review</title>
     <link rel="icon" type="image/png" sizes="16x16" href="../template/images/icon/logo.png">
 </head>
-<body>
 <jsp:include page="../layout/header.jsp"></jsp:include>
+<body>
 <div class="deznav">
     <div class="deznav-scroll ps ps--active-y mm-active">
         <ul class="metismenu mm-show" id="menu">

@@ -25,8 +25,12 @@
     <link href="../css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../template/vendor/chartist/css/chartist.min.css">
     <link href="../template/css/style.css" rel="stylesheet">
+
+    <!-- Pick date -->
+    <link rel="stylesheet" href="../template/vendor/pickadate/themes/default.css">
+    <link rel="stylesheet" href="../template/vendor/pickadate/themes/default.date.css">
 </head>
-<body>
+<body style="overflow: overlay;">
 <div id="main-wrapper">
     <div class="nav-header">
         <a href="../index.jsp" class="brand-logo">

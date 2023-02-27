@@ -13,8 +13,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../template/images/icon/logo.png">
     <link href="../template/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
-<body>
 <jsp:include page="../layout/header.jsp"></jsp:include>
+<body>
 <div class="deznav">
     <div class="deznav-scroll ps ps--active-y mm-active">
         <ul class="metismenu mm-show" id="menu">
