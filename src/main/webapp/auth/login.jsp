@@ -29,15 +29,14 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="text-center mb-3">
-                                            <video controls>
-                                                <source src="../template/bunny.mp4">
-                                            </video>
-                                            <a href="../index.jsp"><img src="../template/images/icon/logo.png" alt="" width="50px" height="50px"></a>
+
+<%--                                            <a href="../index.jsp"><img src="../template/images/icon/logo.png" alt="" width="50px" height="50px"></a>--%>
+                                            <a href="../index.jsp"><img src="../template/images/Blissful%20(1).png" alt="" width="50%" height="50%"></a>
                                         </div>
                                     </div>
-                                    <div class="col">
-                                        <h2 class="font-w600 mb-0 name_store">Blissful Coffee</h2>
-                                    </div>
+<%--                                    <div class="col">--%>
+<%--                                        <h2 class="font-w600 mb-0 name_store">Blissful Coffee</h2>--%>
+<%--                                    </div>--%>
                                 </div>
                                 <h4 class="text-center mb-4">Sign in your account</h4>
                                 <form action="https://davur.dexignzone.com/dashboard/index.html">
