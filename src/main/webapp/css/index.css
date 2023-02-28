@@ -1,7 +1,10 @@
 .name_store{
     font-size: 24px;
     padding-left: 10px;
-    padding-top: 10px;
+    /*padding-top: 10px;*/
+}
+.nav-header .brand-title{
+    max-width: 150px !important;
 }
 .fa-caret-left, .fa-caret-right{
     padding: 20px 0;
