@@ -13,48 +13,7 @@
 </head>
 <body>
 <jsp:include page="../layout/header.jsp"></jsp:include>
-<div class="deznav">
-    <div class="deznav-scroll ps ps--active-y mm-active">
-        <ul class="metismenu mm-show" id="menu">
-            <li>
-                <a href="../index.jsp" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-networking"></i>
-                    <span class="nav-text">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="../views/analytics.jsp" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-controls-3"></i>
-                    <span class="nav-text">Analytics</span>
-                </a>
-            </li>
-            <li class="mm-active">
-                <a href="../views/review.jsp" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-heart"></i>
-                    <span class="nav-text">Review</span>
-                </a>
-            </li>
-            <li>
-                <a href="../views/order_list.jsp" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-notepad"></i>
-                    <span class="nav-text">Order List</span>
-                </a>
-            </li>
-            <li>
-                <a href="../views/customer.jsp" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-layer-1"></i>
-                    <span class="nav-text">Customer</span>
-                </a>
-            </li>
-            <li>
-                <a href="../views/staff.jsp" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-network"></i>
-                    <span class="nav-text">Staff</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
+<jsp:include page="/layout/menu_left.jsp"></jsp:include>
 <div class="content-body">
     <div class="container-fluid">
         <div class="form-head d-flex mb-3 mb-md-4 align-items-start">
