@@ -1,0 +1,12 @@
+.logo_full{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.icon_logo{
+    display: inline-block;
+}
+.name_store{
+    display: inline-block;
+    font-size: 28px;
+}
