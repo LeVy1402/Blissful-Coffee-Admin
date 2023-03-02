@@ -1,0 +1,4 @@
+.btn-sm, .btn-group-sm > .btn {
+    font-size: 0.813rem !important;
+    padding: 0.5rem 0.5rem;
+}
