@@ -144,10 +144,10 @@
                                         </div>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewDetail" href="#">View Detail</a>
-                                            <a class="dropdown-item" href="#">Edit</a>
-                                            <a class="dropdown-item" href="#">Delete</a>
+                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editStaff" href="#">Edit</a>
+                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteStaff" href="#">Delete</a>
                                         </div>
-                                        <!-- Modal -->
+                                        <!-- Modal Detail-->
                                         <div class="modal fade" id="viewDetail">
                                             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                                 <div class="modal-content">
@@ -159,12 +159,12 @@
                                                     <div class="modal-body">
                                                         <div class="mb-3 row">
                                                             <div class="col-4 mt-3 align-items-center">
-                                                                <div class="img-bx">
-                                                                    <img class="me-3 img-fluid rounded" width="200" src="/template/images/avatar/ava2.jpg" alt="DexignZone">
+                                                                <div class="img-bx d-flex justify-content-center">
+                                                                    <img class="img-fluid rounded" width="200" src="/template/images/avatar/ava2.jpg" alt="DexignZone">
                                                                 </div>
-                                                                <span class="btn btn-sm light btn-success mt-3 w-100">Admin</span>
+                                                                <span class="btn btn-sm light btn-success mt-3 d-flex justify-content-center">Admin</span>
                                                             </div>
-                                                            <div class="col-8">
+                                                            <div class="col-8 d-flex align-items-center">
                                                                 <div class="card-body">
                                                                     <div class="basic-form">
                                                                         <form>
@@ -191,6 +191,88 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Modal Edit-->
+                                        <div class="modal fade" id="editStaff">
+                                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">#5552351</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="mb-3 row">
+                                                            <div class="col-4 mt-3 align-items-center">
+                                                                <div class="img-bx d-flex justify-content-center">
+                                                                    <img class="img-fluid rounded" width="200" src="/template/images/avatar/ava2.jpg" alt="DexignZone">
+                                                                </div>
+                                                                <div class="m-3 row d-flex justify-content-center">
+                                                                    <button type="button" class="btn btn-outline-danger btn-sm col">Delete</button>
+                                                                    <button type="button" class="btn btn-outline-primary btn-sm mx-3 col">Upload</button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-8 d-flex align-items-center">
+                                                                <div class="card-body">
+                                                                    <div class="basic-form">
+                                                                        <form>
+                                                                            <div class="mb-3 row">
+                                                                                <label class="col-sm-3 col-form-label d-flex align-items-center">Full name</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <input type="text" class="form-control input-default " placeholder="Nguyễn Văn A">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="mb-3 row">
+                                                                                <label class="col-sm-3 col-form-label">Contact</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <input type="text" class="form-control input-default " placeholder="0326254578">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="mb-3 row">
+                                                                                <label class="col-sm-3 col-form-label">Email</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <input type="text" class="form-control input-default " placeholder="vana@gmail.com">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="mb-3 row">
+                                                                                <label class="col-sm-3 col-form-label">Role</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <select class="default-select form-control wide mb-3">
+                                                                                        <option>Admin</option>
+                                                                                        <option>Staff</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn light btn-danger">Cancel</button>
+                                                        <button type="button" class="btn btn-primary mx-3">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Modal Edit-->
+                                        <div class="modal fade" id="deleteStaff">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Delete Confirm</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">Are you sure you want to delete the order #5552351</div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Cancel</button>
+                                                        <button type="button" class="btn btn-danger">Delete</button>
                                                     </div>
                                                 </div>
                                             </div>
