@@ -18,7 +18,8 @@ public class StaffRepository implements IStaffRepository {
             "             from `staff` inner join `role` using(role_id) join `site_inf`\n" +
             "\t\t using(site_inf_id);\n";
     private static final String SELECT_STAFF_BY_ID = "SELECT `staff_id` ,`full_name`,`contact`,`email`,`role_id`,`site_inf_id` from `staff` where `staff_id` = ?";
-    private static final String UPDATE_STAFF_SQL =  "update `staff` set `full_name` = ?,`email`= ?,`user_name` =?,`password`=?,`role_id` =?,`site_inf_id` =?  where `staff_id` = ?;";
+    private static final String UPDATE_STAFF_SQL =  "update `staff` set `fullname` = ?,`contact`= ?,`email` =?,`role_id` =?  where `staff_id` = ?;";
+
     private static final String DELETE_STAFF_BY_ID = "delete from `staff` where `staff_id` = ?";
     private static final String INSERT_STAFF_SQL = "INSERT INTO `staff`" + "  (`staff_id`,`full_name`,`contact`,`email`,`user_name`,`password`,`role_id`,`site_inf_id`) VALUES " +
             " (?, ?, ?,?,?, ?, ?,?)";
@@ -107,30 +108,27 @@ public class StaffRepository implements IStaffRepository {
         boolean rowUpdate = false;
         Connection connection = DBConnection.getConnection();
         PreparedStatement preparedStatement = null;
-//        if (connection != null) {
-//            try {
-//
-////                (int staffIdl, String fullName, String contact, String email, String userName, String passWord, int roleId, int siteInfId)
-//                preparedStatement = connection.prepareStatement(UPDATE_STAFF_SQL);
-//                preparedStatement.setString(1, staff.getFullName());
-//                preparedStatement.setString(2, staff.getEmail());
-//                preparedStatement.setString(3, staff.getUserName());
-//                preparedStatement.setString(4, staff.getPassWord());
-//                preparedStatement.setInt(5, staff.getRoleId().getRoleId());
-//                preparedStatement.setInt(6, staff.getSiteInfId().getSiteInfId());
-//                preparedStatement.setInt(7, staff.getStaffIdl());
-//                rowUpdate = preparedStatement.executeUpdate() > 0;
-//            } catch (SQLException ex) {
-//                throw new RuntimeException(ex);
-//            } finally {
-//                try {
-//                    preparedStatement.close();
-//                } catch (SQLException e) {
-//                    throw new RuntimeException(e);
-//                }
-//                DBConnection.close();
-//            }
-//        }
+        if (connection != null) {
+            try {
+//                (int staffIdl, String fullName, String contact, String email, String userName, String passWord, int roleId, int siteInfId)
+                preparedStatement = connection.prepareStatement(UPDATE_STAFF_SQL);
+                preparedStatement.setString(1, staff.getFullName());
+                preparedStatement.setString(2, staff.getContact());
+                preparedStatement.setString(3, staff.getEmail());
+                preparedStatement.setInt(4, staff.getRoleId().getRoleId());
+                preparedStatement.setInt(5, staff.getStaffId());
+                rowUpdate = preparedStatement.executeUpdate() > 0;
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            } finally {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                DBConnection.close();
+            }
+        }
         return rowUpdate;
 
     }
