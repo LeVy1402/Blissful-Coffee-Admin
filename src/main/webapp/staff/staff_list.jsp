@@ -143,9 +143,57 @@
                                             <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
                                         </div>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#">View Detail</a>
+                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewDetail" href="#">View Detail</a>
                                             <a class="dropdown-item" href="#">Edit</a>
                                             <a class="dropdown-item" href="#">Delete</a>
+                                        </div>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="viewDetail">
+                                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">#5552351</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="mb-3 row">
+                                                            <div class="col-4 mt-3 align-items-center">
+                                                                <div class="img-bx">
+                                                                    <img class="me-3 img-fluid rounded" width="200" src="/template/images/avatar/ava2.jpg" alt="DexignZone">
+                                                                </div>
+                                                                <span class="btn btn-sm light btn-success mt-3 w-100">Admin</span>
+                                                            </div>
+                                                            <div class="col-8">
+                                                                <div class="card-body">
+                                                                    <div class="basic-form">
+                                                                        <form>
+                                                                            <div class="mb-3 row">
+                                                                                <label class="col-sm-3 col-form-label">Full name</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <label class="col-form-label">Nguyễn Văn A</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="mb-3 row">
+                                                                                <label class="col-sm-3 col-form-label">Contact</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <label class="col-form-label">0326254578</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="mb-3 row">
+                                                                                <label class="col-sm-3 col-form-label">Email</label>
+                                                                                <div class="col-sm-9">
+                                                                                    <label class="col-form-label">vana@gmail.com</label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </td>
