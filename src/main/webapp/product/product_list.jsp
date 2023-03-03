@@ -128,6 +128,7 @@
                                 <th class="w-space-no">Price</th>
                                 <th class="w-space-no">Quantity</th>
                                 <th class="w-space-no">Status</th>
+                                <th class="w-space-no">Date Update</th>
                                 <th class="w-space-no">Category Name</th>
                                 <th></th>
                             </tr>
@@ -140,7 +141,8 @@
                                 <td><c:out value="${product.getProductName()}"></c:out></td>
                                 <td><c:out value="${product.getPrice()}"></c:out></td>
                                 <td><c:out value="${product.getQuantity()}"></c:out></td>
-                                <td><span class="btn btn-sm light btn-primary fs-1"><c:out value="${product.isProductStatus()}"></c:out></span></td>
+                                <td><span class="btn btn-sm light btn-primary fs-1"><c:out value="${product.getProductStatus()}"></c:out></span></td>
+                                <td><c:out value="${product.getDateUpdate()}"></c:out></td>
                                 <td><span class="btn btn-sm light btn-warning w-space-no"><c:out value="${product.getCategory().getCategoryName()}"></c:out></span></td>
                                 <td>
                                     <div class="dropdown ms-auto text-right">
@@ -196,7 +198,13 @@
                                                                             <div class="mb-3 row">
                                                                                 <label class="col-sm-5 col-form-label">Status</label>
                                                                                 <div class="col-sm-7">
-                                                                                    <label class="col-form-label"><c:out value="${detailpro.isProductStatus()}"></c:out></label>
+                                                                                    <label class="col-form-label"><c:out value="${detailpro.getProductStatus()}"></c:out></label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="mb-3 row">
+                                                                                <label class="col-sm-5 col-form-label">Date Update</label>
+                                                                                <div class="col-sm-7">
+                                                                                    <label class="col-form-label"><c:out value="${detailpro.getDateUpdate()}"></c:out></label>
                                                                                 </div>
                                                                             </div>
                                                                         </form>

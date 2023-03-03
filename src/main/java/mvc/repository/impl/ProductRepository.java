@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ProductRepository implements IProductRepository {
     @Override
@@ -20,7 +21,7 @@ public class ProductRepository implements IProductRepository {
         ResultSet resultSet = null;
         if (connection != null) {
             try {
-                statement = connection.prepareStatement("select `product_id`, `product_name`, `price`, `quantity`, `description`, `product_status`, `image`, category.category_id, `category_name` from product\n" +
+                statement = connection.prepareStatement("select `product_id`, `product_name`, `price`, `quantity`, `description`, `product_status`, `image`, `date_update`, category.category_id, `category_name` from product\n" +
                         "inner join category\n" +
                         "on product.category_id = category.category_id;");
                 resultSet = statement.executeQuery();
@@ -30,11 +31,12 @@ public class ProductRepository implements IProductRepository {
                     double price = resultSet.getDouble("price");
                     int quantity = resultSet.getInt("quantity");
                     String description = resultSet.getString("description");
-                    boolean productStatus = resultSet.getBoolean("product_status");
+                    String productStatus = resultSet.getString("product_status");
                     String image = resultSet.getString("image");
+                    Date dateUpdate = resultSet.getDate("date_update");
                     Category category = new Category(resultSet.getInt("category_id"),resultSet.getString("category_name"));
 
-                    Product product = new Product(productId, productName, price, quantity, description, productStatus, image, category);
+                    Product product = new Product(productId, productName, price, quantity, description, productStatus, image, dateUpdate, category);
 
                     products.add(product);
 
@@ -64,7 +66,7 @@ public class ProductRepository implements IProductRepository {
         ResultSet resultSet = null;
         if (connection != null) {
             try {
-                preparedStatement = connection.prepareStatement("select `product_id`, `product_name`, `price`, `quantity`, `description`, `product_status`, `image`, category.category_id, `category_name` from product\n" +
+                preparedStatement = connection.prepareStatement("select `product_id`, `product_name`, `price`, `quantity`, `description`, `product_status`, `image`, `date_update`, category.category_id, `category_name` from product\n" +
                         "inner join category \n" +
                         "on product.category_id = category.category_id\n" +
                         "where product_id = ?;");
@@ -75,11 +77,12 @@ public class ProductRepository implements IProductRepository {
                     double price = resultSet.getDouble("price");
                     int quantity = resultSet.getInt("quantity");
                     String description = resultSet.getString("description");
-                    boolean productStatus = resultSet.getBoolean("product_status");
+                    String productStatus = resultSet.getString("product_status");
                     String image = resultSet.getString("image");
+                    Date dateUpdate = resultSet.getDate("date_update");
                     Category category = new Category(resultSet.getInt("category_id"),resultSet.getString("category_name"));
 
-                    product = new Product(productId, productName, price, quantity, description, productStatus, image, category);
+                    product = new Product(productId, productName, price, quantity, description, productStatus, image, dateUpdate, category);
 
                 }
             } catch (SQLException throwables) {

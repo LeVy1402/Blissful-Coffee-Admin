@@ -1,16 +1,22 @@
 package mvc.model;
 
+import java.util.Date;
+
 public class Product {
     private int productId;
     private String productName;
     private double price;
     private int quantity;
     private String description;
-    private boolean productStatus;
+    private String productStatus;
     private String image;
-    private Category category;  
+    private Date dateUpdate;
+    private Category category;
 
-    public Product(int productId, String productName, double price, int quantity, String description, boolean productStatus, String image, Category category) {
+    public Product() {
+    }
+
+    public Product(int productId, String productName, double price, int quantity, String description, String productStatus, String image, Date dateUpdate, Category category) {
         this.productId = productId;
         this.productName = productName;
         this.price = price;
@@ -18,6 +24,7 @@ public class Product {
         this.description = description;
         this.productStatus = productStatus;
         this.image = image;
+        this.dateUpdate = dateUpdate;
         this.category = category;
     }
 
@@ -61,11 +68,11 @@ public class Product {
         this.description = description;
     }
 
-    public boolean isProductStatus() {
+    public String getProductStatus() {
         return productStatus;
     }
 
-    public void setProductStatus(boolean productStatus) {
+    public void setProductStatus(String productStatus) {
         this.productStatus = productStatus;
     }
 
@@ -75,6 +82,14 @@ public class Product {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Date getDateUpdate() {
+        return dateUpdate;
+    }
+
+    public void setDateUpdate(Date dateUpdate) {
+        this.dateUpdate = dateUpdate;
     }
 
     public Category getCategory() {
@@ -93,8 +108,9 @@ public class Product {
                 ", price=" + price +
                 ", quantity=" + quantity +
                 ", description='" + description + '\'' +
-                ", productStatus=" + productStatus +
+                ", productStatus='" + productStatus + '\'' +
                 ", image='" + image + '\'' +
+                ", dateUpdate=" + dateUpdate +
                 ", category=" + category +
                 '}';
     }
