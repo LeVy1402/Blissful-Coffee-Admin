@@ -72,8 +72,8 @@
                         <span class="nav-text">Staff</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="staff_list.jsp">Staff List</a></li>
-                        <li><a href="page-analytics.html">Add New Staff</a></li>
+                        <li><a href="/staffs">Staff List</a></li>
+                        <li><a href="../staff/staff_create.jsp">Add New Staff</a></li>
                     </ul>
                 </li>
                 <li class="mm-active">
@@ -128,7 +128,6 @@
                                 <th class="w-space-no">Price</th>
                                 <th class="w-space-no">Quantity</th>
                                 <th class="w-space-no">Status</th>
-                                <th class="w-space-no">Date Update</th>
                                 <th class="w-space-no">Category Name</th>
                                 <th></th>
                             </tr>
@@ -142,7 +141,6 @@
                                 <td><c:out value="${product.getPrice()}"></c:out></td>
                                 <td><c:out value="${product.getQuantity()}"></c:out></td>
                                 <td><span class="btn btn-sm light btn-primary fs-1"><c:out value="${product.getProductStatus()}"></c:out></span></td>
-                                <td><c:out value="${product.getDateUpdate()}"></c:out></td>
                                 <td><span class="btn btn-sm light btn-warning w-space-no"><c:out value="${product.getCategory().getCategoryName()}"></c:out></span></td>
                                 <td>
                                     <div class="dropdown ms-auto text-right">
