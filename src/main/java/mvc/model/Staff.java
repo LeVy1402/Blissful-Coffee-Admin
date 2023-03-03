@@ -11,6 +11,11 @@ public class Staff {
     private Role roleId;
     private SiteInf siteInfId;
 
+    public Staff (String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
     public Staff(int staffId, String fullName, boolean gender, String contact, String email, String password, String profileStaff, Role roleId, SiteInf siteInfId) {
         this.staffId = staffId;
         this.fullName = fullName;

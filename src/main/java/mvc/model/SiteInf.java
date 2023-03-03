@@ -66,4 +66,16 @@ public class SiteInf {
     public void setLast_update(Date last_update) {
         this.last_update = last_update;
     }
+
+    @Override
+    public String toString() {
+        return "SiteInfService{" +
+                "siteInfId=" + siteInfId +
+                ", siteName='" + siteName + '\'' +
+                ", description='" + description + '\'' +
+                ", contactInfo='" + contactInfo + '\'' +
+                ", address='" + address + '\'' +
+                ", last_update=" + last_update +
+                '}';
+    }
 }
