@@ -57,8 +57,8 @@
                         <span class="nav-text">Customer</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Customer List</a></li>
-                        <li><a href="page-analytics.html">Add New Customer</a></li>
+                        <li><a href="/customer/customer_list.jsp">Customer List</a></li>
+                        <li><a href="/customer/add_new_customer.jsp">Add New Customer</a></li>
                     </ul>
                 </li>
                 <li>
@@ -67,8 +67,8 @@
                         <span class="nav-text">Staff</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Staff List</a></li>
-                        <li><a href="page-analytics.html">Add New Order</a></li>
+                        <li><a href="/staff/customer_list.jsp">Staff List</a></li>
+                        <li><a href="/staff/customer_list.jsp">Add New Order</a></li>
                     </ul>
                 </li>
                 <li>

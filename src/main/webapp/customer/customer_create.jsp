@@ -110,75 +110,74 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Add new customer</h4>
+                        <div class="card-header justify-content-start upload_image">
+                            <div class="img-bx d-flex d-inline">
+                                <img id="preview_img" class="me-3 img-fluid rounded" width="100" src="/assets/images/add_image-removebg-preview.png"
+                                     alt="DexignZone">
+                            </div>
+                            <div class="input-group d-flex d-inline mx-3">
+                                <div class="form-file">
+                                    <input accept="image/*" type="file" id="input_img" class="form-file-input form-control">
+                                </div>
+                                <span class="input-group-text">Upload Avatar</span>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <form class="row">
-                                <div class="col">
-                                    <div class="form-group mb-3 pb-3">
-                                        <label class="font-w600">Customer fullname</label>
-                                        <input type="text" class="form-control solid" value="Cheese burger">
-                                    </div>
-                                    <div class="form-group mb-3 pb-3">
-                                        <label class="font-w600">Date of Birth</label>
-                                        <input type="text" class="form-control solid" value="01-01-2023" id="mdate">
-                                    </div>
-                                    <div class="form-group mb-3 pb-3">
-                                        <label class="font-w600">Gender</label>
-                                        <div class="col-sm-9">
-                                            <label class="radio-inline me-3"><input type="radio" name="optradio">
-                                                Male</label>
-                                            <label class="radio-inline me-3"><input type="radio" name="optradio">
-                                                Female</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group mb-3 pb-3">
-                                        <label class="font-w600">Avatar</label>
-<%--                                        <div class="upload-container">--%>
-<%--                                            <input type="file" id="file-upload">--%>
-<%--                                            <div class="border-container">--%>
-<%--                                                <div class="icons fa-4x">--%>
-<%--                                                    <i class="fas fa-file-image" data-fa-transform="shrink-3 down-2 left-6 rotate--45"></i>--%>
-<%--                                                    <i class="fas fa-file-alt" data-fa-transform="shrink-2 up-4"></i>--%>
-<%--                                                    <i class="fas fa-file-pdf" data-fa-transform="shrink-3 down-2 right-6 rotate-45"></i>--%>
-<%--                                                </div>--%>
-<%--                                                <!--<input type="file" id="file-upload">-->--%>
-<%--                                                <p>Drag and drop files here, or--%>
-<%--                                                    <a href="#" id="file-browser">browse</a> your computer.</p>--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
-                                        <span>
-                                            <input accept="image/*" type="file" id="input_img" class="form-control solid">
-                                            <img id="preview_img"/>
-                                        </span>
-                                    </div>
-
-                                </div>
-                                <div class="col">
-                                    <div class="form-group mb-3 pb-3">
-                                        <label class="font-w600">Email</label>
-                                        <input type="email" class="form-control solid">
-                                    </div>
-                                    <div class="form-group mb-3 pb-3">
-                                        <label class="font-w600">Phone number</label>
-                                        <input type="text" class="form-control solid">
-                                    </div>
-                                    <div class="form-group mb-3 pb-3">
-                                        <label class="font-w600">Password</label>
-                                        <input type="password" class="form-control solid">
-                                    </div>
-                                    <div class="form-group mb-3 pb-3">
-                                        <label class="font-w600">Password again</label>
-                                        <input type="password" class="form-control solid">
+                        <div class="row">
+                            <div class="col">
+                                <div class="row m-3 align-items-center">
+                                    <label class="col-sm-3 col-form-label">Full Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" placeholder="">
                                     </div>
                                 </div>
-                                <div class="card-footer d-flex justify-content-end">
-                                    <button type="button" class="btn light btn-primary">Refresh</button>
-                                    <button type="submit" class="btn btn-primary mx-3">Add New</button>
+                                <div class="row m-3 align-items-center">
+                                    <label class="col-sm-3 col-form-label">Gender</label>
+                                    <div class="col-sm-9">
+                                        <label class="radio-inline me-3"><input type="radio" name="optradio">
+                                            Male</label>
+                                        <label class="radio-inline me-3"><input type="radio" name="optradio">
+                                            Female</label>
+                                    </div>
                                 </div>
-                            </form>
+                                <div class="row m-3 align-items-center">
+                                    <label class="col-sm-3 col-form-label">Contact</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="row m-3 align-items-center">
+                                    <label class="col-sm-3 col-form-label">Email</label>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row m-3 align-items-center">
+                                    <label class="col-sm-3 col-form-label">Date of Birth</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" placeholder="" id="mdate">
+                                    </div>
+                                </div>
+                                <div class=" row m-3 align-items-center">
+                                    <label class="col-sm-3 col-form-label">Password</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control col-sm-6" placeholder="">
+<%--                                        <span class="input-group-text"><i class="fa fa-eye-slash" aria-hidden="true" id="togglePassword"></i></span>--%>
+                                    </div>
+                                </div>
+                                <div class="row m-3 align-items-center">
+                                    <label class="col-sm-3 col-form-label">Password again</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control col-sm-6" placeholder="">
+<%--                                        <i class="fa fa-eye-slash" aria-hidden="true" id="togglePassword"></i>--%>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-end">
+                                <button type="button" class="btn light btn-primary">Refresh</button>
+                                <button type="button" class="btn btn-primary mx-3">Add New</button>
+                            </div>
                         </div>
                     </div>
                 </div>
