@@ -21,9 +21,8 @@ public class StaffRepository implements IStaffRepository {
     private static final String UPDATE_STAFF_SQL =  "update `staff` set `fullname` = ?,`contact`= ?,`email` =?,`role_id` =?  where `staff_id` = ?;";
 
     private static final String DELETE_STAFF_BY_ID = "delete from `staff` where `staff_id` = ?";
-    private static final String INSERT_STAFF_SQL = "INSERT INTO `staff`" + "  (`staff_id`,`full_name`,`contact`,`email`,`user_name`,`password`,`role_id`,`site_inf_id`) VALUES " +
-            " (?, ?, ?,?,?, ?, ?,?)";
-
+    private static final String INSERT_STAFF_SQL = "INSERT INTO `staff`" + "  (`staff_id`,`fullname`,`gender`,`contact`,`email`,`password`,`profile_staff`,`role_id`,`site_inf_id`) VALUES " +
+            " (?,?, ?,?,?,?,?,?,?)";
     @Override
     public List<Staff> selectAllStaff() {
         List<Staff> staffList = new ArrayList<>();
@@ -161,31 +160,32 @@ public class StaffRepository implements IStaffRepository {
     public void addStaff(Staff staff) {
         Connection connection = DBConnection.getConnection();
         PreparedStatement preparedStatement = null;
-//        if (connection != null) {
-//            try {
-//                preparedStatement = connection.prepareStatement(INSERT_STAFF_SQL);
-//                preparedStatement.setInt(1, staff.getStaffIdl());
-//                preparedStatement.setString(2, staff.getFullName());
-//                preparedStatement.setString(3, staff.getContact());
-//                preparedStatement.setString(4, staff.getEmail());
-//                preparedStatement.setString(5, staff.getUserName());
-//                preparedStatement.setString(6, staff.getPassWord());
-//                preparedStatement.setInt(7, staff.getRoleId().getRoleId());
-//                preparedStatement.setInt(8, staff.getSiteInfId().getSiteInfId());
-//                System.out.println(preparedStatement);
-//                preparedStatement.executeUpdate();
-//
-//            } catch (SQLException e) {
-//                throw new RuntimeException(e);
-//            } finally {
-//                try {
-//                    preparedStatement.close();
-//                } catch (SQLException e) {
-//                    throw new RuntimeException(e);
-//                }
-//                DBConnection.close();
-//            }
-//        }
+        if (connection != null) {
+            try {
+                preparedStatement = connection.prepareStatement(INSERT_STAFF_SQL);
+                preparedStatement.setInt(1, staff.getStaffId());
+                preparedStatement.setString(2, staff.getFullName());
+                preparedStatement.setBoolean(3, staff.isGender());
+                preparedStatement.setString(4, staff.getContact());
+                preparedStatement.setString(5, staff.getEmail());
+                preparedStatement.setString(6, staff.getPassword());
+                preparedStatement.setString(7, staff.getProfileStaff());
+                preparedStatement.setInt(8, staff.getRoleId().getRoleId());
+                preparedStatement.setInt(9, staff.getSiteInfId().getSiteInfId());
+                System.out.println(preparedStatement);
+                preparedStatement.executeUpdate();
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } finally {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                DBConnection.close();
+            }
+        }
     }
 
 

@@ -65,8 +65,8 @@ Main wrapper start
                         <span class="nav-text">Staff</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li class="mm-active"><a href="staff_list.jsp" class="mm-active">Staff List</a></li>
-                        <li><a href="page-analytics.html">Add New Staff</a></li>
+                        <li class="mm-active"><a href="/staffs?" class="mm-active">Staff List</a></li>
+                        <li><a href="/staffs?action=create">Add New Staff</a></li>
                     </ul>
                 </li>
                 <li>
@@ -102,11 +102,11 @@ Main wrapper start
                     <h2 class="text-primary font-w600 mb-0">Staff List</h2>
                 </div>
                 <div class="col-10">
-                    <button type="button" class="btn btn-primary d-flex align-items-center svg-btn"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="btn btn-primary ms-sm-0"  href="/staffs?action=create"
+                          aria-expanded="false">
                         <i class="fa fa-plus scale5 ms-3"></i>
-                        <span class="fs-16 ms-3">Add New Staff</span>
-                    </button>
+                        <span class="fs-16 ms-3 " >Add New Staff</span>
+                    </a>
                 </div>
             </div>
             <div class="row">
@@ -216,7 +216,6 @@ Main wrapper start
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <!-- Modal Edit-->
                                             <div class="modal fade" id="editStaff${staff.getStaffId()}">
                                                 <div class="modal-dialog modal-dialog-centered modal-lg"

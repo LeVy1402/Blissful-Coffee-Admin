@@ -15,6 +15,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -32,6 +33,9 @@ public class StaffServlet extends HttpServlet {
         }
         System.out.println(action);
         switch (action) {
+            case "create":
+                showNewFormStaff(request, response);
+                break;
             case "delete":
                 try {
                     showDeleteStaff(request, response);
@@ -47,6 +51,11 @@ public class StaffServlet extends HttpServlet {
                 }
                 break;
         }
+    }
+
+    private void showNewFormStaff(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("staff/staff_create.jsp");
+        dispatcher.forward(request, response);
     }
 
 
@@ -75,7 +84,7 @@ public class StaffServlet extends HttpServlet {
         System.out.println(action);
         switch (action) {
             case "create":
-//                    createCustomer(request, response);
+                    createStaff(request, response);
                 break;
             case "update":
                 try {
@@ -88,6 +97,26 @@ public class StaffServlet extends HttpServlet {
 //                    searchCustomerById(request, response);
 //                    break;
         }
+
+    }
+
+    private void createStaff(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String fullName = request.getParameter("fullName");
+        boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
+        String contact = request.getParameter("contact");
+        String email = request.getParameter("email");
+        System.out.println(email);
+        String pass = request.getParameter("pass");
+        int roleId = Integer.parseInt(request.getParameter("roleId"));
+        System.out.println(roleId);
+        Role role = new Role(roleId, null);
+        int site = Integer.parseInt(request.getParameter("siteId"));
+        SiteInf siteInf = new SiteInf(site, null, null, null, null, null);
+
+        Staff staff = new Staff(fullName, gender, contact,  email,pass, role, siteInf);
+        staffService.addStaff(staff);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("staff/staff_create.jsp");
+        dispatcher.forward(request, response);
 
     }
 
