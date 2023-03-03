@@ -68,7 +68,7 @@
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li><a href="/staffs">Staff List</a></li>
-                        <li><a href="../staff/staff_create.jsp">Add New Order</a></li>
+                        <li><a href="../staff/staff_create.jsp">Add New Staff</a></li>
                     </ul>
                 </li>
                 <li>
@@ -77,8 +77,8 @@
                         <span class="nav-text">Product</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Product List</a></li>
-                        <li><a href="page-analytics.html">Add New Product</a></li>
+                        <li><a href="/products">Product List</a></li>
+                        <li><a href="../product/product_add.jsp">Add New Product</a></li>
                     </ul>
                 </li>
                 <li>

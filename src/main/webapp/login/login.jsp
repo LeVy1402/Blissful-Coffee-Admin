@@ -17,7 +17,7 @@
 
 <c:set var="error" value="${param.err}"></c:set>
 <div class="authincation h-100">
-    <div class="container h-100 mt-5">
+    <div class="container h-100 mt-3">
         <div class="row justify-content-center h-100 align-items-center">
             <div class="col-md-6">
                 <div class="authincation-content">
