@@ -5,12 +5,14 @@
   Time: 2:05 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Product List</title>
     <link rel="icon" type="image/png" sizes="16x16" href="../template/images/icon/logo.png">
     <link href="../template/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="/css/product-list.css">
 </head>
 <body>
 <jsp:include page="/layout/preloader.jsp"></jsp:include>
@@ -131,30 +133,33 @@
                             </tr>
                             </thead>
                             <tbody>
+                        <c:forEach var="product" items="${productList}">
                             <tr>
-                                <td>#id_1</td>
-                                <td><img src="/template/images/avatar/ava2.jpg" style="width: 70px; height: 70px;" alt="img"></td>
-                                <td>Cà Phê Muối</td>
-                                <td>28.00</td>
-                                <td>100</td>
-                                <td><span class="btn btn-sm light btn-info fs-16">1</span></td>
-                                <td><span class="btn btn-sm light btn-warning w-space-no">Coffee</span></td>
+                                <td><c:out value="${product.getProductId()}"></c:out></td>
+                                <td><img class="box-img-70" src="/img/<c:out value="${product.getImage()}"></c:out>.jpg" alt="img"></td>
+                                <td><c:out value="${product.getProductName()}"></c:out></td>
+                                <td><c:out value="${product.getPrice()}"></c:out></td>
+                                <td><c:out value="${product.getQuantity()}"></c:out></td>
+                                <td><span class="btn btn-sm light btn-primary fs-1"><c:out value="${product.isProductStatus()}"></c:out></span></td>
+                                <td><span class="btn btn-sm light btn-warning w-space-no"><c:out value="${product.getCategory().getCategoryName()}"></c:out></span></td>
                                 <td>
                                     <div class="dropdown ms-auto text-right">
                                         <div class="btn-link" data-bs-toggle="dropdown">
                                             <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
                                         </div>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewDetail" href="#">View Detail</a>
+                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#idpro${product.getProductId()}" href="#">View Detail</a>
                                             <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editProduct" href="#">Edit</a>
-                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteProduct" href="#">Delete</a>
+                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteProduct${product.getProductId()}" href="#">Delete</a>
                                         </div>
+
                                         <!-- Modal Detail-->
-                                        <div class="modal fade" id="viewDetail">
+                                        <c:forEach var="detailpro" items="${listDetailProduct}">
+                                        <div class="modal fade" id="idpro${detailpro.getProductId()}">
                                             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">#id_1</h5>
+                                                        <h5 class="modal-title">ID: #<c:out value="${detailpro.getProductId()}"></c:out></h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                                                         </button>
                                                     </div>
@@ -162,9 +167,9 @@
                                                         <div class="mb-3 row">
                                                             <div class="col-4 mt-3 align-items-center">
                                                                 <div class="img-bx d-flex justify-content-center">
-                                                                    <img class="img-fluid rounded" width="200" src="/template/images/avatar/ava2.jpg" alt="DexignZone">
+                                                                    <img class="img-fluid rounded" width="200" src="/img/<c:out value="${detailpro.getImage()}"></c:out>.jpg" alt="imgProduct"/>
                                                                 </div>
-                                                                <span class="btn btn-sm btn-success mt-3 d-flex justify-content-center">Coffee</span>
+                                                                <span class="btn btn-sm btn-success mt-3 d-flex justify-content-center"><c:out value="${detailpro.getCategory().getCategoryName()}"></c:out></span>
                                                             </div>
                                                             <div class="col-8 d-flex align-items-center">
                                                                 <div class="card-body">
@@ -173,25 +178,25 @@
                                                                             <div class="mb-3 row">
                                                                                 <label class="col-sm-5 col-form-label">Product Name</label>
                                                                                 <div class="col-sm-7">
-                                                                                    <label class="col-form-label">Cà Phê Muối</label>
+                                                                                    <label class="col-form-label"><c:out value="${detailpro.getProductName()}"></c:out></label>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="mb-3 row">
                                                                                 <label class="col-sm-5 col-form-label">Price</label>
                                                                                 <div class="col-sm-7">
-                                                                                    <label class="col-form-label">28.00</label>
+                                                                                    <label class="col-form-label"><c:out value="${detailpro.getPrice()}"></c:out></label>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="mb-3 row">
                                                                                 <label class="col-sm-5 col-form-label">Quatity</label>
                                                                                 <div class="col-sm-7">
-                                                                                    <label class="col-form-label">100</label>
+                                                                                    <label class="col-form-label"><c:out value="${detailpro.getQuantity()}"></c:out></label>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="mb-3 row">
                                                                                 <label class="col-sm-5 col-form-label">Status</label>
                                                                                 <div class="col-sm-7">
-                                                                                    <label class="col-form-label">1</label>
+                                                                                    <label class="col-form-label"><c:out value="${detailpro.isProductStatus()}"></c:out></label>
                                                                                 </div>
                                                                             </div>
                                                                         </form>
@@ -201,7 +206,7 @@
                                                             <div class="mb-3 row">
                                                                 <label class="col-sm-3 col-form-label">Description</label>
                                                                 <div class="col-sm-9">
-                                                                    <label class="col-form-label">Hương vị độc đáo lạ kỳ của cà phê và muối biển mang lại cảm giác bất tận.</label>
+                                                                    <label class="col-form-label"><c:out value="${detailpro.getDescription()}"></c:out></label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -209,6 +214,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        </c:forEach>
 
                                         <!-- Modal Edit-->
                                         <div class="modal fade" id="editProduct">
@@ -296,8 +302,10 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <!-- Modal Delete-->
-                                        <div class="modal fade" id="deleteProduct">
+                                        <c:forEach var="product" items="${productList}">
+                                        <div class="modal fade" id="deleteProduct${product.getProductId()}">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -305,18 +313,19 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                                                         </button>
                                                     </div>
-                                                    <div class="modal-body">Are you sure you want to delete the product #id_1</div>
+                                                    <div class="modal-body">Are you sure you want to delete the product id# ${product.getProductId()}</div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Cancel</button>
-                                                        <button type="button" class="btn btn-danger">Delete</button>
+                                                        <button type="button" class="btn btn-danger"><a href="/products?action=del&&id=${product.getProductId()}">Delete</a></button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        </c:forEach>
                                     </div>
                                 </td>
                             </tr>
-
+                        </c:forEach>
                             </tbody>
                         </table>
                     </div>
