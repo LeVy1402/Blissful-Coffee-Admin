@@ -22,24 +22,28 @@
                         <div class="col-xl-12">
                             <div class="auth-form">
                                 <div class="text-center mb-3 logo_full">
-                                    <a href="" class="icon_logo"><img src="../assets/icons/logo.png" alt="" width="48px" height="48px"></a>
-<%--                                    <h3 class="font-w600 mb-0 name_store mx-2 mt-2">Blissful Coffee</h3>--%>
+                                    <a href="" class="icon_logo"><img src="../assets/icons/logo.png" alt="" width="48px"
+                                                                      height="48px"></a>
+                                    <%--                                    <h3 class="font-w600 mb-0 name_store mx-2 mt-2">Blissful Coffee</h3>--%>
                                     <label class="mb-1 name_store mt-3 mx-2"><strong>Blissful Coffee</strong></label>
                                 </div>
-                                <form action="https://davur.dexignzone.com/dashboard/index.html">
+                                <form method="post">
+                                    <input type="hidden" class="form-control" name="action" value="login"  >
                                     <div class="form-group">
                                         <label class="mb-1"><strong>Email</strong></label>
-                                        <input type="email" class="form-control" value="hello@example.com">
+                                        <input type="email" class="form-control" name="txtEmail">
                                     </div>
                                     <div class="form-group">
                                         <label class="mb-1"><strong>Password</strong></label>
-                                        <input type="password" class="form-control" value="Password">
+                                        <input type="password" class="form-control" name="txtPass">
                                     </div>
                                     <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox ms-1">
-                                                <input type="checkbox" class="custom-control-input" id="basic_checkbox_1">
-                                                <label class="custom-control-label" for="basic_checkbox_1">Remember my preference</label>
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="basic_checkbox_1">
+                                                <label class="custom-control-label" for="basic_checkbox_1">Remember my
+                                                    preference</label>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -47,7 +51,7 @@
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                                        <input type="submit" class="btn btn-primary btn-block" value="Save">
                                     </div>
                                 </form>
                             </div>
@@ -58,5 +62,7 @@
         </div>
     </div>
 </div>
+
+
 </body>
 </html>

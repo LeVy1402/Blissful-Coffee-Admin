@@ -5,6 +5,6 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-    <jsp:include page="/home/login.jsp"></jsp:include>
+    <jsp:include page="/login/login.jsp"></jsp:include>
 </body>
 </html>
