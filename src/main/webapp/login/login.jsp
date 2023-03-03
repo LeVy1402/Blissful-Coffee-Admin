@@ -36,7 +36,6 @@
                                         </button>
                                         <strong>Error!</strong> Sorry, that email or password doesn't match. Please enter again.
                                     </div>
-                                    <%--        CSS dòng ni cho đẹp thông báo hiện lỗi không đúng pass đồ đó--%>
                                 </c:if>
                                 <form method="post">
                                     <input type="hidden" class="form-control" name="action" value="login"  >
