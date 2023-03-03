@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: OS
@@ -13,6 +14,8 @@
 </head>
 <body class="h-100">
 <jsp:include page="/layout/path_file.jsp"></jsp:include>
+
+<c:set var="error" value="${param.err}"></c:set>
 <div class="authincation h-100">
     <div class="container h-100 mt-5">
         <div class="row justify-content-center h-100 align-items-center">
@@ -27,6 +30,14 @@
                                     <%--                                    <h3 class="font-w600 mb-0 name_store mx-2 mt-2">Blissful Coffee</h3>--%>
                                     <label class="mb-1 name_store mt-3 mx-2"><strong>Blissful Coffee</strong></label>
                                 </div>
+                                <c:if test="${error.equals('1')}">
+                                    <div class="alert alert-danger alert-dismissible fade show">
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+                                        </button>
+                                        <strong>Error!</strong> Sorry, that email or password doesn't match. Please enter again.
+                                    </div>
+                                    <%--        CSS dòng ni cho đẹp thông báo hiện lỗi không đúng pass đồ đó--%>
+                                </c:if>
                                 <form method="post">
                                     <input type="hidden" class="form-control" name="action" value="login"  >
                                     <div class="form-group">

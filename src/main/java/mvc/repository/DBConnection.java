@@ -9,7 +9,7 @@ public class DBConnection {
     private static final String PASSWORD = "Levy1402";
     private static final String HOST = "localhost";
     private static final String DATABASE = "coffee_blissful";
-    private static final String PORT = "3308";
+    private static final String PORT = "3306";
 
     private static Connection connection;
 

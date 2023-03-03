@@ -67,7 +67,8 @@ public class LoginServlet extends HttpServlet {
             String pass = request.getParameter("txtPass");
             Staff staff = iLoginAdminService.checkLogin(email, pass);
             if (staff == null) {
-                response.sendRedirect("/logins");
+
+                response.sendRedirect("/logins?err=1");
             }else {
                 response.sendRedirect("home/dashboard.jsp");
             }
