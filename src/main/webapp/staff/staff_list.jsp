@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: OS
-  Date: 3/1/2023
-  Time: 11:00 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -156,19 +149,21 @@ Main wrapper start
                                             </div>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <a class="dropdown-item" data-bs-toggle="modal"
-                                                   data-bs-target="#viewDetail" href="#">View Detail</a>
+                                                   data-bs-target="#viewDetaill${staff.getStaffId()}" href="#">View
+                                                    Detail</a>
                                                 <a class="dropdown-item" data-bs-toggle="modal"
-                                                   data-bs-target="#editStaff" href="#">Edit</a>
+                                                   data-bs-target="#editStaff${staff.getStaffId()}" href="#">Edit</a>
                                                 <a class="dropdown-item" data-bs-toggle="modal"
-                                                   data-bs-target="#deleteStaff" href="#">Delete</a>
+                                                   data-bs-target="#deleteStaff${staff.getStaffId()}" >Delete</a>
                                             </div>
                                             <!-- Modal Detail-->
-                                            <div class="modal fade" id="viewDetail">
+                                            <div class="modal fade" id="viewDetaill${staff.getStaffId()}">
                                                 <div class="modal-dialog modal-dialog-centered modal-lg"
                                                      role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title">#5552351</h5>
+                                                            <h5 class="modal-title">
+                                                                <c:out value="${staff.getStaffId()}"></c:out></h5>
                                                             <button type="button" class="btn-close"
                                                                     data-bs-dismiss="modal">
                                                             </button>
@@ -191,20 +186,25 @@ Main wrapper start
                                                                                     <label class="col-sm-3 col-form-label">Full
                                                                                         name</label>
                                                                                     <div class="col-sm-9">
-                                                                                        <label class="col-form-label">Nguyễn
-                                                                                            Văn A</label>
+                                                                                        <label class="col-form-label">
+                                                                                            <c:out value="${staff.getFullName()}"></c:out>
+                                                                                        </label>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="mb-3 row">
                                                                                     <label class="col-sm-3 col-form-label">Contact</label>
                                                                                     <div class="col-sm-9">
-                                                                                        <label class="col-form-label">0326254578</label>
+                                                                                        <label class="col-form-label">
+                                                                                            <c:out value="${staff.getContact()}"></c:out>
+                                                                                        </label>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="mb-3 row">
                                                                                     <label class="col-sm-3 col-form-label">Email</label>
                                                                                     <div class="col-sm-9">
-                                                                                        <label class="col-form-label">vana@gmail.com</label>
+                                                                                        <label class="col-form-label">
+                                                                                            <c:out value="${staff.getEmail()}"></c:out>
+                                                                                        </label>
                                                                                     </div>
                                                                                 </div>
                                                                             </form>
@@ -218,12 +218,14 @@ Main wrapper start
                                             </div>
 
                                             <!-- Modal Edit-->
-                                            <div class="modal fade" id="editStaff">
+                                            <div class="modal fade" id="editStaff${staff.getStaffId()}">
                                                 <div class="modal-dialog modal-dialog-centered modal-lg"
                                                      role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title">#5552351</h5>
+                                                            <h5 class="modal-title">
+                                                            <c:out value="${staff.getStaffId()}"></c:out>
+                                                            </h5>
                                                             <button type="button" class="btn-close"
                                                                     data-bs-dismiss="modal">
                                                             </button>
@@ -250,41 +252,65 @@ Main wrapper start
                                                                 <div class="col-8 d-flex align-items-center">
                                                                     <div class="card-body">
                                                                         <div class="basic-form">
-                                                                            <form>
+                                                                            <form method="post">
+                                                                                <input type="hidden" name="action" value="update">
+                                                                                <c:if test="${staff != null}">
+                                                                                    <input type="hidden" name="id"
+                                                                                           value="<c:out value='${staff.getStaffId()}' />"/>
+                                                                                </c:if>
                                                                                 <div class="mb-3 row">
                                                                                     <label class="col-sm-3 col-form-label d-flex align-items-center">Full
                                                                                         name</label>
                                                                                     <div class="col-sm-9">
-                                                                                        <input type="text"
-                                                                                               class="form-control input-default "
-                                                                                               placeholder="Nguyễn Văn A">
+                                                                                        <input type="text"   class="form-control input-default "
+                                                                                               name="fullName"
+                                                                                               value="${staff.getFullName()}">
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="mb-3 row">
                                                                                     <label class="col-sm-3 col-form-label">Contact</label>
                                                                                     <div class="col-sm-9">
-                                                                                        <input type="text"
+                                                                                        <input type="text" name="contact"
                                                                                                class="form-control input-default "
-                                                                                               placeholder="0326254578">
+                                                                                               value="${staff.getContact()}">
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="mb-3 row">
                                                                                     <label class="col-sm-3 col-form-label">Email</label>
                                                                                     <div class="col-sm-9">
                                                                                         <input type="text"
+                                                                                               name="email"
                                                                                                class="form-control input-default "
-                                                                                               placeholder="vana@gmail.com">
+                                                                                               value="${staff.getEmail()}">
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="mb-3 row">
-                                                                                    <label class="col-sm-3 col-form-label">Role</label>
-                                                                                    <div class="col-sm-9">
-                                                                                        <select class="default-select form-control wide mb-3">
-                                                                                            <option>Admin</option>
-                                                                                            <option>Staff</option>
-                                                                                        </select>
+                                                                                <fieldset class="mb-3">
+                                                                                    <div class="row">
+                                                                                    <label class="col-form-label col-sm-4 pt-0">Staff
+                                                                                        role</label>
+                                                                                    <div class="col-sm-8">
+                                                                                        <div class="form-check">
+                                                                                            <input class="form-check-input"
+                                                                                                   type="radio" name="roleId" value="2"
+                                                                                                   <c:if test='${staff.getRoleId().getRoleName()=="Admin"}'>checked</c:if>>
+                                                                                            <label class="form-check-label  ">
+                                                                                                Admin
+                                                                                            </label>
+                                                                                        </div>
+                                                                                        <div class="form-check">
+                                                                                            <input class="form-check-input"
+                                                                                                   type="radio" name="roleId" value="1"
+                                                                                                   <c:if test='${staff.getRoleId().getRoleName()=="Staff"}'>checked</c:if>>
+                                                                                            <label class="form-check-label ">
+                                                                                                Staff
+                                                                                            </label>
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
+                                                                        </div>
+                                                                        </fieldset>
+                                                                                <input type="submit"  class="btn btn-primary mx-3">
+                                                                                <button type="button" class="btn light btn-danger">Cancel
+                                                                                </button>
                                                                             </form>
                                                                         </div>
                                                                     </div>
@@ -292,16 +318,14 @@ Main wrapper start
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn light btn-danger">Cancel
-                                                            </button>
-                                                            <button type="button" class="btn btn-primary mx-3">Save
-                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- Modal Edit-->
-                                            <div class="modal fade" id="deleteStaff">
+                                            <!-- Modal Delete-->
+                                                <div class="modal fade" id="deleteStaff${staff.getStaffId()}" data-bs-backdrop="static"
+                                                     data-bs-keyboard="false" tabindex="-1"
+                                                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -311,13 +335,16 @@ Main wrapper start
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">Are you sure you want to delete the
-                                                            order #5552351
+                                                            <strong
+                                                                    class="text-danger">${staff.getFullName()}</strong>?
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-danger light"
                                                                     data-bs-dismiss="modal">Cancel
                                                             </button>
-                                                            <button type="button" class="btn btn-danger">Delete</button>
+                                                            <a href="/staffs?action=delete&id=${staff.getStaffId()}">
+                                                                <button type="button" class="btn btn-warning">Confirm</button>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>

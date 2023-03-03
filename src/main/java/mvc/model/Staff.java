@@ -23,6 +23,15 @@ public class Staff {
         this.siteInfId = siteInfId;
     }
 
+
+    public Staff(int staffId, String fullName, String contact, String email, Role roleId) {
+        this.staffId = staffId;
+        this.fullName = fullName;
+        this.contact = contact;
+        this.email = email;
+        this.roleId = roleId;
+    }
+
     public int getStaffId() {
         return staffId;
     }
