@@ -29,6 +29,16 @@ public class Staff {
     }
 
 
+    public Staff(String fullName, boolean gender, String contact, String email, String password, Role roleId, SiteInf siteInfId) {
+        this.fullName = fullName;
+        this.gender = gender;
+        this.contact = contact;
+        this.email = email;
+        this.password = password;
+        this.roleId = roleId;
+        this.siteInfId = siteInfId;
+    }
+
     public Staff(int staffId, String fullName, String contact, String email, Role roleId) {
         this.staffId = staffId;
         this.fullName = fullName;
@@ -36,7 +46,6 @@ public class Staff {
         this.email = email;
         this.roleId = roleId;
     }
-
     public int getStaffId() {
         return staffId;
     }

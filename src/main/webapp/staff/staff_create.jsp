@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: OS
-  Date: 3/1/2023
-  Time: 11:00 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -109,85 +102,92 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header justify-content-start upload_image">
-                            <div class="img-bx d-flex d-inline">
-                                <img class="me-3 img-fluid rounded" width="100" src="/assets/images/add_image-removebg-preview.png"
-                                     alt="DexignZone">
-                            </div>
-                            <div class="input-group d-flex d-inline mx-3">
-                                <div class="form-file">
-                                    <input type="file" class="form-file-input form-control">
+                <form method="post">
+                    <input type="hidden" name="action" value="create">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header justify-content-start upload_image">
+                                <div class="img-bx d-flex d-inline">
+                                    <img class="me-3 img-fluid rounded" width="100"
+                                         src="/assets/images/add_image-removebg-preview.png"
+                                         alt="DexignZone">
                                 </div>
-                                <span class="input-group-text">Upload</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="row m-3 align-items-center">
-                                    <label class="col-sm-3 col-form-label">Full Name</label>
-                                    <div class="col-sm-9">
-                                        <input type="password" class="form-control" placeholder="">
+                                <div class="input-group d-flex d-inline mx-3">
+                                    <div class="form-file">
+                                        <input type="file" class="form-file-input form-control">
                                     </div>
-                                </div>
-                                <div class="row m-3 align-items-center">
-                                    <label class="col-sm-3 col-form-label">Gender</label>
-                                    <div class="col-sm-9">
-                                        <label class="radio-inline me-3"><input type="radio" name="optradio">
-                                            Male</label>
-                                        <label class="radio-inline me-3"><input type="radio" name="optradio">
-                                            Female</label>
-                                    </div>
-                                </div>
-                                <div class="row m-3 align-items-center">
-                                    <label class="col-sm-3 col-form-label">Contact</label>
-                                    <div class="col-sm-9">
-                                        <input type="password" class="form-control" placeholder="">
-                                    </div>
-                                </div>
-                                <div class="row m-3 align-items-center">
-                                    <label class="col-sm-3 col-form-label">Email</label>
-                                    <div class="col-sm-9">
-                                        <input type="password" class="form-control" placeholder="">
-                                    </div>
+                                    <span class="input-group-text">Upload</span>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="row m-3 align-items-center">
-                                    <label class="col-sm-3 col-form-label">Password</label>
-                                    <div class="col-sm-9">
-                                        <input type="password" class="form-control" placeholder="">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row m-3 align-items-center">
+                                        <label class="col-sm-3 col-form-label">Full Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="fullName">
+                                        </div>
+                                    </div>
+                                    <div class="row m-3 align-items-center">
+                                        <label class="col-sm-3 col-form-label">Gender</label>
+                                        <div class="col-sm-9">
+                                            <label class="radio-inline me-3"><input type="radio" name="gender"
+                                                                                    value="1">
+                                                Male</label>
+                                            <label class="radio-inline me-3"><input type="radio" name="gender"
+                                                                                    value="2">
+                                                Female</label>
+                                        </div>
+                                    </div>
+                                    <div class="row m-3 align-items-center">
+                                        <label class="col-sm-3 col-form-label">Contact</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="contact">
+                                        </div>
+                                    </div>
+                                    <div class="row m-3 align-items-center">
+                                        <label class="col-sm-3 col-form-label">Email</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="email">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row m-3 align-items-center">
-                                    <label class="col-sm-3 col-form-label">Role</label>
-                                    <div class="col-sm-9">
-                                        <select class="default-select form-control wide mb-3">
-                                            <option>Admin</option>
-                                            <option>Staff</option>
-                                        </select>
+                                <div class="col">
+                                    <div class="row m-3 align-items-center">
+                                        <label class="col-sm-3 col-form-label">Password</label>
+                                        <div class="col-sm-9">
+                                            <input type="password" class="form-control" name="pass">
+                                        </div>
+                                    </div>
+                                    <div class="row m-3 align-items-center">
+                                        <label class="col-sm-3 col-form-label">Role</label>
+                                        <div class="col-sm-9">
+                                            <select class="default-select form-control wide mb-3" name="roleId">
+                                                <option value="2">Admin</option>
+                                                <option value="1">Staff</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row m-3 align-items-center">
+                                        <label class="col-sm-3 col-form-label">Site</label>
+                                        <div class="col-sm-9">
+                                            <select class="default-select form-control wide mb-3" name="siteId">
+                                                <option value="1">BLISSFUL COFFEE MONARCHY DA NANG</option>
+                                                <option value="2">BLISSFUL COFFEE NESTA HOTEL DA NANG</option>
+                                                <option value="3">BLISSFUL COFFEE MEGA MARKET DA NANG</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row m-3 align-items-center">
-                                    <label class="col-sm-3 col-form-label">Site</label>
-                                    <div class="col-sm-9">
-                                        <select class="default-select form-control wide mb-3">
-                                            <option>Site 1</option>
-                                            <option>Site 2</option>
-                                            <option>Site 3</option>
-                                        </select>
-                                    </div>
+                                <div class="card-footer d-flex justify-content-end">
+                                    <button type="button" class="btn light btn-primary">Refresh</button>
+                                    <input type="submit" class="btn btn-primary mx-3" value="Save"/>
                                 </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-end">
-                                <button type="button" class="btn light btn-primary">Refresh</button>
-                                <button type="button" class="btn btn-primary mx-3">Add New</button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
+
         </div>
     </div>
     <!--**********************************
@@ -214,19 +214,15 @@
 
 <script>
     (function ($) {
-
         var table = $('#example5').DataTable({
             searching: false,
             paging: true,
             select: false,
             lengthChange: false
-
         });
         $('#example tbody').on('click', 'tr', function () {
             var data = table.row(this).data();
-
         });
-
     })(jQuery);
 </script>
 </body>
