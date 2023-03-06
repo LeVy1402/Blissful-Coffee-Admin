@@ -1,4 +1,6 @@
 package mvc.repository.impl;
 
-public class ProductRepository {
+import mvc.repository.IProductRepository;
+
+public class ProductRepository implements IProductRepository {
 }

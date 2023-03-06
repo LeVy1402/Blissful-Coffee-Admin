@@ -57,7 +57,8 @@
                         <span class="nav-text">Customer</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="/customer/customer_list.jsp">Customer List</a></li>
+<%--                        <li><a href="/customer/customer_list.jsp">Customer List</a></li>--%>
+                        <li><a href="/customers">Customer List</a></li>
                         <li><a href="/customer/add_new_customer.jsp">Add New Customer</a></li>
                     </ul>
                 </li>

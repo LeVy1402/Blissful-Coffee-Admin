@@ -168,9 +168,9 @@
                                 </div>
                                 <div class="row m-3 align-items-center">
                                     <label class="col-sm-3 col-form-label">Password again</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-7">
                                         <input type="password" class="form-control col-sm-6" placeholder="">
-<%--                                        <i class="fa fa-eye-slash" aria-hidden="true" id="togglePassword"></i>--%>
+                                        <i class="fa fa-eye-slash" id="togglePassword"></i>
                                     </div>
                                 </div>
                             </div>

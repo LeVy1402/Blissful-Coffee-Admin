@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <title>Order List</title>
@@ -32,12 +34,14 @@
                         <span class="nav-text">Dashboard</span>
                     </a>
                 </li>
-                <li><a href="/home/analytics.jsp" class="ai-icon" aria-expanded="false">
+                <li>
+                    <a href="/home/analytics.jsp" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-controls-3"></i>
                     <span class="nav-text">Analytics</span>
                 </a>
                 </li>
-                <li><a href="/home/review.jsp" class="ai-icon" aria-expanded="false">
+                <li>
+                    <a href="/home/review.jsp" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-heart"></i>
                     <span class="nav-text">Review</span>
                 </a>
@@ -150,131 +154,90 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>#5552351</td>
-                                <td>James WItcwicky</td>
-                                <td>Corner Street 5th London</td>
-                                <td>$164.52</td>
-                                <td><span class="btn btn-sm light btn-secondary fs-16">$34.41</span></td>
-                                <td>
-                                    <div class="dropdown ms-auto text-right">
-                                        <div class="btn-link" data-bs-toggle="dropdown">
-                                            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-                                        </div>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#">View Detail</a>
-                                            <a class="dropdown-item" href="#">Edit</a>
-                                            <a class="dropdown-item" href="#">Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#5552397</td>
-                                <td>David Horison</td>
-                                <td>981 St. John’s Road London</td>
-                                <td>$24.55</td>
-                                <td><span class="btn btn-sm light btn-secondary fs-16">$70.00</span></td>
-                                <td>
-                                    <div class="dropdown ms-auto text-right">
-                                        <div class="btn-link" data-bs-toggle="dropdown">
-                                            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-                                        </div>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#">View Detail</a>
-                                            <a class="dropdown-item" href="#">Edit</a>
-                                            <a class="dropdown-item" href="#">Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#5552351</td>
-                                <td>Emilia Johanson</td>
-                                <td>67 St. John’s Road London</td>
-                                <td>$251.16</td>
-                                <td><span class="btn btn-sm light btn-secondary fs-16">$70.00</span></td>
-                                <td>
-                                    <div class="dropdown ms-auto text-right">
-                                        <div class="btn-link" data-bs-toggle="dropdown">
-                                            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-                                        </div>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#">View Detail</a>
-                                            <a class="dropdown-item" href="#">Edit</a>
-                                            <a class="dropdown-item" href="#">Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#5552397</td>
-                                <td>Rendy Greenlee</td>
-                                <td>32 The Green London</td>
-                                <td>$251.16</td>
-                                <td><span class="btn btn-sm light btn-secondary fs-16">$50.50</span></td>
-                                <td>
-                                    <div class="dropdown ms-auto text-right">
-                                        <div class="btn-link" data-bs-toggle="dropdown">
-                                            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-                                        </div>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewDetail" href="#">View Detail</a>
-                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editCustomer" href="#">Edit</a>
-                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteCustomer" href="#">Delete</a>
-                                        </div>
-                                        <!-- Modal Detail-->
-                                        <div class="modal fade" id="viewDetail">
-                                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">#5552351</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="mb-3 row">
-                                                            <div class="col-4 mt-3 align-items-center">
-                                                                <div class="img-bx d-flex justify-content-center">
-                                                                    <img class="img-fluid rounded" width="200" src="/template/images/avatar/ava2.jpg" alt="DexignZone">
+                            <c:forEach items="${customerList}" var="customer">
+                                <tr id="${customer.getCustomerId()}">
+                                    <td><c:out value="${customer.getCustomerId()}"></c:out></td>
+                                    <td><c:out value="${customer.getFullName()}"></c:out></td>
+                                    <td><c:out value="${customer.getAddress()}"></c:out></td>
+                                    <td>$164.52</td>
+                                    <td><span class="btn btn-sm light btn-secondary fs-16">$34.41</span></td>
+
+                                    <td>
+                                        <div class="dropdown ms-auto text-right">
+                                            <div class="btn-link" data-bs-toggle="dropdown">
+                                                <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
+                                            </div>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewDetail${customer.getCustomerId()}" href="#">View Detail</a>
+                                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editCustomer${customer.getCustomerId()}" href="#">Edit</a>
+                                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteCustomer${customer.getCustomerId()}" href="#">Delete</a>
+                                            </div>
+                                            <!-- Modal Detail-->
+                                            <div class="modal fade" id="viewDetail${customer.getCustomerId()}">
+                                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">
+                                                                #<c:out value="${customer.getCustomerId()}"></c:out>
+                                                            </h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="mb-3 row">
+                                                                <div class="col-4 mt-3 align-items-center">
+                                                                    <div class="img-bx d-flex justify-content-center">
+                                                                        <img class="img-fluid rounded" width="200" src="/template/images/avatar/${customer.getProfileCustomer()}.jpg" alt="DexignZone">
+                                                                    </div>
+                                                                        <%--                                                                <span class="btn btn-sm light btn-success mt-3 d-flex justify-content-center">Admin</span>--%>
                                                                 </div>
-                                                                <span class="btn btn-sm light btn-success mt-3 d-flex justify-content-center">Admin</span>
-                                                            </div>
-                                                            <div class="col-8 d-flex align-items-center">
-                                                                <div class="card-body">
-                                                                    <div class="basic-form">
-                                                                        <form>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label">Full name</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <label class="col-form-label">Nguyễn Văn A</label>
+                                                                <div class="col-8 d-flex align-items-center">
+                                                                    <div class="card-body">
+                                                                        <div class="basic-form">
+                                                                            <form>
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-4 col-form-label">Full name</label>
+                                                                                    <div class="col-sm-8">
+                                                                                        <label class="col-form-label">${customer.getFullName()}</label>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label">Gender</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <label class="col-form-label">Female</label>
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-4 col-form-label">Gender</label>
+                                                                                    <div class="col-sm-8">
+                                                                                        <label class="col-form-label">
+                                                                                            <c:choose>
+                                                                                                <c:when test="${customer.getGender()}">
+                                                                                                    Male
+                                                                                                    <i class='fa fa-solid fa-mars scale5' ></i>
+                                                                                                </c:when>
+                                                                                                <c:otherwise>
+                                                                                                    Female
+                                                                                                    <i class='fa fa-solid fa-venus scale5' ></i>
+                                                                                                </c:otherwise>
+                                                                                            </c:choose>
+                                                                                        </label>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label">Date of birth</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <label class="col-form-label">01-01-2001</label>
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-4 col-form-label">Date of birth</label>
+                                                                                    <div class="col-sm-8">
+                                                                                        <label class="col-form-label">${customer.getDateOfBirth()} </label>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label">Contact</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <label class="col-form-label">0326254578</label>
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-4 col-form-label">Contact</label>
+                                                                                    <div class="col-sm-8">
+                                                                                        <label class="col-form-label">${customer.getContact()}</label>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label">Email</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <label class="col-form-label">vana@gmail.com</label>
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-4 col-form-label">Email</label>
+                                                                                    <div class="col-sm-8">
+                                                                                        <label class="col-form-label">${customer.getEmail()}</label>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        </form>
+                                                                            </form>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -282,102 +245,118 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <!-- Modal Edit-->
-                                        <div class="modal fade" id="editCustomer">
-                                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">#5552351</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="mb-3 row">
-                                                            <div class="col-4 mt-3 align-items-center">
-                                                                <div class="img-bx d-flex justify-content-center">
-                                                                    <img id="img_avatar" class="img-fluid rounded" width="200" src="/template/images/avatar/ava2.jpg" alt="User avatar">
+                                            <!-- Modal Edit-->
+                                            <div class="modal fade" id="editCustomer${customer.getCustomerId()}">
+                                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">#${customer.getCustomerId()}</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form method="post" action="/customers">
+<%--                                                                id=${customer.getCustomerId()}?fullName=${customer.getFullName()}?dateOfBirth=${customer.getDateOfBirth()}?contact=${customer.getContact()}?email=${customer.getEmail()}?profileCustomer=${customer.getCustomerId()}?address=${customer.getAddress()}?gender=${customer.getGender()}--%>
+                                                            <div class="mb-3 row">
+                                                                <div class="col-4 mt-3 align-items-center">
+                                                                    <div class="img-bx d-flex justify-content-center">
+                                                                        <img id="img_avatar" class="img-fluid rounded" width="200" src="/template/images/avatar/${customer.getProfileCustomer()}.jpg" alt="User avatar">
+                                                                    </div>
+                                                                    <div class="m-3 d-flex justify-content-center">
+                                                                            <%--                                                                    <button type="button" class="btn btn-outline-danger btn-sm col">Delete</button>--%>
+                                                                            <%--                                                                    <button type="button" class="btn btn-outline-primary btn-sm mx-3 col">Upload</button>--%>
+                                                                        <button id="img_delete" type="button" class="btn light btn-danger btn-sm col ">Delete</button>
+                                                                        <label for="img_input${customer.getCustomerId()}" type="button" class="btn btn-primary btn-sm mx-3 col">Upload</label>
+                                                                        <input accept="image/*" type="file" id="img_input${customer.getCustomerId()}" name="profileCustomer" value="" class="form-file-input form-control" hidden>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="m-3 d-flex justify-content-center">
-<%--                                                                    <button type="button" class="btn btn-outline-danger btn-sm col">Delete</button>--%>
-<%--                                                                    <button type="button" class="btn btn-outline-primary btn-sm mx-3 col">Upload</button>--%>
-                                                                    <button type="button" class="btn light btn-danger btn-sm col ">Delete</button>
-                                                                    <label for="img_input" type="button" class="btn btn-primary btn-sm mx-3 col">Upload</label>
-                                                                    <input accept="image/*" type="file" id="img_input" class="form-file-input form-control" hidden>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-8 d-flex align-items-center">
-                                                                <div class="card-body">
-                                                                    <div class="basic-form">
-                                                                        <form>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label d-flex align-items-center">Full name</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <input type="text" class="form-control input-default " placeholder="Nguyễn Văn A">
+                                                                <div class="col-8 d-flex align-items-center">
+                                                                    <div class="card-body">
+                                                                        <div class="basic-form">
+                                                                                <input type="hidden" name="action" value="update">
+                                                                                <input type="hidden" name="id" value="${customer.getCustomerId()}">
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-4 col-form-label d-flex align-items-center">Full name</label>
+                                                                                    <div class="col-sm-8">
+                                                                                        <input type="text" class="form-control input-default " name="fullName" value="${customer.getFullName()}">
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label">Contact</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <input type="text" class="form-control input-default " placeholder="0326254578">
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-4 col-form-label">Contact</label>
+                                                                                    <div class="col-sm-8">
+                                                                                        <input type="text" class="form-control input-default " name="contact" value="${customer.getContact()}">
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label">Gender</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <select class="default-select form-control wide mb-3">
-                                                                                        <option>Male</option><i class="fa fa-solid fa-mars scale5"></i>
-                                                                                        <option>Female</option><i class="fa-solid fa-venus scale5"></i>
-                                                                                    </select>
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-4 col-form-label">Gender</label>
+                                                                                    <div class="col-sm-8">
+                                                                                        <select class="default-select form-control wide mb-3" name="gender">
+                                                                                            <option <c:if test='${customer.getGender()}'>selected="selected"</c:if> data-content=" Male    <i class='fa fa-solid fa-mars scale5' ></i> "></option>
+                                                                                            <option <c:if test='${!customer.getGender()}'>selected="selected"</c:if> data-content=" Female    <i class='fa fa-solid fa-venus scale5' ></i> ">Female <i class="fa-solid fa-venus scale5"></i></option>
+                                                                                        </select>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label">Date Of Birth</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <input type="text" class="form-control input-default " placeholder="01-01-2001" id="mdate">
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-4 col-form-label">Date Of Birth</label>
+                                                                                    <div class="col-sm-8">
+                                                                                        <input type="text" class="form-control input-default " name="dateOfBirth" value="${customer.getDateOfBirth()}" id="mdate${customer.getCustomerId()}" class="datepick">
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label">Email</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <input type="text" class="form-control input-default " placeholder="vana@gmail.com">
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-4 col-form-label">Email</label>
+                                                                                    <div class="col-sm-8">
+                                                                                        <input type="text" class="form-control input-default "  name="email" value="${customer.getEmail()}">
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        </form>
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-4 col-form-label">Address</label>
+                                                                                    <div class="col-sm-8">
+                                                                                        <input type="text" class="form-control input-default " name="address" value="${customer.getAddress()}">
+                                                                                    </div>
+                                                                                </div>
+
+
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                                <button type="button" class="btn light btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                                                <input type="submit" class="btn btn-primary mx-3" value="Save"></input>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+
+
                                                         </div>
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn light btn-danger">Cancel</button>
-                                                        <button type="button" class="btn btn-primary mx-3">Save</button>
-                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <!-- Modal Delete-->
-                                        <div class="modal fade" id="deleteCustomer">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Delete Confirm</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">Are you sure you want to delete the customer #5552351</div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Cancel</button>
-                                                        <button type="button" class="btn btn-danger">Delete</button>
+                                            <!-- Modal Delete-->
+                                            <div class="modal fade" id="deleteCustomer${customer.getCustomerId()}">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Delete Confirm</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">Are you sure you want to delete the customer #${customer.getCustomerId()}</div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Cancel</button>
+                                                            <a href="/customers?action=delete&id=${customer.getCustomerId()}">
+                                                                <button type="button" class="btn btn-warning">Confirm</button>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>
@@ -405,17 +384,42 @@
 ***********************************-->
 
 <script>
-    var img_avatar = document.getElementById("img_avatar");
-    var img_input = document.querySelector("input#img_input");
-    img_input.onchange = evt => {
-        const [file] = img_input.files
-        if (file) {
-            img_avatar.src = URL.createObjectURL(file)
-            // preview_img.style.height = "120px";
-            // preview_img.style.margin = "10px";
-            // preview_img.style.borderRadius = "10px";
-        }
-    }
+    // function deleteImg(id){
+    //         this.src = "/assets/images/add_image-removebg-preview.png";
+    // }
+    //
+    // function changeImg(id){
+    //     const [file] = this.files;
+    //     if (file){
+    //         this.
+    //     }
+    // }
+    <c:forEach items="${customerList}" var="customer">
+        <%--var img_avatar${customer.getCustomerId()} = document.querySelector("tr[id='${customer.getCustomerId()}'] img#img_avatar");--%>
+        document.querySelector("tr[id='${customer.getCustomerId()}'] #img_input${customer.getCustomerId()}").addEventListener('change', function(e){
+            const [file] = this.files
+            if (file){
+                this.parentNode.parentNode.querySelector("#img_avatar").src = URL.createObjectURL(file)
+            }
+        })
+        document.querySelector("tr[id='${customer.getCustomerId()}'] #img_delete").addEventListener('click', function(e){
+            console.log(this);
+            this.parentNode.parentNode.querySelector("#img_avatar").src = "/assets/images/add_image-removebg-preview.png";
+        })
+        // img_input.onchange = evt => {
+        //     const [file] = img_input.files
+        //     if (file) {
+        //         img_avatar.src = URL.createObjectURL(file)
+        //         // preview_img.style.height = "120px";
+        //         // preview_img.style.margin = "10px";
+        //         // preview_img.style.borderRadius = "10px";
+        //     }
+        // }
+    </c:forEach>
+</script>
+
+<script>
+    $('.datepick').datepicker();
 </script>
 
 <!-- Datatable -->
