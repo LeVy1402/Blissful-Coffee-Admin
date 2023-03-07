@@ -17,6 +17,7 @@ public class ProductRepository implements IProductRepository {
 
     private static final String INSERT_PRODUCT_SQL = "INSERT INTO `product`" + "  (`product_id`,`product_name`,`price`,`quantity`,`description`,`product_status`,`image`,`date_update`,`category_id`) VALUES " +
             " (?,?, ?,?,?,?,?,?,?)";
+
     @Override
     public ArrayList<Product> getProduct() {
         ArrayList<Product> products = new ArrayList<>();
@@ -40,7 +41,7 @@ public class ProductRepository implements IProductRepository {
                     String productStatus = resultSet.getString("product_status");
                     String image = resultSet.getString("image");
                     Date dateUpdate = resultSet.getDate("date_update");
-                    Category category = new Category(resultSet.getInt("category_id"),resultSet.getString("category_name"));
+                    Category category = new Category(resultSet.getInt("category_id"), resultSet.getString("category_name"));
 
                     Product product = new Product(productId, productName, price, quantity, description, productStatus, image, dateUpdate, category);
 
@@ -76,7 +77,7 @@ public class ProductRepository implements IProductRepository {
                         "inner join category \n" +
                         "on product.category_id = category.category_id\n" +
                         "where product_id = ?;");
-                preparedStatement.setInt(1,productId);
+                preparedStatement.setInt(1, productId);
                 resultSet = preparedStatement.executeQuery();
                 if (resultSet.next()) {
                     String productName = resultSet.getString("product_name");
@@ -86,7 +87,7 @@ public class ProductRepository implements IProductRepository {
                     String productStatus = resultSet.getString("product_status");
                     String image = resultSet.getString("image");
                     Date dateUpdate = resultSet.getDate("date_update");
-                    Category category = new Category(resultSet.getInt("category_id"),resultSet.getString("category_name"));
+                    Category category = new Category(resultSet.getInt("category_id"), resultSet.getString("category_name"));
 
                     product = new Product(productId, productName, price, quantity, description, productStatus, image, dateUpdate, category);
 
@@ -115,7 +116,7 @@ public class ProductRepository implements IProductRepository {
         if (connection != null) {
             try {
                 preparedStatement = connection.prepareStatement("delete from product where product_id = ?; ");
-                preparedStatement.setInt(1,id);
+                preparedStatement.setInt(1, id);
                 result = preparedStatement.executeUpdate();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
@@ -131,3 +132,9 @@ public class ProductRepository implements IProductRepository {
         }
         return result;
     }
+
+    @Override
+    public void addProduct(Product product) {
+
+    }
+}
