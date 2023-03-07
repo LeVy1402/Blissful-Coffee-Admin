@@ -48,6 +48,12 @@ public class Customer {
         this.address = address;
     }
 
+    public Customer(int customerId, String fullName, String profileCustomer) {
+        this.customerId = customerId;
+        this.fullName = fullName;
+        this.profileCustomer = profileCustomer;
+    }
+
     public String getAccountStatus() {
         return accountStatus;
     }
