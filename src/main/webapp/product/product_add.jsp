@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Add New Staff</title>
+    <title>Add New Product</title>
     <link rel="icon" type="image/png" sizes="16x16" href="../template/images/icon/logo.png">
     <link href="../template/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/staff.css">
@@ -58,24 +58,24 @@
                         <li><a href="page-analytics.html">Add New Customer</a></li>
                     </ul>
                 </li>
-                <li class="mm-active">
+                <li>
                     <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                         <i class="flaticon-381-network"></i>
                         <span class="nav-text">Staff</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li><a href="staff_list.jsp">Staff List</a></li>
-                        <li class="mm-active"><a href="staff_create.jsp" class="mm-active">Add New Staff</a></li>
+                        <li><a href="staff_create.jsp">Add New Staff</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class="mm-active">
                     <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                         <i class="flaticon-381-television"></i>
                         <span class="nav-text">Product</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li><a href="index.html">Product List</a></li>
-                        <li><a href="page-analytics.html">Add New Product</a></li>
+                        <li class="mm-active"><a href="page-analytics.html" class="mm-active">Add New Product</a></li>
                     </ul>
                 </li>
                 <li>
@@ -98,7 +98,7 @@
         <div class="container-fluid">
             <div class="form-head d-flex mb-3 align-items-center justify-content-between">
                 <div class="d-none d-lg-block">
-                    <h2 class="text-primary font-w600 mb-0">New Staff</h2>
+                    <h2 class="text-primary font-w600 mb-0">New Product</h2>
                 </div>
             </div>
             <div class="row">
@@ -122,59 +122,49 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="row m-3 align-items-center">
-                                        <label class="col-sm-3 col-form-label">Full Name</label>
-                                        <div class="col-sm-9">
+                                        <label class="col-sm-4 col-form-label">Product Name</label>
+                                        <div class="col-sm-8">
                                             <input type="text" class="form-control" name="fullName">
                                         </div>
                                     </div>
                                     <div class="row m-3 align-items-center">
-                                        <label class="col-sm-3 col-form-label">Gender</label>
-                                        <div class="col-sm-9">
-                                            <label class="radio-inline me-3"><input type="radio" name="gender"
-                                                                                    value="1">
-                                                Male</label>
-                                            <label class="radio-inline me-3"><input type="radio" name="gender"
-                                                                                    value="2">
-                                                Female</label>
+                                        <label class="col-sm-4 col-form-label">Price</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="price">
                                         </div>
                                     </div>
                                     <div class="row m-3 align-items-center">
-                                        <label class="col-sm-3 col-form-label">Contact</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="contact">
+                                        <label class="col-sm-4 col-form-label">Quantity</label>
+                                        <div class="col-sm-8">
+                                            <input class="col-sm-4" type="number" id="quantity" name="quantity" min="0">
                                         </div>
                                     </div>
                                     <div class="row m-3 align-items-center">
-                                        <label class="col-sm-3 col-form-label">Email</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="email">
+                                        <label class="col-sm-4 col-form-label">Status</label>
+                                        <div class="col-sm-8">
+                                                <input type="checkbox" class="form-check-input" id="customCheckBox1"
+                                                       required>
+                                                <label class="form-check-label" for="customCheckBox1">Feature</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="row m-3 align-items-center">
-                                        <label class="col-sm-3 col-form-label">Password</label>
-                                        <div class="col-sm-9">
-                                            <input type="password" class="form-control" name="pass">
-                                        </div>
-                                    </div>
-                                    <div class="row m-3 align-items-center">
-                                        <label class="col-sm-3 col-form-label">Role</label>
+                                        <label class="col-sm-3 col-form-label">Category</label>
                                         <div class="col-sm-9">
                                             <select class="default-select form-control wide mb-3" name="roleId">
-                                                <option value="2">Admin</option>
-                                                <option value="1">Staff</option>
+                                                <option value="1">Coffee</option>
+                                                <option value="2">Smoothie - Yogurt</option>
+                                                <option value="3">Juice</option>
+                                                <option value="4">Tea</option>
+                                                <option value="5">Soft Drink</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="row m-3 align-items-center">
-                                        <label class="col-sm-3 col-form-label">Site</label>
+                                        <label class="col-sm-3 col-form-label">Description</label>
                                         <div class="col-sm-9">
-                                            <select class="default-select form-control wide mb-3" name="siteId">
-                                                <option value="1">BLISSFUL COFFEE MONARCHY DA NANG</option>
-                                                <option value="2">BLISSFUL COFFEE NESTA HOTEL DA NANG</option>
-                                                <option value="3">BLISSFUL COFFEE MEGA MARKET DA NANG</option>
-                                            </select>
+                                            <textarea class="form-control" rows="4" id="description"></textarea>
                                         </div>
                                     </div>
                                 </div>

@@ -1,11 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: OS
-  Date: 3/1/2023
-  Time: 11:00 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <title>Staff List</title>
@@ -16,12 +11,12 @@
 <jsp:include page="/layout/preloader.jsp"></jsp:include>
 
 <!--**********************************
-    Main wrapper start
+Main wrapper start
 ***********************************-->
 <div id="main-wrapper">
     <jsp:include page="/layout/header.jsp"></jsp:include>
     <!--**********************************
-        Sidebar start
+    Sidebar start
     ***********************************-->
     <div class="deznav">
         <div class="deznav-scroll ps ps--active-y mm-active">
@@ -64,14 +59,14 @@
                         <li><a href="page-analytics.html">Add New Customer</a></li>
                     </ul>
                 </li>
-                <li  class="mm-active">
+                <li class="mm-active">
                     <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                         <i class="flaticon-381-network"></i>
                         <span class="nav-text">Staff</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li class="mm-active"><a href="staff_list.jsp" class="mm-active">Staff List</a></li>
-                        <li><a href="page-analytics.html">Add New Staff</a></li>
+                        <li class="mm-active"><a href="/staffs" class="mm-active">Staff List</a></li>
+                        <li><a href="../staff/staff_create.jsp">Add New Staff</a></li>
                     </ul>
                 </li>
                 <li>
@@ -94,11 +89,11 @@
         </div>
     </div>
     <!--**********************************
-        Sidebar end
+    Sidebar end
     ***********************************-->
 
     <!--**********************************
-        Content body start
+    Content body start
     ***********************************-->
     <div class="content-body">
         <div class="container-fluid">
@@ -107,11 +102,12 @@
                     <h2 class="text-primary font-w600 mb-0">Staff List</h2>
                 </div>
                 <div class="col-10">
-                    <button type="button" class="btn btn-primary d-flex align-items-center svg-btn"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="btn btn-primary ms-sm-0"  href="/staffs?action=create"
+                       aria-expanded="false">
                         <i class="fa fa-plus scale5 ms-3"></i>
-                        <span class="fs-16 ms-3">Add New Staff</span>
-                    </button>
+                        <span class="fs-16 ms-3 " >Add New Staff</span>
+                    </a>
+
                 </div>
             </div>
             <div class="row">
@@ -130,63 +126,91 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>#5552351</td>
-                                <td>Nguyen Van A</td>
-                                <td>0326254578</td>
-                                <td>vana@gmail.com</td>
-                                <td><span class="btn btn-sm light btn-secondary fs-16">12</span></td>
-                                <td><span class="btn btn-sm light btn-primary w-space-no">Staff</span></td>
-                                <td>
-                                    <div class="dropdown ms-auto text-right">
-                                        <div class="btn-link" data-bs-toggle="dropdown">
-                                            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-                                        </div>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewDetail" href="#">View Detail</a>
-                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editStaff" href="#">Edit</a>
-                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteStaff" href="#">Delete</a>
-                                        </div>
-                                        <!-- Modal Detail-->
-                                        <div class="modal fade" id="viewDetail">
-                                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">#5552351</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="mb-3 row">
-                                                            <div class="col-4 mt-3 align-items-center">
-                                                                <div class="img-bx d-flex justify-content-center">
-                                                                    <img class="img-fluid rounded" width="200" src="/template/images/avatar/ava2.jpg" alt="DexignZone">
+                            <c:forEach items="${staffList}" var="staff">
+                                <tr>
+                                    <td><c:out value="${staff.getStaffId()}"></c:out></td>
+                                    <td><c:out value="${staff.getFullName()}"></c:out></td>
+                                    <td><c:out value="${staff.getContact()}"></c:out></td>
+                                    <td><c:out value="${staff.getEmail()}"></c:out></td>
+                                    <td><span class="btn btn-sm light btn-secondary fs-16">12</span></td>
+                                    <td><span class="btn btn-sm light btn-primary w-space-no">
+                                        <c:out value="${staff.getRoleId().getRoleName()}"></c:out>
+                                    </span></td>
+                                    <td>
+                                        <div class="dropdown ms-auto text-right">
+                                            <div class="btn-link" data-bs-toggle="dropdown">
+                                                <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <rect x="0" y="0" width="24" height="24"></rect>
+                                                        <circle fill="#000000" cx="5" cy="12" r="2"></circle>
+                                                        <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                                                        <circle fill="#000000" cx="19" cy="12" r="2"></circle>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" data-bs-toggle="modal"
+                                                   data-bs-target="#viewDetaill${staff.getStaffId()}" href="#">View
+                                                    Detail</a>
+                                                <a class="dropdown-item" data-bs-toggle="modal"
+                                                   data-bs-target="#editStaff${staff.getStaffId()}" href="#">Edit</a>
+                                                <a class="dropdown-item" data-bs-toggle="modal"
+                                                   data-bs-target="#deleteStaff${staff.getStaffId()}">Delete</a>
+                                            </div>
+                                            <!-- Modal Detail-->
+                                            <div class="modal fade" id="viewDetaill${staff.getStaffId()}">
+                                                <div class="modal-dialog modal-dialog-centered modal-lg"
+                                                     role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">
+                                                                <c:out value="${staff.getStaffId()}"></c:out></h5>
+                                                            <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal">
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="mb-3 row">
+                                                                <div class="col-4 mt-3 align-items-center">
+                                                                    <div class="img-bx d-flex justify-content-center">
+                                                                        <img class="img-fluid rounded" width="200"
+                                                                             src="/template/images/avatar/ava2.jpg"
+                                                                            <%--                                                                             src=${staff.getProfileStaff()}--%>
+                                                                             alt="DexignZone">
+                                                                    </div>
+                                                                    <span class="btn btn-sm light btn-success mt-3 d-flex justify-content-center">Admin</span>
                                                                 </div>
-                                                                <span class="btn btn-sm light btn-success mt-3 d-flex justify-content-center">Admin</span>
-                                                            </div>
-                                                            <div class="col-8 d-flex align-items-center">
-                                                                <div class="card-body">
-                                                                    <div class="basic-form">
-                                                                        <form>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label">Full name</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <label class="col-form-label">Nguyễn Văn A</label>
+                                                                <div class="col-8 d-flex align-items-center">
+                                                                    <div class="card-body">
+                                                                        <div class="basic-form">
+                                                                            <form>
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-3 col-form-label">Full
+                                                                                        name</label>
+                                                                                    <div class="col-sm-9">
+                                                                                        <label class="col-form-label">
+                                                                                            <c:out value="${staff.getFullName()}"></c:out>
+                                                                                        </label>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label">Contact</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <label class="col-form-label">0326254578</label>
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-3 col-form-label">Contact</label>
+                                                                                    <div class="col-sm-9">
+                                                                                        <label class="col-form-label">
+                                                                                            <c:out value="${staff.getContact()}"></c:out>
+                                                                                        </label>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label">Email</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <label class="col-form-label">vana@gmail.com</label>
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-3 col-form-label">Email</label>
+                                                                                    <div class="col-sm-9">
+                                                                                        <label class="col-form-label">
+                                                                                            <c:out value="${staff.getEmail()}"></c:out>
+                                                                                        </label>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        </form>
+                                                                            </form>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -194,112 +218,155 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <!-- Modal Edit-->
-                                        <div class="modal fade" id="editStaff">
-                                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">#5552351</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="mb-3 row">
-                                                            <div class="col-4 mt-3 align-items-center">
-                                                                <div class="img-bx d-flex justify-content-center">
-                                                                    <img class="img-fluid rounded" width="200" src="/template/images/avatar/ava2.jpg" alt="DexignZone">
+                                            <!-- Modal Edit-->
+                                            <div class="modal fade" id="editStaff${staff.getStaffId()}">
+                                                <div class="modal-dialog modal-dialog-centered modal-lg"
+                                                     role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">
+                                                                <c:out value="${staff.getStaffId()}"></c:out>
+                                                            </h5>
+                                                            <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal">
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="mb-3 row">
+                                                                <div class="col-4 mt-3 align-items-center">
+                                                                    <div class="img-bx d-flex justify-content-center">
+                                                                        <img class="img-fluid rounded" width="200"
+                                                                             src="/template/images/avatar/ava2.jpg"
+                                                                             alt="DexignZone">
+                                                                    </div>
+                                                                    <div class="m-3 row d-flex justify-content-center">
+                                                                        <button type="button"
+                                                                                class="btn btn-outline-danger btn-sm col">
+                                                                            Delete
+                                                                        </button>
+                                                                        <button type="button"
+                                                                                class="btn btn-outline-primary btn-sm mx-3 col">
+                                                                            Upload
+                                                                        </button>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="m-3 row d-flex justify-content-center">
-                                                                    <button type="button" class="btn btn-outline-danger btn-sm col">Delete</button>
-                                                                    <button type="button" class="btn btn-outline-primary btn-sm mx-3 col">Upload</button>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-8 d-flex align-items-center">
-                                                                <div class="card-body">
-                                                                    <div class="basic-form">
-                                                                        <form>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label d-flex align-items-center">Full name</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <input type="text" class="form-control input-default " placeholder="Nguyễn Văn A">
+                                                                <div class="col-8 d-flex align-items-center">
+                                                                    <div class="card-body">
+                                                                        <div class="basic-form">
+                                                                            <form method="post">
+                                                                                <input type="hidden" name="action"
+                                                                                       value="update">
+                                                                                <c:if test="${staff != null}">
+                                                                                    <input type="hidden" name="id"
+                                                                                           value="<c:out value='${staff.getStaffId()}' />"/>
+                                                                                </c:if>
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-3 col-form-label d-flex align-items-center">Full
+                                                                                        name</label>
+                                                                                    <div class="col-sm-9">
+                                                                                        <input type="text"
+                                                                                               class="form-control input-default "
+                                                                                               name="fullName"
+                                                                                               value="${staff.getFullName()}">
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label">Contact</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <input type="text" class="form-control input-default " placeholder="0326254578">
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-3 col-form-label">Contact</label>
+                                                                                    <div class="col-sm-9">
+                                                                                        <input type="text"
+                                                                                               name="contact"
+                                                                                               class="form-control input-default "
+                                                                                               value="${staff.getContact()}">
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label">Email</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <input type="text" class="form-control input-default " placeholder="vana@gmail.com">
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-3 col-form-label">Email</label>
+                                                                                    <div class="col-sm-9">
+                                                                                        <input type="text"
+                                                                                               name="email"
+                                                                                               class="form-control input-default "
+                                                                                               value="${staff.getEmail()}">
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label">Role</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <select class="default-select form-control wide mb-3">
-                                                                                        <option>Admin</option>
-                                                                                        <option>Staff</option>
-                                                                                    </select>
-                                                                                </div>
-                                                                            </div>
-                                                                        </form>
+                                                                                <fieldset class="mb-3">
+                                                                                    <div class="row">
+                                                                                        <label class="col-form-label col-sm-4 pt-0">Staff
+                                                                                            role</label>
+                                                                                        <div class="col-sm-8">
+                                                                                            <div class="form-check">
+                                                                                                <input class="form-check-input"
+                                                                                                       type="radio"
+                                                                                                       name="roleId"
+                                                                                                       value="2"
+                                                                                                       <c:if test='${staff.getRoleId().getRoleName()=="Admin"}'>checked</c:if>>
+                                                                                                <label class="form-check-label  ">
+                                                                                                    Admin
+                                                                                                </label>
+                                                                                            </div>
+                                                                                            <div class="form-check">
+                                                                                                <input class="form-check-input"
+                                                                                                       type="radio"
+                                                                                                       name="roleId"
+                                                                                                       value="1"
+                                                                                                       <c:if test='${staff.getRoleId().getRoleName()=="Staff"}'>checked</c:if>>
+                                                                                                <label class="form-check-label ">
+                                                                                                    Staff
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </fieldset>
+                                                                                <input type="submit"
+                                                                                       class="btn btn-primary mx-3">
+                                                                                <button type="button"
+                                                                                        class="btn light btn-danger">
+                                                                                    Cancel
+                                                                                </button>
+                                                                            </form>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="modal-footer">
+                                                        </div>
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn light btn-danger">Cancel</button>
-                                                        <button type="button" class="btn btn-primary mx-3">Save</button>
+                                                </div>
+                                            </div>
+                                            <!-- Modal Delete-->
+                                            <div class="modal fade" id="deleteStaff${staff.getStaffId()}"
+                                                 data-bs-backdrop="static"
+                                                 data-bs-keyboard="false" tabindex="-1"
+                                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Delete Confirm</h5>
+                                                            <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal">
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">Are you sure you want to delete the
+                                                            <strong
+                                                                    class="text-danger">${staff.getFullName()}</strong>?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger light"
+                                                                    data-bs-dismiss="modal">Cancel
+                                                            </button>
+                                                            <a href="/staffs?action=delete&id=${staff.getStaffId()}">
+                                                                <button type="button" class="btn btn-warning">Confirm
+                                                                </button>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Modal Edit-->
-                                        <div class="modal fade" id="deleteStaff">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Delete Confirm</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">Are you sure you want to delete the order #5552351</div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Cancel</button>
-                                                        <button type="button" class="btn btn-danger">Delete</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#5552351</td>
-                                <td>Nguyen Van B</td>
-                                <td>0326254578</td>
-                                <td>vana@gmail.com</td>
-                                <td><span class="btn btn-sm light btn-secondary fs-16">12</span></td>
-                                <td><span class="btn btn-sm light btn-success">Admin</span></td>
-                                <td>
-                                    <div class="dropdown ms-auto text-right">
-                                        <div class="btn-link" data-bs-toggle="dropdown">
-                                            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-                                        </div>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#">View Detail</a>
-                                            <a class="dropdown-item" href="#">Edit</a>
-                                            <a class="dropdown-item" href="#">Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>
@@ -308,22 +375,22 @@
         </div>
     </div>
     <!--**********************************
-        Content body end
+    Content body end
     ***********************************-->
 
 
     <!--**********************************
-       Support ticket button start
+    Support ticket button start
     ***********************************-->
 
     <!--**********************************
-       Support ticket button end
+    Support ticket button end
     ***********************************-->
 
 
 </div>
 <!--**********************************
-    Main wrapper end
+Main wrapper end
 ***********************************-->
 
 <!-- Datatable -->

@@ -28,7 +28,7 @@
     <link href="../template/css/style.css" rel="stylesheet">
     <link href="../template/2.0/LineIcons.css" rel="stylesheet">
     <link href="../template/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="../css/index.css" rel="stylesheet">
+    <link href="../css/product-list.css" rel="stylesheet">
 
     <link href="../css/login.css" rel="stylesheet">
     <link rel="stylesheet" href="../template/vendor/chartist/css/chartist.min.css">
