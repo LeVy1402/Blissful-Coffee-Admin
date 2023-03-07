@@ -2,6 +2,7 @@ package mvc.repository.impl;
 
 import mvc.model.Category;
 import mvc.model.Product;
+import mvc.model.Staff;
 import mvc.repository.DBConnection;
 import mvc.repository.IProductRepository;
 
@@ -13,6 +14,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class ProductRepository implements IProductRepository {
+
+    private static final String INSERT_PRODUCT_SQL = "INSERT INTO `product`" + "  (`product_id`,`product_name`,`price`,`quantity`,`description`,`product_status`,`image`,`date_update`,`category_id`) VALUES " +
+            " (?,?, ?,?,?,?,?,?,?)";
     @Override
     public ArrayList<Product> getProduct() {
         ArrayList<Product> products = new ArrayList<>();
@@ -21,9 +25,11 @@ public class ProductRepository implements IProductRepository {
         ResultSet resultSet = null;
         if (connection != null) {
             try {
-                statement = connection.prepareStatement("select `product_id`, `product_name`, `price`, `quantity`, `description`, `product_status`, `image`, `date_update`, category.category_id, `category_name` from product\n" +
+                statement = connection.prepareStatement("select `product_id`, `product_name`, `price`, `quantity`, `description`, `product_status`, `image`, `date_update`, category.category_id, `category_name` \n" +
+                        "from product\n" +
                         "inner join category\n" +
-                        "on product.category_id = category.category_id;");
+                        "on product.category_id = category.category_id \n" +
+                        "order by product_id desc;");
                 resultSet = statement.executeQuery();
                 while (resultSet.next()) {
                     int productId = resultSet.getInt("product_id");
@@ -125,4 +131,38 @@ public class ProductRepository implements IProductRepository {
         }
         return result;
     }
+
+    @Override
+    public void addProduct(Product product) {
+//        Connection connection = DBConnection.getConnection();
+//        PreparedStatement preparedStatement = null;
+//        if (connection != null) {
+//            try {
+//                preparedStatement = connection.prepareStatement(INSERT_STAFF_SQL);
+//                preparedStatement.setInt(1, staff.getStaffId());
+//                preparedStatement.setString(2, staff.getFullName());
+//                preparedStatement.setBoolean(3, staff.isGender());
+//                preparedStatement.setString(4, staff.getContact());
+//                preparedStatement.setString(5, staff.getEmail());
+//                preparedStatement.setString(6, staff.getPassword());
+//                preparedStatement.setString(7, staff.getProfileStaff());
+//                preparedStatement.setInt(8, staff.getRoleId().getRoleId());
+//                preparedStatement.setInt(9, staff.getSiteInfId().getSiteInfId());
+//                System.out.println(preparedStatement);
+//                preparedStatement.executeUpdate();
+//
+//            } catch (SQLException e) {
+//                throw new RuntimeException(e);
+//            } finally {
+//                try {
+//                    preparedStatement.close();
+//                } catch (SQLException e) {
+//                    throw new RuntimeException(e);
+//                }
+//                DBConnection.close();
+//            }
+//        }
+    }
+
+
 }

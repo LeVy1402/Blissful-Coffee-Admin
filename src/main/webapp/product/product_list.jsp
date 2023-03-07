@@ -130,7 +130,7 @@
                             <c:forEach var="product" items="${productList}">
                                 <tr>
                                     <td><c:out value="${product.getProductId()}"></c:out></td>
-                                    <td><img class="box-img-70" src="/img/<c:out value="${product.getImage()}"></c:out>.jpg" alt="img"></td>
+                                    <td><img class="box-img-70" src="/img/<c:out value="${product.getImage()}"></c:out>" alt="img"></td>
                                     <td><c:out value="${product.getProductName()}"></c:out></td>
                                     <td><c:out value="${product.getPrice()}"></c:out></td>
                                     <td><c:out value="${product.getQuantity()}"></c:out></td>
@@ -161,7 +161,7 @@
                                                                 <div class="mb-3 row">
                                                                     <div class="col-4 mt-3 align-items-center">
                                                                         <div class="img-bx d-flex justify-content-center">
-                                                                            <img class="img-fluid rounded" width="200" src="/img/<c:out value="${detailpro.getImage()}"></c:out>.jpg" alt="imgProduct"/>
+                                                                            <img class="img-fluid rounded" width="200" src="/img/<c:out value="${detailpro.getImage()}"></c:out>" alt="imgProduct"/>
                                                                         </div>
                                                                         <span class="btn btn-sm btn-success mt-3 d-flex justify-content-center"><c:out value="${detailpro.getCategory().getCategoryName()}"></c:out></span>
                                                                     </div>

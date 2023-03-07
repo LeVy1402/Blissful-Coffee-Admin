@@ -23,4 +23,9 @@ public class ProductService implements IProductService {
     public int del(int id) {
         return iProductRepository.del(id);
     }
+
+    public void addProduct(Product product) {
+        iProductRepository.addProduct(product);
+    }
+
 }
