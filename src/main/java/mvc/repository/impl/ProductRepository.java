@@ -131,38 +131,3 @@ public class ProductRepository implements IProductRepository {
         }
         return result;
     }
-
-    @Override
-    public void addProduct(Product product) {
-//        Connection connection = DBConnection.getConnection();
-//        PreparedStatement preparedStatement = null;
-//        if (connection != null) {
-//            try {
-//                preparedStatement = connection.prepareStatement(INSERT_STAFF_SQL);
-//                preparedStatement.setInt(1, staff.getStaffId());
-//                preparedStatement.setString(2, staff.getFullName());
-//                preparedStatement.setBoolean(3, staff.isGender());
-//                preparedStatement.setString(4, staff.getContact());
-//                preparedStatement.setString(5, staff.getEmail());
-//                preparedStatement.setString(6, staff.getPassword());
-//                preparedStatement.setString(7, staff.getProfileStaff());
-//                preparedStatement.setInt(8, staff.getRoleId().getRoleId());
-//                preparedStatement.setInt(9, staff.getSiteInfId().getSiteInfId());
-//                System.out.println(preparedStatement);
-//                preparedStatement.executeUpdate();
-//
-//            } catch (SQLException e) {
-//                throw new RuntimeException(e);
-//            } finally {
-//                try {
-//                    preparedStatement.close();
-//                } catch (SQLException e) {
-//                    throw new RuntimeException(e);
-//                }
-//                DBConnection.close();
-//            }
-//        }
-    }
-
-
-}
