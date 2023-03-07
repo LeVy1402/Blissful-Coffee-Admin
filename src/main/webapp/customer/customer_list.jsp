@@ -29,7 +29,7 @@
         <div class="deznav-scroll ps ps--active-y mm-active">
             <ul class="metismenu mm-show" id="menu">
                 <li>
-                    <a href="/home/dashboard.jsp" class="ai-icon" aria-expanded="false">
+                    <a href="/dashboard" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-networking"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
@@ -64,8 +64,8 @@
                         <span class="nav-text">Customer</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li class="mm-active"><a href="index.html" class="mm-active">Customer List</a></li>
-                        <li><a href="page-analytics.html">Add New Customer</a></li>
+                        <li class="mm-active"><a href="/customers" class="mm-active">Customer List</a></li>
+                        <li><a href="/customers?action=create">Add New Customer</a></li>
                     </ul>
                 </li>
                 <li>
@@ -111,11 +111,11 @@
                     <h2 class="text-primary font-w600 mb-0">Customer List</h2>
                 </div>
                 <div class="col-7">
-                    <button type="button" class="btn btn-primary d-flex align-items-center svg-btn"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                    <a href="customers?action=create" class="btn btn-primary d-flex align-items-center svg-btn"
+                             aria-expanded="false">
                         <i class="fa fa-plus scale5 ms-3"></i>
                         <span class="fs-16 ms-3">Add New Customer</span>
-                    </button>
+                    </a>
                 </div>
                 <div class="">
                     <div class="dropdown custom-dropdown">
@@ -255,80 +255,81 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal">
                                                             </button>
                                                         </div>
-                                                        <div class="modal-body">
-                                                            <form method="post" action="/customers">
-<%--                                                                id=${customer.getCustomerId()}?fullName=${customer.getFullName()}?dateOfBirth=${customer.getDateOfBirth()}?contact=${customer.getContact()}?email=${customer.getEmail()}?profileCustomer=${customer.getCustomerId()}?address=${customer.getAddress()}?gender=${customer.getGender()}--%>
-                                                            <div class="mb-3 row">
-                                                                <div class="col-4 mt-3 align-items-center">
-                                                                    <div class="img-bx d-flex justify-content-center">
-                                                                        <img id="img_avatar" class="img-fluid rounded" width="200" src="/template/images/avatar/${customer.getProfileCustomer()}.jpg" alt="User avatar">
+                                                        <form method="post">
+                                                            <div class="modal-body">
+
+    <%--                                                                id=${customer.getCustomerId()}?fullName=${customer.getFullName()}?dateOfBirth=${customer.getDateOfBirth()}?contact=${customer.getContact()}?email=${customer.getEmail()}?profileCustomer=${customer.getCustomerId()}?address=${customer.getAddress()}?gender=${customer.getGender()}--%>
+                                                                <div class="mb-3 row">
+                                                                    <div class="col-4 mt-3 align-items-center">
+                                                                        <div class="img-bx d-flex justify-content-center">
+                                                                            <img id="img_avatar" class="img-fluid rounded" width="200" src="/img_customer/${customer.getProfileCustomer()}" alt="Customer avatar">
+                                                                        </div>
+                                                                        <div class="m-3 d-flex justify-content-center">
+                                                                                <%--                                                                    <button type="button" class="btn btn-outline-danger btn-sm col">Delete</button>--%>
+                                                                                <%--                                                                    <button type="button" class="btn btn-outline-primary btn-sm mx-3 col">Upload</button>--%>
+                                                                            <button id="img_delete" type="button" class="btn light btn-danger btn-sm col ">Delete</button>
+                                                                            <label for="img_input${customer.getCustomerId()}" type="button" class="btn btn-primary btn-sm mx-3 col">Upload</label>
+                                                                            <input accept="image/*" type="file" id="img_input${customer.getCustomerId()}" name="profileCustomer" class="form-file-input form-control" hidden>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="m-3 d-flex justify-content-center">
-                                                                            <%--                                                                    <button type="button" class="btn btn-outline-danger btn-sm col">Delete</button>--%>
-                                                                            <%--                                                                    <button type="button" class="btn btn-outline-primary btn-sm mx-3 col">Upload</button>--%>
-                                                                        <button id="img_delete" type="button" class="btn light btn-danger btn-sm col ">Delete</button>
-                                                                        <label for="img_input${customer.getCustomerId()}" type="button" class="btn btn-primary btn-sm mx-3 col">Upload</label>
-                                                                        <input accept="image/*" type="file" id="img_input${customer.getCustomerId()}" name="profileCustomer" value="" class="form-file-input form-control" hidden>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-8 d-flex align-items-center">
-                                                                    <div class="card-body">
-                                                                        <div class="basic-form">
-                                                                                <input type="hidden" name="action" value="update">
-                                                                                <input type="hidden" name="id" value="${customer.getCustomerId()}">
-                                                                                <div class="mb-3 row">
-                                                                                    <label class="col-sm-4 col-form-label d-flex align-items-center">Full name</label>
-                                                                                    <div class="col-sm-8">
-                                                                                        <input type="text" class="form-control input-default " name="fullName" value="${customer.getFullName()}">
+                                                                    <div class="col-8 d-flex align-items-center">
+                                                                        <div class="card-body">
+                                                                            <div class="basic-form">
+                                                                                    <input type="hidden" name="action" value="update">
+                                                                                    <input type="hidden" name="id" value="${customer.getCustomerId()}">
+                                                                                    <div class="mb-3 row">
+                                                                                        <label class="col-sm-4 col-form-label d-flex align-items-center">Full name</label>
+                                                                                        <div class="col-sm-8">
+                                                                                            <input type="text" class="form-control input-default " name="fullName" value="${customer.getFullName()}">
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="mb-3 row">
-                                                                                    <label class="col-sm-4 col-form-label">Contact</label>
-                                                                                    <div class="col-sm-8">
-                                                                                        <input type="text" class="form-control input-default " name="contact" value="${customer.getContact()}">
+                                                                                    <div class="mb-3 row">
+                                                                                        <label class="col-sm-4 col-form-label">Contact</label>
+                                                                                        <div class="col-sm-8">
+                                                                                            <input type="text" class="form-control input-default " name="contact" value="${customer.getContact()}">
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="mb-3 row">
-                                                                                    <label class="col-sm-4 col-form-label">Gender</label>
-                                                                                    <div class="col-sm-8">
-                                                                                        <select class="default-select form-control wide mb-3" name="gender">
-                                                                                            <option <c:if test='${customer.getGender()}'>selected="selected"</c:if> data-content=" Male    <i class='fa fa-solid fa-mars scale5' ></i> "></option>
-                                                                                            <option <c:if test='${!customer.getGender()}'>selected="selected"</c:if> data-content=" Female    <i class='fa fa-solid fa-venus scale5' ></i> ">Female <i class="fa-solid fa-venus scale5"></i></option>
-                                                                                        </select>
+                                                                                    <div class="mb-3 row">
+                                                                                        <label class="col-sm-4 col-form-label">Gender</label>
+                                                                                        <div class="col-sm-8">
+                                                                                            <select class="default-select form-control wide" name="gender">
+                                                                                                <option <c:if test='${customer.getGender()}'>selected="selected"</c:if> data-content=" Male    <i class='fa fa-solid fa-mars scale5' ></i> "></option>
+                                                                                                <option <c:if test='${!customer.getGender()}'>selected="selected"</c:if> data-content=" Female    <i class='fa fa-solid fa-venus scale5' ></i> ">Female <i class="fa-solid fa-venus scale5"></i></option>
+                                                                                            </select>
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="mb-3 row">
-                                                                                    <label class="col-sm-4 col-form-label">Date Of Birth</label>
-                                                                                    <div class="col-sm-8">
-                                                                                        <input type="text" class="form-control input-default " name="dateOfBirth" value="${customer.getDateOfBirth()}" id="mdate${customer.getCustomerId()}" class="datepick">
+                                                                                    <div class="mb-3 row">
+                                                                                        <label class="col-sm-4 col-form-label">Date Of Birth</label>
+                                                                                        <div class="col-sm-8">
+                                                                                            <input type="text" class="form-control input-default datepick" name="dateOfBirth" value="${customer.getDateOfBirth()}" id="mdate${customer.getCustomerId()}" >
+<%--                                                                                            <input name="datepicker" class="datepicker-default form-control" id="datepicker">--%>
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="mb-3 row">
-                                                                                    <label class="col-sm-4 col-form-label">Email</label>
-                                                                                    <div class="col-sm-8">
-                                                                                        <input type="text" class="form-control input-default "  name="email" value="${customer.getEmail()}">
+                                                                                    <div class="mb-3 row">
+                                                                                        <label class="col-sm-4 col-form-label">Email</label>
+                                                                                        <div class="col-sm-8">
+                                                                                            <input type="text" class="form-control input-default "  name="email" value="${customer.getEmail()}">
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="mb-3 row">
-                                                                                    <label class="col-sm-4 col-form-label">Address</label>
-                                                                                    <div class="col-sm-8">
-                                                                                        <input type="text" class="form-control input-default " name="address" value="${customer.getAddress()}">
+                                                                                    <div class="mb-3 row">
+                                                                                        <label class="col-sm-4 col-form-label">Address</label>
+                                                                                        <div class="col-sm-8">
+                                                                                            <input type="text" class="form-control input-default " name="address" value="${customer.getAddress()}">
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
 
 
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
+
                                                             </div>
+                                                            <div class="modal-footer">
                                                                 <button type="button" class="btn light btn-danger" data-bs-dismiss="modal">Cancel</button>
                                                                 <input type="submit" class="btn btn-primary mx-3" value="Save"></input>
-                                                            </form>
-                                                        </div>
-                                                        <div class="modal-footer">
-
-
-                                                        </div>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -419,7 +420,11 @@
 </script>
 
 <script>
-    $('.datepick').datepicker();
+    $('.datepick').datepicker({
+        showOtherMonths: true,
+        selectOtherMonths: true,
+        dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    });
 </script>
 
 <!-- Datatable -->

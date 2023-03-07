@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Dashboard</title>
@@ -121,7 +122,7 @@
 
 									</span>
                                 <div class="media-body">
-                                    <h3 class="mb-0 text-black"><span class="counter ms-0">56</span></h3>
+                                    <h3 class="mb-0 text-black"><span class="counter ms-0"><c:out value="${dashboard.getNumProducts()}"></c:out></span></h3>
                                     <p class="mb-0">Total Menus</p>
                                 </div>
                             </div>
@@ -140,7 +141,7 @@
                                                 fill="#2F4CDD"/></svg>
 									</span>
                                 <div class="media-body">
-                                    <h3 class="mb-0 text-black"><span class="counter ms-0">12</span>k</h3>
+                                    <h3 class="mb-0 text-black"><span class="counter ms-0"><c:out value="${dashboard.getRevenues()}"></c:out></span>k</h3>
                                     <p class="mb-0">Total Revenue</p>
                                 </div>
                             </div>
@@ -165,7 +166,7 @@
                                                 fill="#2F4CDD"/></svg>
 									</span>
                                 <div class="media-body">
-                                    <h3 class="mb-0 text-black"><span class="counter ms-0">20</span></h3>
+                                    <h3 class="mb-0 text-black"><span class="counter ms-0"><c:out value="${dashboard.getNumOrders()}"></c:out></span></h3>
                                     <p class="mb-0">Total Orders</p>
                                 </div>
                             </div>
@@ -188,7 +189,7 @@
                                                 fill="#2F4CDD"/></svg>
 									</span>
                                 <div class="media-body">
-                                    <h3 class="mb-0 text-black"><span class="counter ms-0">65</span></h3>
+                                    <h3 class="mb-0 text-black"><span class="counter ms-0"><c:out value="${dashboard.getNumCustomers()}"></c:out></span></h3>
                                     <p class="mb-0">Total Client</p>
                                 </div>
                             </div>
@@ -225,7 +226,7 @@
                             <div class="tab-pane fade show active" id="Monthly">
                                 <div class="d-flex flex-wrap order-manage p-3 align-items-center mb-4">
                                     <a href="javascript:void(0);"
-                                       class="btn fs-22 text-white py-1 btn-success px-4 me-3">25</a>
+                                       class="btn fs-22 text-white py-1 btn-success px-4 me-3">23</a>
                                     <h4 class="mb-0">New Orders <i class="fa fa-circle text-success ms-1 fs-15"></i>
                                     </h4>
                                     <a href="javascript:void(0);" class="ms-auto text-primary font-w500">Manage orders
@@ -234,20 +235,20 @@
                                 <div class="row">
                                     <div class="col-sm-4 mb-4">
                                         <div class="border px-3 py-3 rounded-xl">
-                                            <h2 class="fs-32 font-w600 counter">25</h2>
+                                            <h2 class="fs-32 font-w600 counter"><c:out value="${dashboard.getMonthStatistic()[1]}"></c:out></h2>
                                             <p class="fs-16 mb-0">On Delivery</p>
                                         </div>
                                     </div>
                                     <div class="col-sm-4 mb-4">
                                         <div class="border px-3 py-3 rounded-xl">
-                                            <h2 class="fs-32 font-w600 counter">60</h2>
+                                            <h2 class="fs-32 font-w600 counter"><c:out value="${dashboard.getMonthStatistic()[0]}"></c:out></h2>
                                             <p class="fs-16 mb-0">Delivered</p>
                                         </div>
                                     </div>
                                     <div class="col-sm-4 mb-4">
                                         <div class="border px-3 py-3 rounded-xl">
-                                            <h2 class="fs-32 font-w600 counter">7</h2>
-                                            <p class="fs-16 mb-0">Canceled</p>
+                                            <h2 class="fs-32 font-w600 counter"><c:out value="${dashboard.getMonthStatistic()[2]}"></c:out></h2>
+                                            <p class="fs-16 mb-0">New Order (replace canceled)</p>
                                         </div>
                                     </div>
                                 </div>
@@ -302,20 +303,20 @@
                                 <div class="row">
                                     <div class="col-sm-4 mb-4">
                                         <div class="border px-3 py-3 rounded-xl">
-                                            <h2 class="fs-32 font-w600 counter">25</h2>
+                                            <h2 class="fs-32 font-w600 counter"><c:out value="${dashboard.getWeekStatistic()[1]}"></c:out></h2>
                                             <p class="fs-16 mb-0">On Delivery</p>
                                         </div>
                                     </div>
                                     <div class="col-sm-4 mb-4">
                                         <div class="border px-3 py-3 rounded-xl">
-                                            <h2 class="fs-32 font-w600 counter">60</h2>
+                                            <h2 class="fs-32 font-w600 counter"><c:out value="${dashboard.getWeekStatistic()[0]}"></c:out></h2>
                                             <p class="fs-16 mb-0">Delivered</p>
                                         </div>
                                     </div>
                                     <div class="col-sm-4 mb-4">
                                         <div class="border px-3 py-3 rounded-xl">
-                                            <h2 class="fs-32 font-w600 counter">7</h2>
-                                            <p class="fs-16 mb-0">Canceled</p>
+                                            <h2 class="fs-32 font-w600 counter"><c:out value="${dashboard.getWeekStatistic()[2]}"></c:out></h2>
+                                            <p class="fs-16 mb-0">New Order (replace canceled)</p>
                                         </div>
                                     </div>
                                 </div>
@@ -370,20 +371,20 @@
                                 <div class="row">
                                     <div class="col-sm-4 mb-4">
                                         <div class="border px-3 py-3 rounded-xl">
-                                            <h2 class="fs-32 font-w600 counter">25</h2>
+                                            <h2 class="fs-32 font-w600 counter"><c:out value="${dashboard.getDateStatistic()[1]}"></c:out></h2>
                                             <p class="fs-16 mb-0">On Delivery</p>
                                         </div>
                                     </div>
                                     <div class="col-sm-4 mb-4">
                                         <div class="border px-3 py-3 rounded-xl">
-                                            <h2 class="fs-32 font-w600 counter">60</h2>
+                                            <h2 class="fs-32 font-w600 counter"><c:out value="${dashboard.getDateStatistic()[0]}"></c:out></h2>
                                             <p class="fs-16 mb-0">Delivered</p>
                                         </div>
                                     </div>
                                     <div class="col-sm-4 mb-4">
                                         <div class="border px-3 py-3 rounded-xl">
-                                            <h2 class="fs-32 font-w600 counter">7</h2>
-                                            <p class="fs-16 mb-0">Canceled</p>
+                                            <h2 class="fs-32 font-w600 counter"><c:out value="${dashboard.getDateStatistic()[2]}"></c:out></h2>
+                                            <p class="fs-16 mb-0">New Order (replace canceled)</p>
                                         </div>
                                     </div>
                                 </div>
@@ -483,8 +484,12 @@
 
 
 </div>
+
 <!--**********************************
     Main wrapper end
 ***********************************-->
+
+<!-- Apex Chart -->
+<script src="vendor/apexchart/apexchart.js"></script>
 </body>
 </html>

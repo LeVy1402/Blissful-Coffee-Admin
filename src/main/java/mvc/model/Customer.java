@@ -37,6 +37,17 @@ public class Customer {
         this.address = address;
     }
 
+    public Customer(String fullName, Date dateOfBirth, boolean gender, String contact, String email, String password, String profileCustomer, String address) {
+        this.fullName = fullName;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.contact = contact;
+        this.email = email;
+        this.password = password;
+        this.profileCustomer = profileCustomer;
+        this.address = address;
+    }
+
     public String getAccountStatus() {
         return accountStatus;
     }

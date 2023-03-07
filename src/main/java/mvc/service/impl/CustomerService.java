@@ -32,7 +32,7 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public void addCustomer(Customer customer) {
-
+        iCustomerRepository.addCustomer(customer);
     }
 
 
