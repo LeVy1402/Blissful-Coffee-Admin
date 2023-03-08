@@ -20,8 +20,11 @@ public class CustomerRepository implements ICustomerRepository {
     private static final String UPDATE_CUSTOMER_SQL =  "update `customer` set `fullname` = ?, `dob`=?, `gender`=?, `email` =?,`phone_number` =?,`profile_img` =?,`address` =?  where `customer_id` = ?;";
 
     private static final String DELETE_CUSTOMER_BY_ID = "delete from `customer` where `customer_id` = ?";
-    private static final String INSERT_CUSTOMER_SQL = "INSERT INTO `customer`" + "  (`staff_id`,`full_name`,`contact`,`email`,`user_name`,`password`,`role_id`,`site_inf_id`) VALUES " +
-            " (?, ?, ?,?,?, ?, ?,?)";
+//    private static final String INSERT_CUSTOMER_SQL = "INSERT INTO `customer`" + "  (`fullname`,`dob`,`gender`,`email`,`phone_number`,`profile_img`,`password`,`account_status`,`address`) VALUES " +
+//            " (?, ?, ?,?,?, ?,?,'online',?)";
+
+    private static final String INSERT_CUSTOMER_SQL = "INSERT INTO coffee_blissful.customer (`fullname`,`dob`,`gender`,`email`,`phone_number`,`profile_img`,`password`,`account_status`,`address`) VALUES" +
+            "(?, ?, ?,?,?, ?,?,'online',?)";
 
     @Override
     public List<Customer> selectAllCustomer() throws SQLException {
@@ -125,6 +128,32 @@ public class CustomerRepository implements ICustomerRepository {
 
     @Override
     public void addCustomer(Customer customer) {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement preparedStatement = null;
+        if (connection != null) {
+            try {
+                preparedStatement = connection.prepareStatement(INSERT_CUSTOMER_SQL);
+                preparedStatement.setString(1, customer.getFullName());
+                preparedStatement.setDate(2, new java.sql.Date(customer.getDateOfBirth().getTime()));
+                preparedStatement.setBoolean(3, customer.getGender());
+                preparedStatement.setString(4, customer.getEmail());
+                preparedStatement.setString(5, customer.getContact());
+                preparedStatement.setString(6, customer.getProfileCustomer());
+                preparedStatement.setString(7, customer.getPassword());
+                preparedStatement.setString(8, customer.getAddress());
+                System.out.println(preparedStatement);
+                preparedStatement.executeUpdate();
 
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } finally {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                DBConnection.close();
+            }
+        }
     }
 }

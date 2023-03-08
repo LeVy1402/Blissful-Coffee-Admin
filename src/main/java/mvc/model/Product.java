@@ -1,5 +1,4 @@
 package mvc.model;
-
 import java.util.Date;
 
 public class Product {
@@ -13,8 +12,6 @@ public class Product {
     private Date dateUpdate;
     private Category category;
 
-    public Product() {
-    }
 
     public Product(int productId, String productName, double price, int quantity, String description, String productStatus, String image, Date dateUpdate, Category category) {
         this.productId = productId;
@@ -26,6 +23,31 @@ public class Product {
         this.image = image;
         this.dateUpdate = dateUpdate;
         this.category = category;
+    }
+
+
+
+    public Product(String productName, double price, int quantity, String description, String productStatus, String image, Category category) {
+        this.productName = productName;
+        this.price = price;
+        this.quantity = quantity;
+        this.description = description;
+        this.productStatus = productStatus;
+        this.image = image;
+        this.category = category;
+    }
+    public Product(int productId, String productName, String image, String productStatus) {
+        this.productId = productId;
+        this.productName = productName;
+        this.image = image;
+        this.productStatus = productStatus;
+    }
+
+
+    public Product(int productId, String productName, double price, int quantity, String description, String productStatus, String image, Category category) {
+    }
+
+    public Product(int productId, String productName, double price, int quantity, String description, String productStatus, Category category) {
     }
 
     public int getProductId() {

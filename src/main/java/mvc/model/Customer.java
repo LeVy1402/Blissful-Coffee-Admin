@@ -13,6 +13,7 @@ public class Customer {
     private String profileCustomer;
     private String accountStatus;
     private String address;
+
     public Customer(int customerId, String fullName, Date dateOfBirth, boolean gender, String contact, String email, String password, String profileCustomer, String accountStatus, String address) {
         this.customerId = customerId;
         this.fullName = fullName;
@@ -35,6 +36,23 @@ public class Customer {
         this.email = email;
         this.profileCustomer = profileCustomer;
         this.address = address;
+    }
+
+    public Customer(String fullName, Date dateOfBirth, boolean gender, String contact, String email, String password, String profileCustomer, String address) {
+        this.fullName = fullName;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.contact = contact;
+        this.email = email;
+        this.password = password;
+        this.profileCustomer = profileCustomer;
+        this.address = address;
+    }
+
+    public Customer(int customerId, String fullName, String profileCustomer) {
+        this.customerId = customerId;
+        this.fullName = fullName;
+        this.profileCustomer = profileCustomer;
     }
 
     public String getAccountStatus() {
