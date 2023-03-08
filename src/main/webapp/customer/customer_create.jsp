@@ -28,25 +28,28 @@
         <div class="deznav-scroll ps ps--active-y mm-active">
             <ul class="metismenu mm-show" id="menu">
                 <li>
-                    <a href="dashboard.jsp" class="ai-icon" aria-expanded="false">
+                    <a href="/dashboard" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-networking"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
                 </li>
-                <li><a href="analytics.jsp" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-controls-3"></i>
-                    <span class="nav-text">Analytics</span>
-                </a>
+                <li>
+                    <a href="/home/analytics.jsp" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-381-controls-3"></i>
+                        <span class="nav-text">Analytics</span>
+                    </a>
                 </li>
-                <li><a href="/views/review.jsp" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-heart"></i>
-                    <span class="nav-text">Review</span>
-                </a>
+                <li>
+                    <a href="/home/review.jsp" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-381-heart"></i>
+                        <span class="nav-text">Review</span>
+                    </a>
                 </li>
-                <li ><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-notepad"></i>
-                    <span class="nav-text">Order</span>
-                </a>
+                <li>
+                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <i class="flaticon-381-notepad"></i>
+                        <span class="nav-text">Order</span>
+                    </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li>
                             <a href="./app-profile.html">Order List</a>
@@ -54,14 +57,14 @@
                         <li><a href="./post-details.html">Add New Order</a></li>
                     </ul>
                 </li>
-                <li class="mm-active ">
+                <li class="mm-active">
                     <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                         <i class="flaticon-381-layer-1"></i>
                         <span class="nav-text">Customer</span>
                     </a>
-                    <ul aria-expanded="false" class="mm-collapse  mm-show">
-                        <li><a href="index.html">Customer List</a></li>
-                        <li class="mm-active"><a href="page-analytics.html" class="mm-active">Add New Customer</a></li>
+                    <ul aria-expanded="false" class="mm-collapse">
+                        <li class="mm-active"><a href="/customers" class="mm-active">Customer List</a></li>
+                        <li><a href="/customers?action=create">Add New Customer</a></li>
                     </ul>
                 </li>
                 <li>
@@ -101,88 +104,97 @@
         Content body start
     ***********************************-->
     <div class="content-body">
-        <div class="container-fluid">
-            <div class="form-head d-flex mb-3 align-items-center justify-content-between">
-                <div class="d-none d-lg-block">
-                    <h2 class="text-primary font-w600 mb-0">Customer</h2>
+        <form method="post" >
+            <input type="hidden" name="action" value="create">
+            <div class="container-fluid">
+                <div class="form-head d-flex mb-3 align-items-center justify-content-between">
+                    <div class="d-none d-lg-block">
+                        <h2 class="text-primary font-w600 mb-0">Customer</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header justify-content-start upload_image">
-                            <div class="img-bx d-flex d-inline">
-                                <img id="preview_img" class="me-3 img-fluid rounded" width="100" src="/assets/images/add_image-removebg-preview.png"
-                                     alt="DexignZone">
-                            </div>
-                            <div class="input-group d-flex d-inline mx-3">
-                                <div class="form-file">
-                                    <input accept="image/*" type="file" id="input_img" class="form-file-input form-control">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header justify-content-start upload_image">
+                                <div class="img-bx d-flex d-inline">
+                                    <img id="preview_img" class="me-3 img-fluid rounded" width="100" src="/assets/images/add_image-removebg-preview.png"
+                                         alt="DexignZone">
                                 </div>
-                                <span class="input-group-text">Upload Avatar</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="row m-3 align-items-center">
-                                    <label class="col-sm-3 col-form-label">Full Name</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" placeholder="">
+                                <div class="input-group d-flex d-inline mx-3">
+                                    <div class="form-file">
+                                        <input name="profileCustomer" accept="image/*" type="file" id="input_img" class="form-file-input form-control">
                                     </div>
-                                </div>
-                                <div class="row m-3 align-items-center">
-                                    <label class="col-sm-3 col-form-label">Gender</label>
-                                    <div class="col-sm-9">
-                                        <label class="radio-inline me-3"><input type="radio" name="optradio">
-                                            Male</label>
-                                        <label class="radio-inline me-3"><input type="radio" name="optradio">
-                                            Female</label>
-                                    </div>
-                                </div>
-                                <div class="row m-3 align-items-center">
-                                    <label class="col-sm-3 col-form-label">Contact</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" placeholder="">
-                                    </div>
-                                </div>
-                                <div class="row m-3 align-items-center">
-                                    <label class="col-sm-3 col-form-label">Email</label>
-                                    <div class="col-sm-9">
-                                        <input type="email" class="form-control" placeholder="">
-                                    </div>
+                                    <span class="input-group-text">Upload Avatar</span>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="row m-3 align-items-center">
-                                    <label class="col-sm-3 col-form-label">Date of Birth</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" placeholder="" id="mdate">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row m-3 align-items-center">
+                                        <label class="col-sm-3 col-form-label">Full Name</label>
+                                        <div class="col-sm-9">
+                                            <input name="fullName" type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="row m-3 align-items-center">
+                                        <label class="col-sm-3 col-form-label">Gender</label>
+                                        <div class="col-sm-9">
+                                            <label class="radio-inline me-3"><input type="radio" name="gender">
+                                                Male</label>
+                                            <label class="radio-inline me-3"><input type="radio" name="gender">
+                                                Female</label>
+                                        </div>
+                                    </div>
+                                    <div class="row m-3 align-items-center">
+                                        <label class="col-sm-3 col-form-label">Contact</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="contact" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="row m-3 align-items-center">
+                                        <label class="col-sm-3 col-form-label">Email</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" name="email" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="row m-3 align-items-center">
+                                        <label class="col-sm-3 col-form-label">Address</label>
+                                        <div class="col-sm-7">
+                                            <input type="password" name="address" class="form-control col-sm-6" placeholder="">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class=" row m-3 align-items-center">
-                                    <label class="col-sm-3 col-form-label">Password</label>
-                                    <div class="col-sm-9">
-                                        <input type="password" class="form-control col-sm-6" placeholder="">
-<%--                                        <span class="input-group-text"><i class="fa fa-eye-slash" aria-hidden="true" id="togglePassword"></i></span>--%>
+                                <div class="col">
+                                    <div class="row m-3 align-items-center">
+                                        <label class="col-sm-3 col-form-label">Date of Birth</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder=""  name="dateOfBirth" id="mdate">
+                                        </div>
+                                    </div>
+                                    <div class=" row m-3 align-items-center">
+                                        <label class="col-sm-3 col-form-label">Password</label>
+                                        <div class="col-sm-9">
+                                            <input type="password" class="form-control col-sm-6" name="password" placeholder="">
+                                            <%--                                        <span class="input-group-text"><i class="fa fa-eye-slash" aria-hidden="true" id="togglePassword"></i></span>--%>
+                                        </div>
+                                    </div>
+                                    <div class="row m-3 align-items-center">
+                                        <label class="col-sm-3 col-form-label">Password again</label>
+                                        <div class="col-sm-7">
+                                            <input type="password" class="form-control col-sm-6" placeholder="">
+                                            <i class="fa fa-eye-slash" id="togglePassword"></i>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row m-3 align-items-center">
-                                    <label class="col-sm-3 col-form-label">Password again</label>
-                                    <div class="col-sm-7">
-                                        <input type="password" class="form-control col-sm-6" placeholder="">
-                                        <i class="fa fa-eye-slash" id="togglePassword"></i>
-                                    </div>
+                                <div class="card-footer d-flex justify-content-end">
+                                    <button type="button" class="btn light btn-primary">Refresh</button>
+                                    <input type="submit" class="btn btn-primary mx-3" value="Save"/>
                                 </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-end">
-                                <button type="button" class="btn light btn-primary">Refresh</button>
-                                <button type="button" class="btn btn-primary mx-3">Add New</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
     <!--**********************************
         Content body end
