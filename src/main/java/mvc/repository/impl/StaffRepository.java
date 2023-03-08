@@ -22,7 +22,7 @@ public class StaffRepository implements IStaffRepository {
 
     private static final String DELETE_STAFF_BY_ID = "delete from `staff` where `staff_id` = ?";
     private static final String INSERT_STAFF_SQL = "INSERT INTO `staff`" + "  (`staff_id`,`full_name`,`contact`,`email`,`user_name`,`password`,`role_id`,`site_inf_id`) VALUES " +
-            " (?, ?, ?,?,?, ?, ?,?)";
+            " (?, ?, ?, ?, ?, ?, ?, ?)";
 
     @Override
     public List<Staff> selectAllStaff() {

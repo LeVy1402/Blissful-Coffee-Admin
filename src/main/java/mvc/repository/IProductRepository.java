@@ -2,6 +2,7 @@ package mvc.repository;
 
 import mvc.model.Product;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface IProductRepository {
@@ -10,4 +11,8 @@ public interface IProductRepository {
     Product detailProduct(int productId);
 
     int del(int id);
+
+    void addProduct(Product product);
+
+    boolean updateProduct(Product product) throws SQLException;
 }

@@ -5,6 +5,7 @@ import mvc.repository.IProductRepository;
 import mvc.repository.impl.ProductRepository;
 import mvc.service.IProductService;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ProductService implements IProductService {
@@ -23,4 +24,16 @@ public class ProductService implements IProductService {
     public int del(int id) {
         return iProductRepository.del(id);
     }
+
+    @Override
+    public void addProduct(Product product) {
+        iProductRepository.addProduct(product);
+    }
+
+    @Override
+    public boolean updateProduct(Product product) throws SQLException {
+        return iProductRepository.updateProduct(product);
+    }
+
+
 }
