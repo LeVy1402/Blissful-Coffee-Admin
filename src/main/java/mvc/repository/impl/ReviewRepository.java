@@ -35,7 +35,8 @@ public class ReviewRepository implements IReviewRepository {
                     Customer customer = new Customer(resultSet.getInt("customer_id"),
                             resultSet.getString("fullname"),
                             resultSet.getString("profile_img"));
-                    Product product = new Product(resultSet.getInt("product_id"),resultSet.getString("product_name"),
+                    Product product = new Product(resultSet.getInt("product_id"),
+                            resultSet.getString("product_name"),
                             resultSet.getString("image"),
                             resultSet.getString("product_status"));
                     Rating rating = new Rating(ratingId, product, score, remarks, dateRecorded, customer);

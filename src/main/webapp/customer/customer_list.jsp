@@ -5,7 +5,7 @@
   Time: 11:00 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
@@ -111,10 +111,11 @@
                     <h2 class="text-primary font-w600 mb-0">Customer List</h2>
                 </div>
                 <div class="col-7">
-                    <a href="customers?action=create" class="btn btn-primary d-flex align-items-center svg-btn"
-                             aria-expanded="false">
-                        <i class="fa fa-plus scale5 ms-3"></i>
-                        <span class="fs-16 ms-3">Add New Customer</span>
+                    <a href="/customers?action=create">
+                        <button type="button" class="btn btn-primary" aria-expanded="false">
+                            <i class="fa fa-plus scale5"></i>
+                            <span class="fs-16 sm-0">Add New Customer</span>
+                        </button>
                     </a>
                 </div>
                 <div class="">
@@ -187,7 +188,7 @@
                                                             <div class="mb-3 row">
                                                                 <div class="col-4 mt-3 align-items-center">
                                                                     <div class="img-bx d-flex justify-content-center">
-                                                                        <img class="img-fluid rounded" width="200" src="/template/images/avatar/${customer.getProfileCustomer()}.jpg" alt="DexignZone">
+                                                                        <img class="img-fluid rounded" width="200" src="/img_customer/${customer.getProfileCustomer()}" alt="DexignZone">
                                                                     </div>
                                                                         <%--                                                                <span class="btn btn-sm light btn-success mt-3 d-flex justify-content-center">Admin</span>--%>
                                                                 </div>
@@ -255,7 +256,8 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal">
                                                             </button>
                                                         </div>
-                                                        <form method="post">
+                                                        <form method="post"  enctype='multipart/form-data'>
+
                                                             <div class="modal-body">
 
     <%--                                                                id=${customer.getCustomerId()}?fullName=${customer.getFullName()}?dateOfBirth=${customer.getDateOfBirth()}?contact=${customer.getContact()}?email=${customer.getEmail()}?profileCustomer=${customer.getCustomerId()}?address=${customer.getAddress()}?gender=${customer.getGender()}--%>

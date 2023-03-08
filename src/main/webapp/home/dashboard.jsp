@@ -450,7 +450,7 @@
                                          alt=""/>
                                     <div>
                                         <small class="text-dark fs-14">Income</small>
-                                        <h3 class="font-w600 mb-0">$<span class="counter">41,512</span>k</h3>
+                                        <h3 class="font-w600 mb-0">$<span class="counter">10</span>k</h3>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-end mb-2">
@@ -458,7 +458,7 @@
                                          alt=""/>
                                     <div>
                                         <small class="text-dark fs-14">Expense</small>
-                                        <h3 class="font-w600 mb-0">$<span class="counter">41,512</span>k</h3>
+                                        <h3 class="font-w600 mb-0">$<span class="counter">100</span>k</h3>
                                     </div>
                                 </div>
                             </div>

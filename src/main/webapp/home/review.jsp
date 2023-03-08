@@ -270,7 +270,7 @@
                         <div class="card-body p-0">
                             <c:forEach items="${reviewList}" var="review">
                                 <div class="media review-box d-flex">
-                                    <img class="me-3 img-fluid btn-rounded" width="55" src="/img/<c:out value="${review.getProduct().getImage()}"></c:out>" alt="Product Image">
+                                    <img class="me-3 img-fluid btn-rounded" width="55" src="/img_customer/<c:out value="${review.getCustomer().getProfileCustomer()}"></c:out>" alt="Product Image">
                                     <div class="media-body">
                                         <h4 class="mt-0 mb-0 text-black"><c:out value="${review.getCustomer().getFullName()}"></c:out></h4>
                                         <ul class="review-meta mb-3 d-block d-sm-flex align-items-center">
