@@ -13,6 +13,7 @@ public class Customer {
     private String profileCustomer;
     private String accountStatus;
     private String address;
+
     public Customer(int customerId, String fullName, Date dateOfBirth, boolean gender, String contact, String email, String password, String profileCustomer, String accountStatus, String address) {
         this.customerId = customerId;
         this.fullName = fullName;
