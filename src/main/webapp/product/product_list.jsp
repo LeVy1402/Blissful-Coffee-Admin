@@ -75,8 +75,8 @@
                         <span class="nav-text">Product</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li class="mm-active"><a href="index.html" class="mm-active">Product List</a></li>
-                        <li><a href="page-analytics.html">Add New Product</a></li>
+                        <li class="mm-active"><a href="/products" class="mm-active">Product List</a></li>
+                        <li><a href="/products?action=create">Add New Product</a></li>
                     </ul>
                 </li>
                 <li>
@@ -102,11 +102,13 @@
                     <h2 class="text-primary font-w600 mb-0">Product List</h2>
                 </div>
                 <div class="col-10">
-                    <button type="button" class="btn btn-primary d-flex align-items-center svg-btn"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-plus scale5 ms-3"></i>
+
+                    <a href="/products?action=create">
+                        <button type="button" class="btn btn-primary" aria-expanded="false">
+                        <i class="fa fa-plus scale5"></i>
                         <span class="fs-16 ms-0">Add New Product</span>
                     </button>
+                    </a>
                 </div>
             </div>
             <div class="row">

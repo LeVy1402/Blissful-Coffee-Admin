@@ -16,7 +16,7 @@
       Nav header start
   ***********************************-->
 <div class="nav-header">
-  <a href="" class="brand-logo">
+  <a href="/home/dashboard.jsp" class="brand-logo">
     <img class="logo-abbr" src="../assets/icons/logo.png" alt="">
     <img class="logo-compact" src="../assets/icons/logo_text.png" alt="">
     <img class="brand-title" src="../assets/icons/logo_text.png" alt="">

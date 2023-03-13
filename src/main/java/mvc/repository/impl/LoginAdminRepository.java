@@ -35,4 +35,21 @@ public class LoginAdminRepository implements ILoginAdminRepository {
         return null;
     }
 
+    @Override
+    public int ForgotPass(String txtEmail, String txtPass) {
+        System.out.println(txtEmail + txtPass);
+        int result = 0;
+        try {
+            PreparedStatement preparedStatement = DBConnection.getConnection().prepareStatement("UPDATE staff\n" +
+                    "SET password = ?\n" +
+                    "WHERE email = ?;");
+            preparedStatement.setString(1,txtPass);
+            preparedStatement.setString(2,txtEmail);
+            result = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 }

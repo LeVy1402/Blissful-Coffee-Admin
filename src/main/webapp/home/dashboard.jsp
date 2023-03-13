@@ -78,7 +78,7 @@
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li><a href="/products">Product List</a></li>
-                        <li><a href="../product/product_add.jsp">Add New Product</a></li>
+                        <li><a href="/products?action=create">Add New Product</a></li>
                     </ul>
                 </li>
                 <li>

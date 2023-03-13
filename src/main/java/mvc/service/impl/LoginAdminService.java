@@ -12,4 +12,9 @@ public class LoginAdminService implements ILoginAdminService {
     public Staff checkLogin(String email, String password) {
         return iLoginAdminRepository.checkLogin(email,password);
     }
+
+    @Override
+    public int ForgotPass(String txtEmail, String txtPass) {
+        return iLoginAdminRepository.ForgotPass(txtEmail,txtPass);
+    }
 }

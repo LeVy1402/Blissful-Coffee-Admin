@@ -74,8 +74,8 @@
                         <span class="nav-text">Product</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Product List</a></li>
-                        <li class="mm-active"><a href="page-analytics.html" class="mm-active">Add New Product</a></li>
+                        <li><a href="/products">Product List</a></li>
+                        <li class="mm-active"><a href="/products?action=create" class="mm-active">Add New Product</a></li>
                     </ul>
                 </li>
                 <li>
