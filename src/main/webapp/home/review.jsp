@@ -25,11 +25,11 @@
                         <span class="nav-text">Dashboard</span>
                     </a>
                 </li>
-                <li><a href="analytics.jsp" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-controls-3"></i>
-                    <span class="nav-text">Analytics</span>
-                </a>
-                </li>
+<%--                <li><a href="analytics.jsp" class="ai-icon" aria-expanded="false">--%>
+<%--                    <i class="flaticon-381-controls-3"></i>--%>
+<%--                    <span class="nav-text">Analytics</span>--%>
+<%--                </a>--%>
+<%--                </li>--%>
                 <li><a href="/reviews" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-heart"></i>
                     <span class="nav-text">Review</span>
@@ -75,12 +75,12 @@
                         <li><a href="products?action=create">Add New Product</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="widget-basic.html" class="ai-icon" aria-expanded="false">
-                        <i class="flaticon-381-heart"></i>
-                        <span class="nav-text">Category</span>
-                    </a>
-                </li>
+<%--                <li>--%>
+<%--                    <a href="widget-basic.html" class="ai-icon" aria-expanded="false">--%>
+<%--                        <i class="flaticon-381-heart"></i>--%>
+<%--                        <span class="nav-text">Category</span>--%>
+<%--                    </a>--%>
+<%--                </li>--%>
             </ul>
         </div>
     </div>

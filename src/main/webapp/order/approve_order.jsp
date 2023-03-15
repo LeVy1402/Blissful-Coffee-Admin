@@ -32,11 +32,11 @@
                         <span class="nav-text">Dashboard</span>
                     </a>
                 </li>
-                <li><a href="analytics.jsp" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-controls-3"></i>
-                    <span class="nav-text">Analytics</span>
-                </a>
-                </li>
+<%--                <li><a href="analytics.jsp" class="ai-icon" aria-expanded="false">--%>
+<%--                    <i class="flaticon-381-controls-3"></i>--%>
+<%--                    <span class="nav-text">Analytics</span>--%>
+<%--                </a>--%>
+<%--                </li>--%>
                 <li><a href="/reviews" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-heart"></i>
                     <span class="nav-text">Review</span>
@@ -70,7 +70,7 @@
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li><a href="staffs?action">Staff List</a></li>
-                        <li><a href="page-analytics.html">Add New Order</a></li>
+                        <li><a href="staffs?action=create">Add New Order</a></li>
                     </ul>
                 </li>
                 <li>
@@ -83,12 +83,12 @@
                         <li><a href="products?action=create">Add New Product</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="widget-basic.html" class="ai-icon" aria-expanded="false">
-                        <i class="flaticon-381-heart"></i>
-                        <span class="nav-text">Category</span>
-                    </a>
-                </li>
+<%--                <li>--%>
+<%--                    <a href="widget-basic.html" class="ai-icon" aria-expanded="false">--%>
+<%--                        <i class="flaticon-381-heart"></i>--%>
+<%--                        <span class="nav-text">Category</span>--%>
+<%--                    </a>--%>
+<%--                </li>--%>
             </ul>
         </div>
     </div>

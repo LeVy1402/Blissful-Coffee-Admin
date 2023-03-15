@@ -33,12 +33,12 @@
                         <span class="nav-text">Dashboard</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/home/analytics.jsp" class="ai-icon" aria-expanded="false">
-                        <i class="flaticon-381-controls-3"></i>
-                        <span class="nav-text">Analytics</span>
-                    </a>
-                </li>
+<%--                <li>--%>
+<%--                    <a href="/home/analytics.jsp" class="ai-icon" aria-expanded="false">--%>
+<%--                        <i class="flaticon-381-controls-3"></i>--%>
+<%--                        <span class="nav-text">Analytics</span>--%>
+<%--                    </a>--%>
+<%--                </li>--%>
                 <li>
                     <a href="/reviews" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-heart"></i>
@@ -87,12 +87,12 @@
                         <li><a href="/products?action=create">Add New Product</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="widget-basic.html" class="ai-icon" aria-expanded="false">
-                        <i class="flaticon-381-heart"></i>
-                        <span class="nav-text">Category</span>
-                    </a>
-                </li>
+<%--                <li>--%>
+<%--                    <a href="widget-basic.html" class="ai-icon" aria-expanded="false">--%>
+<%--                        <i class="flaticon-381-heart"></i>--%>
+<%--                        <span class="nav-text">Category</span>--%>
+<%--                    </a>--%>
+<%--                </li>--%>
             </ul>
         </div>
     </div>
@@ -159,7 +159,7 @@
                                     <div class="row m-3 align-items-center">
                                         <label class="col-sm-3 col-form-label">Address</label>
                                         <div class="col-sm-7">
-                                            <input type="password" name="address" class="form-control col-sm-6" placeholder="">
+                                            <input type="text" name="address" class="form-control col-sm-6" placeholder="">
                                         </div>
                                     </div>
                                 </div>
