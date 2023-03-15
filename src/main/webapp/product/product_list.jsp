@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -23,7 +22,7 @@
         <div class="deznav-scroll ps ps--active-y mm-active">
             <ul class="metismenu mm-show" id="menu">
                 <li>
-                    <a href="/home/dashboard.jsp" class="ai-icon" aria-expanded="false">
+                    <a href="/dashboards" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-networking"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
@@ -33,7 +32,7 @@
                     <span class="nav-text">Analytics</span>
                 </a>
                 </li>
-                <li><a href="/home/review.jsp" class="ai-icon" aria-expanded="false">
+                <li><a href="/reviews" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-heart"></i>
                     <span class="nav-text">Review</span>
                 </a>
@@ -45,9 +44,9 @@
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li>
-                            <a href="./app-profile.html">Order List</a>
+                            <a href="/orders">Order List</a>
                         </li>
-                        <li><a href="./post-details.html">Add New Order</a></li>
+                        <li><a href="/orders?action=create">Add New Order</a></li>
                     </ul>
                 </li>
                 <li>
@@ -56,8 +55,8 @@
                         <span class="nav-text">Customer</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Customer List</a></li>
-                        <li><a href="page-analytics.html">Add New Customer</a></li>
+                        <li><a href="/customers">Customer List</a></li>
+                        <li><a href="customers?action=create">Add New Customer</a></li>
                     </ul>
                 </li>
                 <li>
@@ -67,7 +66,7 @@
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li><a href="/staffs">Staff List</a></li>
-                        <li><a href="../staff/staff_create.jsp">Add New Staff</a></li>
+                        <li><a href="/staffs?action=create">Add New Staff</a></li>
                     </ul>
                 </li>
                 <li class="mm-active">
@@ -76,8 +75,8 @@
                         <span class="nav-text">Product</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li class="mm-active"><a href="index.html" class="mm-active">Product List</a></li>
-                        <li><a href="page-analytics.html">Add New Product</a></li>
+                        <li class="mm-active"><a href="/products" class="mm-active">Product List</a></li>
+                        <li><a href="/products?action=create">Add New Product</a></li>
                     </ul>
                 </li>
                 <li>
@@ -103,11 +102,13 @@
                     <h2 class="text-primary font-w600 mb-0">Product List</h2>
                 </div>
                 <div class="col-10">
-                    <button type="button" class="btn btn-primary d-flex align-items-center svg-btn"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-plus scale5 ms-3"></i>
-                        <span class="fs-16 ms-0">Add New Product</span>
-                    </button>
+
+                    <a href="/products?action=create">
+                        <button type="button" class="btn btn-primary" aria-expanded="false">
+                            <i class="fa fa-plus scale5"></i>
+                            <span class="fs-16 ms-0">Add New Product</span>
+                        </button>
+                    </a>
                 </div>
             </div>
             <div class="row">
@@ -245,130 +246,130 @@
                                                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                                <h5 class="modal-title">
-                                                                    <c:out value="${product.getProductId()}"></c:out>
-                                                                </h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                                                </button>
+                                                            <h5 class="modal-title">
+                                                                <c:out value="${product.getProductId()}"></c:out>
+                                                            </h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                                            </button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <form method="post" action="/products">
-                                                            <div class="mb-3 row">
-                                                                <div class="col-4 mt-3 align-items-center">
-                                                                    <div class="img-bx d-flex justify-content-center">
-                                                                        <img id="img_avatar" class="img-fluid rounded" width="200" src="/img/${product.getImage()}" alt="Product avatar">
+                                                                <div class="mb-3 row">
+                                                                    <div class="col-4 mt-3 align-items-center">
+                                                                        <div class="img-bx d-flex justify-content-center">
+                                                                            <img id="img_avatar" class="img-fluid rounded" width="200" src="/img/${product.getImage()}" alt="Product avatar">
+                                                                        </div>
+                                                                        <div class="m-3 d-flex justify-content-center">
+                                                                            <button id="img_delete${product.getProductId()}" type="button" class="btn light btn-danger btn-sm col ">Delete</button>
+                                                                            <label for="img_input${product.getProductId()}" type="button" class="btn btn-primary btn-sm mx-3 col">Upload</label>
+                                                                            <input accept="image/*" type="file" id="img_input${product.getProductId()}" name="image" class="form-file-input form-control" hidden>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="m-3 d-flex justify-content-center">
-                                                                        <button id="img_delete${product.getProductId()}" type="button" class="btn light btn-danger btn-sm col ">Delete</button>
-                                                                        <label for="img_input${product.getProductId()}" type="button" class="btn btn-primary btn-sm mx-3 col">Upload</label>
-                                                                        <input accept="image/*" type="file" id="img_input${product.getProductId()}" name="image" class="form-file-input form-control" hidden>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-8 d-flex align-items-center">
-                                                                    <div class="card-body">
-                                                                        <div class="basic-form">
+                                                                    <div class="col-8 d-flex align-items-center">
+                                                                        <div class="card-body">
+                                                                            <div class="basic-form">
 
                                                                                 <input type="hidden" name="action" value="update">
-                                                                            <c:if test="${product != null}">
-                                                                                <input type="hidden" name="productId"
-                                                                                       value="<c:out value='${product.getProductId()}'/>"/>
-                                                                            </c:if>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label d-flex align-items-center">Product
-                                                                                    Name</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <input type="text"
-                                                                                           class="form-control input-default "
-                                                                                           name="productName"
-                                                                                           value="${product.getProductName()}">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label d-flex align-items-center">Price</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <input type="text"
-                                                                                           class="form-control input-default "
-                                                                                           name="price"
-                                                                                           value="${product.getPrice()}">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label d-flex align-items-center">Quantity</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <input type="text"
-                                                                                           class="form-control input-default "
-                                                                                           name="quantity"
-                                                                                           value="${product.getQuantity()}">
-                                                                                </div>
-                                                                            </div>
-                                                                            <fieldset class="mb-3 row">
-                                                                                <label class="col-sm-3 col-form-label">Status</label>
-                                                                                <div class="col-sm-9">
-                                                                                    <div class="form-check">
-                                                                                        <input class="form-check-input"
-                                                                                               type="radio"
-                                                                                               name="productStatus"
-                                                                                               value="Normal"
-                                                                                               <c:if test='${product.getProductStatus()=="Normal"}'>checked</c:if>>
-                                                                                        <label class="form-check-label">
-                                                                                            Normal
-                                                                                        </label>
-                                                                                    </div>
-                                                                                    <div class="form-check">
-                                                                                        <input class="form-check-input"
-                                                                                               type="radio"
-                                                                                               name="productStatus"
-                                                                                               value="Feature"
-                                                                                               <c:if test='${product.getProductStatus()=="Feature"}'>checked</c:if>>
-                                                                                        <label class="form-check-label">
-                                                                                            Feature
-                                                                                        </label>
+                                                                                <c:if test="${product != null}">
+                                                                                    <input type="hidden" name="productId"
+                                                                                           value="<c:out value='${product.getProductId()}'/>"/>
+                                                                                </c:if>
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-3 col-form-label d-flex align-items-center">Product
+                                                                                        Name</label>
+                                                                                    <div class="col-sm-9">
+                                                                                        <input type="text"
+                                                                                               class="form-control input-default "
+                                                                                               name="productName"
+                                                                                               value="${product.getProductName()}">
                                                                                     </div>
                                                                                 </div>
-                                                                            </fieldset>
-<%--                                                                            <div class="mb-3 row">--%>
-<%--                                                                                <label class="col-sm-4 col-form-label">Category</label>--%>
-<%--                                                                                <div class="col-sm-8">--%>
-<%--                                                                                    <select class="default-select form-control wide mb-3"--%>
-<%--                                                                                            name="categoryId">--%>
-<%--                                                                                        <option value="1">Coffee--%>
-<%--                                                                                        </option>--%>
-<%--                                                                                        <option value="2">Smoothie--%>
-<%--                                                                                            -Yogurt--%>
-<%--                                                                                        </option>--%>
-<%--                                                                                        <option value="3">Juice</option>--%>
-<%--                                                                                        <option value="4">Tea</option>--%>
-<%--                                                                                        <option value="5">Soft Drink--%>
-<%--                                                                                        </option>--%>
-<%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "1"}'>checked</c:if>--%>
-<%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "2"}'>checked</c:if>--%>
-<%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "3"}'>checked</c:if>--%>
-<%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "4"}'>checked</c:if>--%>
-<%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "5"}'>checked</c:if>--%>
-<%--                                                                                    </select>--%>
-<%--                                                                                </div>--%>
-<%--                                                                            </div>--%>
-<%--                                                                                <div class="row m-3 align-items-center">--%>
-<%--                                                                                    <label class="col-sm-3 col-form-label">Category</label>--%>
-<%--                                                                                    <div class="col-sm-9">--%>
-<%--                                                                                        <label class="radio-inline me-3"><input type="radio" name="categoryId" value="1">--%>
-<%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "1"}'>checked</c:if>--%>
-<%--                                                                                            Coffee</label>--%>
-<%--                                                                                        <label class="radio-inline me-3"><input type="radio" name="categoryId" value="2">--%>
-<%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "2"}'>checked</c:if>--%>
-<%--                                                                                            Smoothie - Yogurt</label>--%>
-<%--                                                                                        <label class="radio-inline me-3"><input type="radio" name="categoryId" value="3">--%>
-<%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "3"}'>checked</c:if>--%>
-<%--                                                                                            Juice</label>--%>
-<%--                                                                                        <label class="radio-inline me-3"><input type="radio" name="categoryId" value="4">--%>
-<%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "4"}'>checked</c:if>--%>
-<%--                                                                                            Tea</label>--%>
-<%--                                                                                        <label class="radio-inline me-3"><input type="radio" name="categoryId" value="5">--%>
-<%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "5"}'>checked</c:if>--%>
-<%--                                                                                            Sort Drink</label>--%>
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-3 col-form-label d-flex align-items-center">Price</label>
+                                                                                    <div class="col-sm-9">
+                                                                                        <input type="text"
+                                                                                               class="form-control input-default "
+                                                                                               name="price"
+                                                                                               value="${product.getPrice()}">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-3 row">
+                                                                                    <label class="col-sm-3 col-form-label d-flex align-items-center">Quantity</label>
+                                                                                    <div class="col-sm-9">
+                                                                                        <input type="text"
+                                                                                               class="form-control input-default "
+                                                                                               name="quantity"
+                                                                                               value="${product.getQuantity()}">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <fieldset class="mb-3 row">
+                                                                                    <label class="col-sm-3 col-form-label">Status</label>
+                                                                                    <div class="col-sm-9">
+                                                                                        <div class="form-check">
+                                                                                            <input class="form-check-input"
+                                                                                                   type="radio"
+                                                                                                   name="productStatus"
+                                                                                                   value="Normal"
+                                                                                                   <c:if test='${product.getProductStatus()=="Normal"}'>checked</c:if>>
+                                                                                            <label class="form-check-label">
+                                                                                                Normal
+                                                                                            </label>
+                                                                                        </div>
+                                                                                        <div class="form-check">
+                                                                                            <input class="form-check-input"
+                                                                                                   type="radio"
+                                                                                                   name="productStatus"
+                                                                                                   value="Feature"
+                                                                                                   <c:if test='${product.getProductStatus()=="Feature"}'>checked</c:if>>
+                                                                                            <label class="form-check-label">
+                                                                                                Feature
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </fieldset>
+                                                                                    <%--                                                                            <div class="mb-3 row">--%>
+                                                                                    <%--                                                                                <label class="col-sm-4 col-form-label">Category</label>--%>
+                                                                                    <%--                                                                                <div class="col-sm-8">--%>
+                                                                                    <%--                                                                                    <select class="default-select form-control wide mb-3"--%>
+                                                                                    <%--                                                                                            name="categoryId">--%>
+                                                                                    <%--                                                                                        <option value="1">Coffee--%>
+                                                                                    <%--                                                                                        </option>--%>
+                                                                                    <%--                                                                                        <option value="2">Smoothie--%>
+                                                                                    <%--                                                                                            -Yogurt--%>
+                                                                                    <%--                                                                                        </option>--%>
+                                                                                    <%--                                                                                        <option value="3">Juice</option>--%>
+                                                                                    <%--                                                                                        <option value="4">Tea</option>--%>
+                                                                                    <%--                                                                                        <option value="5">Soft Drink--%>
+                                                                                    <%--                                                                                        </option>--%>
+                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "1"}'>checked</c:if>--%>
+                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "2"}'>checked</c:if>--%>
+                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "3"}'>checked</c:if>--%>
+                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "4"}'>checked</c:if>--%>
+                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "5"}'>checked</c:if>--%>
+                                                                                    <%--                                                                                    </select>--%>
+                                                                                    <%--                                                                                </div>--%>
+                                                                                    <%--                                                                            </div>--%>
+                                                                                    <%--                                                                                <div class="row m-3 align-items-center">--%>
+                                                                                    <%--                                                                                    <label class="col-sm-3 col-form-label">Category</label>--%>
+                                                                                    <%--                                                                                    <div class="col-sm-9">--%>
+                                                                                    <%--                                                                                        <label class="radio-inline me-3"><input type="radio" name="categoryId" value="1">--%>
+                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "1"}'>checked</c:if>--%>
+                                                                                    <%--                                                                                            Coffee</label>--%>
+                                                                                    <%--                                                                                        <label class="radio-inline me-3"><input type="radio" name="categoryId" value="2">--%>
+                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "2"}'>checked</c:if>--%>
+                                                                                    <%--                                                                                            Smoothie - Yogurt</label>--%>
+                                                                                    <%--                                                                                        <label class="radio-inline me-3"><input type="radio" name="categoryId" value="3">--%>
+                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "3"}'>checked</c:if>--%>
+                                                                                    <%--                                                                                            Juice</label>--%>
+                                                                                    <%--                                                                                        <label class="radio-inline me-3"><input type="radio" name="categoryId" value="4">--%>
+                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "4"}'>checked</c:if>--%>
+                                                                                    <%--                                                                                            Tea</label>--%>
+                                                                                    <%--                                                                                        <label class="radio-inline me-3"><input type="radio" name="categoryId" value="5">--%>
+                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "5"}'>checked</c:if>--%>
+                                                                                    <%--                                                                                            Sort Drink</label>--%>
 
-<%--                                                                                    </div>--%>
-<%--                                                                                </div>--%>
+                                                                                    <%--                                                                                    </div>--%>
+                                                                                    <%--                                                                                </div>--%>
                                                                                 <fieldset class="mb-3">
                                                                                     <div class="row">
                                                                                         <label class="col-form-label col-sm-4 pt-0">Staff
@@ -444,10 +445,10 @@
                                                                                     <input type="submit"
                                                                                            class="btn btn-primary mx-3">
                                                                                 </div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
                                                             </form>
                                                         </div>
 

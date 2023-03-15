@@ -22,7 +22,7 @@
         <div class="deznav-scroll ps ps--active-y mm-active">
             <ul class="metismenu mm-show" id="menu">
                 <li>
-                    <a href="dashboard.jsp" class="ai-icon" aria-expanded="false">
+                    <a href="/dashboards" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-networking"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
@@ -32,7 +32,7 @@
                     <span class="nav-text">Analytics</span>
                 </a>
                 </li>
-                <li><a href="/views/review.jsp" class="ai-icon" aria-expanded="false">
+                <li><a href="/reviews" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-heart"></i>
                     <span class="nav-text">Review</span>
                 </a>
@@ -54,8 +54,8 @@
                         <span class="nav-text">Customer</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Customer List</a></li>
-                        <li><a href="page-analytics.html">Add New Customer</a></li>
+                        <li><a href="/customers">Customer List</a></li>
+                        <li><a href="/customers?action=create">Add New Customer</a></li>
                     </ul>
                 </li>
                 <li>
@@ -64,8 +64,8 @@
                         <span class="nav-text">Staff</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Staff List</a></li>
-                        <li><a href="page-analytics.html">Add New Order</a></li>
+                        <li><a href="/staffs">Staff List</a></li>
+                        <li><a href="staffs?action=create">Add New Order</a></li>
                     </ul>
                 </li>
                 <li>
@@ -74,8 +74,8 @@
                         <span class="nav-text">Product</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Product List</a></li>
-                        <li><a href="page-analytics.html">Add New Product</a></li>
+                        <li><a href="/products">Product List</a></li>
+                        <li><a href="/products?action=create">Add New Product</a></li>
                     </ul>
                 </li>
                 <li>
@@ -152,97 +152,146 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>#5552351</td>
-                                <td class="w-space-no">26 March 2020, 12:42 AM</td>
-                                <td>James WItcwicky</td>
-                                <td>Corner Street 5th London</td>
-                                <td>$164.52</td>
-                                <td><span class="btn btn-sm light btn-warning w-space-no fs-16">New Order</span></td>
-                                <td>
-                                    <div class="d-flex">
-                                        <a href="#" class="btn btn-primary shadow btn-xs sharp me-1 py-1"
-                                           data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
-                                            <i class="fas fa-pencil-alt"></i>
-                                        </a>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="exampleModalCenter">
-                                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">#5552351</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="mb-3 row">
-                                                            <label class="col-sm-3 col-form-label">Customer Name</label>
-                                                            <div class="col-sm-9">
-                                                                <input type="text" class="form-control" placeholder="Nguyễn Văn A">
-                                                            </div>
+                            <c:forEach var="order" items="${orderList}">
+                                <tr>
+                                    <td><c:out value="${order.getOrderId()}"></c:out></td>
+                                    <td class="w-space-no"><c:out value="${order.getOrderDate()}"></c:out></td>
+                                    <td><c:out value="${order.getCustomerId().getFullName()}"></c:out></td>
+                                    <td><c:out value="${order.getCustomerId().getAddress()}"></c:out></td>
+
+                                    <td><c:out value="${amount}"></c:out></td>
+                                    <td><span class="btn btn-sm light btn-warning w-space-no fs-16"><c:out
+                                            value="${order.getOrderStatus()}"></c:out></span></td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a href="#" class="btn btn-primary shadow btn-xs sharp me-1 py-1"
+                                               data-bs-toggle="modal" data-bs-target="#editOrder${order.getOrderId()}">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </a>
+                                            <!-- Modal Edit -->
+                                            <div class="modal fade" id="editOrder${order.getOrderId()}">
+                                                <div class="modal-dialog modal-dialog-centered modal-lg"
+                                                     role="document">
+                                                    <form action="post">
+                                                        <input type="hidden" name="action" value="update">
+                                                        <c:if test="${order != null}">
+                                                            <input type="hidden" name="id"
+                                                                   value="<c:out value='${order.getOrderId()}' />"/>
+                                                        </c:if>
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">${order.getOrderId()}</h5>
+                                                            <input type="hidden" name="id">
+                                                            <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal">
+                                                            </button>
                                                         </div>
-                                                        <div class="mb-3 row">
-                                                            <label class="col-sm-3 col-form-label">Date order</label>
-                                                            <div class="col-sm-9">
-                                                                <input type="text" class="form-control" placeholder="2017-06-04" id="mdate">
+                                                        <div class="modal-body">
+                                                            <div class="mb-3 row">
+                                                                <label class="col-sm-3 col-form-label">Customer
+                                                                    Name</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" name="fullName"
+                                                                           value="<c:out value='${order.getCustomerId().getFullName()}'></c:out>">
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="mb-3 row">
-                                                            <label class="col-sm-3 col-form-label">Order Status</label>
-                                                            <div class="col-sm-9">
-                                                                <select class="default-select form-control wide mb-3">
-                                                                    <option>Option 1</option>
-                                                                    <option>Option 2</option>
-                                                                    <option>Option 3</option>
-                                                                </select>
+                                                            <div class="mb-3 row">
+                                                                <label class="col-sm-3 col-form-label">Date
+                                                                    order</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control"
+                                                                           value="<c:out value='${order.getOrderDate()}'></c:out>"
+                                                                           id="dateOrder">
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="mb-3 row">
-                                                            <label class="col-sm-3 col-form-label">Process By</label>
-                                                            <div class="col-sm-9">
-                                                                <select class="default-select form-control wide mb-3">
-                                                                    <option>Option 1</option>
-                                                                    <option>Option 2</option>
-                                                                    <option>Option 3</option>
-                                                                </select>
+                                                            <div class="mb-3 row">
+                                                                <label class="col-sm-3 col-form-label">Order
+                                                                    Status</label>
+                                                                <div class="col-sm-9">
+                                                                    <select class="default-select form-control wide mb-3" name="status">
+                                                                        <option value="Delivered">Delivered</option>
+                                                                        <option value="On delivery">On delivery</option>
+                                                                        <option value="New Order">New Order</option>
+
+                                                                    </select>
+                                                                </div>
                                                             </div>
+                                                            <div class="mb-3 row">
+                                                                <label class="col-sm-3 col-form-label">Process
+                                                                    By</label>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input"
+                                                                           type="radio"
+                                                                           name="roleId"
+                                                                           value="2"
+                                                                           <c:if test='${order.getProcessBy()=="Admin"}'>checked</c:if>>
+                                                                    <label class="form-check-label  ">
+                                                                        Admin
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input"
+                                                                           type="radio"
+                                                                           name="roleId"
+                                                                           value="1"
+                                                                           <c:if test='${order.getProcessBy()=="Staff"}'>checked</c:if>>
+                                                                    <label class="form-check-label ">
+                                                                        Staff
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" class="btn btn-danger light"
+                                                                    data-bs-dismiss="modal">Close
+                                                            </button>
+                                                            <button type="submit" class="btn btn-primary">Save changes
+                                                            </button>
                                                         </div>
 
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+
+                                            <a href="#" class="btn btn-danger shadow btn-xs sharp py-1"
+                                               data-bs-toggle="modal"
+                                               data-bs-target="#deleteOrder${order.getOrderId()}">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+
+                                            <!-- Modal Delete-->
+                                            <div class="modal fade" id="deleteOrder${order.getOrderId()}"
+                                                 data-bs-backdrop="static"
+                                                 data-bs-keyboard="false" tabindex="-1"
+                                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Delete Confirm</h5>
+                                                            <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal">
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">Are you sure you want to delete the
+                                                            <strong
+                                                                    class="text-danger">${order.getOrderId()}</strong>?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger light"
+                                                                    data-bs-dismiss="modal">Cancel
+                                                            </button>
+                                                            <a href="/orders?action=delete&id=${order.getOrderId()}">
+                                                                <button type="button" class="btn btn-warning">Confirm
+                                                                </button>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
-
-                                        <a href="#" class="btn btn-danger shadow btn-xs sharp py-1"
-                                           data-bs-toggle="modal" data-bs-target="#basicModal">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
-
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="basicModal">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Delete Confirm</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">Are you sure you want to delete the order #5552351</div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Cancel</button>
-                                                        <button type="button" class="btn btn-danger">Delete</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>
@@ -306,7 +355,6 @@
 <script src="../template/vendor/pickadate/picker.js"></script>
 <script src="../template/vendor/pickadate/picker.time.js"></script>
 <script src="../template/vendor/pickadate/picker.date.js"></script>
-
 
 
 <!-- Daterangepicker -->

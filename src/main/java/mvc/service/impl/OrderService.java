@@ -16,4 +16,19 @@ public class OrderService implements IOrderService {
     public List<Order> selectAllOrder() throws SQLException {
         return iOrderRepository.selectAllOrder();
     }
+
+    @Override
+    public double selectAmount() throws SQLException {
+        return iOrderRepository.selectAmount();
+    }
+
+    @Override
+    public boolean deleteOrder(int idOrder) throws SQLException {
+        return iOrderRepository.deleteOrder(idOrder);
+    }
+
+    @Override
+    public boolean updateOrder(Order order) throws SQLException {
+        return iOrderRepository.updateOrder(order);
+    }
 }

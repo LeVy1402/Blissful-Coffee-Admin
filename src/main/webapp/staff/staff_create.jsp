@@ -21,7 +21,7 @@
         <div class="deznav-scroll ps ps--active-y mm-active">
             <ul class="metismenu mm-show" id="menu">
                 <li>
-                    <a href="/home/dashboard.jsp" class="ai-icon" aria-expanded="false">
+                    <a href="/dashboards" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-networking"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
@@ -31,7 +31,7 @@
                     <span class="nav-text">Analytics</span>
                 </a>
                 </li>
-                <li><a href="/home/review.jsp" class="ai-icon" aria-expanded="false">
+                <li><a href="/reviews" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-heart"></i>
                     <span class="nav-text">Review</span>
                 </a>
@@ -43,9 +43,9 @@
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li>
-                            <a href="./app-profile.html">Order List</a>
+                            <a href="/orders">Order List</a>
                         </li>
-                        <li><a href="./post-details.html">Add New Order</a></li>
+                        <li><a href="/orders?action=create">Add New Order</a></li>
                     </ul>
                 </li>
                 <li>
@@ -54,8 +54,8 @@
                         <span class="nav-text">Customer</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Customer List</a></li>
-                        <li><a href="page-analytics.html">Add New Customer</a></li>
+                        <li><a href="/customers">Customer List</a></li>
+                        <li><a href="/customers?action=create">Add New Customer</a></li>
                     </ul>
                 </li>
                 <li class="mm-active">
@@ -64,8 +64,8 @@
                         <span class="nav-text">Staff</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="staff_list.jsp">Staff List</a></li>
-                        <li class="mm-active"><a href="staff_create.jsp" class="mm-active">Add New Staff</a></li>
+                        <li><a href="/staffs">Staff List</a></li>
+                        <li class="mm-active"><a href="/staffs?action=create" class="mm-active">Add New Staff</a></li>
                     </ul>
                 </li>
                 <li>
@@ -74,8 +74,8 @@
                         <span class="nav-text">Product</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Product List</a></li>
-                        <li><a href="page-analytics.html">Add New Product</a></li>
+                        <li><a href="/products">Product List</a></li>
+                        <li><a href="/products?action=create">Add New Product</a></li>
                     </ul>
                 </li>
                 <li>
@@ -131,10 +131,10 @@
                                         <label class="col-sm-3 col-form-label">Gender</label>
                                         <div class="col-sm-9">
                                             <label class="radio-inline me-3"><input type="radio" name="gender"
-                                                                                    value="1">
+                                                                                    value="true">
                                                 Male</label>
                                             <label class="radio-inline me-3"><input type="radio" name="gender"
-                                                                                    value="2">
+                                                                                    value="false">
                                                 Female</label>
                                         </div>
                                     </div>

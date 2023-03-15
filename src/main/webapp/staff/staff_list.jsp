@@ -22,7 +22,7 @@ Main wrapper start
         <div class="deznav-scroll ps ps--active-y mm-active">
             <ul class="metismenu mm-show" id="menu">
                 <li>
-                    <a href="/home/dashboard.jsp" class="ai-icon" aria-expanded="false">
+                    <a href="/dashboards" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-networking"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
@@ -32,7 +32,7 @@ Main wrapper start
                     <span class="nav-text">Analytics</span>
                 </a>
                 </li>
-                <li><a href="/home/review.jsp" class="ai-icon" aria-expanded="false">
+                <li><a href="/reviews" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-heart"></i>
                     <span class="nav-text">Review</span>
                 </a>
@@ -44,9 +44,9 @@ Main wrapper start
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li>
-                            <a href="./app-profile.html">Order List</a>
+                            <a href="/orders">Order List</a>
                         </li>
-                        <li><a href="./post-details.html">Add New Order</a></li>
+                        <li><a href="/orders?action=create">Add New Order</a></li>
                     </ul>
                 </li>
                 <li>
@@ -55,8 +55,8 @@ Main wrapper start
                         <span class="nav-text">Customer</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Customer List</a></li>
-                        <li><a href="page-analytics.html">Add New Customer</a></li>
+                        <li><a href="/customers">Customer List</a></li>
+                        <li><a href="/customers?action=create">Add New Customer</a></li>
                     </ul>
                 </li>
                 <li class="mm-active">
@@ -66,7 +66,7 @@ Main wrapper start
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li class="mm-active"><a href="/staffs" class="mm-active">Staff List</a></li>
-                        <li><a href="../staff/staff_create.jsp">Add New Staff</a></li>
+                        <li><a href="/staffs?action=create">Add New Staff</a></li>
                     </ul>
                 </li>
                 <li>
@@ -75,8 +75,8 @@ Main wrapper start
                         <span class="nav-text">Product</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Product List</a></li>
-                        <li><a href="page-analytics.html">Add New Product</a></li>
+                        <li><a href="/products">Product List</a></li>
+                        <li><a href="/products?action=create">Add New Product</a></li>
                     </ul>
                 </li>
                 <li>
@@ -218,7 +218,6 @@ Main wrapper start
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <!-- Modal Edit-->
                                             <div class="modal fade" id="editStaff${staff.getStaffId()}">
                                                 <div class="modal-dialog modal-dialog-centered modal-lg"

@@ -18,11 +18,21 @@ public class ReviewServlet extends HttpServlet {
     private IReviewService reviewService = new ReviewService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        try {
-            listReviews(request, response);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        System.out.println(action);
+        switch (action) {
+            case "create":
+              break;
+            default:
+                try {
+                    listReviews(request, response);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                break;
         }
     }
 

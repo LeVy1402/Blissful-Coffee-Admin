@@ -1,11 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: OS
-  Date: 3/1/2023
-  Time: 11:00 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -27,7 +20,7 @@
         <div class="deznav-scroll ps ps--active-y mm-active">
             <ul class="metismenu mm-show" id="menu">
                 <li>
-                    <a href="/dashboard" class="ai-icon" aria-expanded="false">
+                    <a href="/dashboards" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-networking"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
@@ -37,7 +30,7 @@
                     <span class="nav-text">Analytics</span>
                 </a>
                 </li>
-                <li><a href="" class="ai-icon" aria-expanded="false">
+                <li><a href="/reviews" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-heart"></i>
                     <span class="nav-text">Review</span>
                 </a>
@@ -48,8 +41,8 @@
                         <span class="nav-text">Order</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Order List</a></li>
-                        <li><a href="page-analytics.html">Add New order</a></li>
+                        <li><a href="/orders">Order List</a></li>
+                        <li><a href="/orders?action=create">Add New order</a></li>
                     </ul>
                 </li>
                 <li>
@@ -58,8 +51,8 @@
                         <span class="nav-text">Customer</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Customer List</a></li>
-                        <li><a href="page-analytics.html">Add New Customer</a></li>
+                        <li><a href="customers?action">Customer List</a></li>
+                        <li><a href="customers?action=create">Add New Customer</a></li>
                     </ul>
                 </li>
                 <li>
@@ -68,8 +61,8 @@
                         <span class="nav-text">Staff</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Staff List</a></li>
-                        <li><a href="page-analytics.html">Add New Order</a></li>
+                        <li><a href="staffs">Staff List</a></li>
+                        <li><a href="staffs?action=create">Add New Order</a></li>
                     </ul>
                 </li>
                 <li>
@@ -78,8 +71,8 @@
                         <span class="nav-text">Product</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Product List</a></li>
-                        <li><a href="page-analytics.html">Add New Product</a></li>
+                        <li><a href="/products">Product List</a></li>
+                        <li><a href="products?action=create">Add New Product</a></li>
                     </ul>
                 </li>
                 <li>

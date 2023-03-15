@@ -27,7 +27,7 @@
         <div class="deznav-scroll ps ps--active-y mm-active">
             <ul class="metismenu mm-show" id="menu">
                 <li class="mm-active">
-                    <a href="dashboard.jsp" class="ai-icon mm-active" aria-expanded="false">
+                    <a href="/dashboards" class="ai-icon mm-active" aria-expanded="false">
                         <i class="flaticon-381-networking"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
@@ -37,7 +37,7 @@
                     <span class="nav-text">Analytics</span>
                 </a>
                 </li>
-                <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
+                <li><a href="reviews?action" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-heart"></i>
                     <span class="nav-text">Review</span>
                 </a>
@@ -48,8 +48,8 @@
                         <span class="nav-text">Order</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Order List</a></li>
-                        <li><a href="page-analytics.html">Add New order</a></li>
+                        <li><a href="/orders">Order List</a></li>
+                        <li><a href="/orders?action=create">Add New order</a></li>
                     </ul>
                 </li>
                 <li>
@@ -59,8 +59,8 @@
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
 <%--                        <li><a href="/customer/customer_list.jsp">Customer List</a></li>--%>
-                        <li><a href="/customers">Customer List</a></li>
-                        <li><a href="/customer/add_new_customer.jsp">Add New Customer</a></li>
+                        <li><a href="customers?action">Customer List</a></li>
+                        <li><a href="customers?action=create">Add New Customer</a></li>
                     </ul>
                 </li>
                 <li>
@@ -70,7 +70,7 @@
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li><a href="/staffs">Staff List</a></li>
-                        <li><a href="../staff/staff_create.jsp">Add New Staff</a></li>
+                        <li><a href="staffs?action=create">Add New Staff</a></li>
                     </ul>
                 </li>
                 <li>
@@ -80,7 +80,7 @@
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li><a href="/products">Product List</a></li>
-                        <li><a href="../product/product_add.jsp">Add New Product</a></li>
+                        <li><a href="products?action=create">Add New Product</a></li>
                     </ul>
                 </li>
                 <li>

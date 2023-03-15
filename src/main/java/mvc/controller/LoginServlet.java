@@ -69,7 +69,7 @@ public class LoginServlet extends HttpServlet {
             if (staff == null) {
                 response.sendRedirect("/logins?err=1");
             }else {
-                response.sendRedirect("home/dashboard.jsp");
+                response.sendRedirect("dashboards");
             }
         } catch (Exception e){
             System.out.println(e);

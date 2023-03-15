@@ -21,8 +21,8 @@ public class StaffRepository implements IStaffRepository {
     private static final String UPDATE_STAFF_SQL =  "update `staff` set `fullname` = ?,`contact`= ?,`email` =?,`role_id` =?  where `staff_id` = ?;";
 
     private static final String DELETE_STAFF_BY_ID = "delete from `staff` where `staff_id` = ?";
-    private static final String INSERT_STAFF_SQL = "INSERT INTO `staff`" + "  (`staff_id`,`full_name`,`contact`,`email`,`user_name`,`password`,`role_id`,`site_inf_id`) VALUES " +
-            " (?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERT_STAFF_SQL = "INSERT INTO `staff`" + "  (`staff_id`,`fullname`,`contact`,`gender`,`email`,`password`,`profile_staff`,`role_id`,`site_inf_id`) VALUES " +
+            " (?, ?, ?, ?, ?, ?, ?, ?,?)";
 
     @Override
     public List<Staff> selectAllStaff() {
@@ -163,11 +163,12 @@ public class StaffRepository implements IStaffRepository {
         PreparedStatement preparedStatement = null;
         if (connection != null) {
             try {
+//                staff_id`,`fullname`,`contact`,`gender`,`email`,`password`,`profile_staff`,`role_id`,`site_inf_id`
                 preparedStatement = connection.prepareStatement(INSERT_STAFF_SQL);
                 preparedStatement.setInt(1, staff.getStaffId());
                 preparedStatement.setString(2, staff.getFullName());
-                preparedStatement.setBoolean(3, staff.isGender());
-                preparedStatement.setString(4, staff.getContact());
+                preparedStatement.setString(3, staff.getContact());
+                preparedStatement.setBoolean(4, staff.isGender());
                 preparedStatement.setString(5, staff.getEmail());
                 preparedStatement.setString(6, staff.getPassword());
                 preparedStatement.setString(7, staff.getProfileStaff());

@@ -1,10 +1,10 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Add New Product</title>
     <link rel="icon" type="image/png" sizes="16x16" href="../template/images/icon/logo.png">
     <link href="../template/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/staff.css">
 </head>
 <body>
 <jsp:include page="/layout/preloader.jsp"></jsp:include>
@@ -15,13 +15,13 @@
 <div id="main-wrapper">
     <jsp:include page="/layout/header.jsp"></jsp:include>
     <!--**********************************
-        Sidebar start
+    Sidebar start
     ***********************************-->
     <div class="deznav">
         <div class="deznav-scroll ps ps--active-y mm-active">
             <ul class="metismenu mm-show" id="menu">
                 <li>
-                    <a href="/home/dashboard.jsp" class="ai-icon" aria-expanded="false">
+                    <a href="/dashboards" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-networking"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
@@ -31,7 +31,7 @@
                     <span class="nav-text">Analytics</span>
                 </a>
                 </li>
-                <li><a href="/home/review.jsp" class="ai-icon" aria-expanded="false">
+                <li><a href="/reviews" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-heart"></i>
                     <span class="nav-text">Review</span>
                 </a>
@@ -43,9 +43,9 @@
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li>
-                            <a href="./app-profile.html">Order List</a>
+                            <a href="/orders">Order List</a>
                         </li>
-                        <li><a href="./post-details.html">Add New Order</a></li>
+                        <li><a href="/orders?action=create">Add New Order</a></li>
                     </ul>
                 </li>
                 <li>
@@ -54,8 +54,8 @@
                         <span class="nav-text">Customer</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Customer List</a></li>
-                        <li><a href="page-analytics.html">Add New Customer</a></li>
+                        <li><a href="/customers">Customer List</a></li>
+                        <li><a href="/customers?action=create">Add New Customer</a></li>
                     </ul>
                 </li>
                 <li>
@@ -64,8 +64,8 @@
                         <span class="nav-text">Staff</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="staff_list.jsp">Staff List</a></li>
-                        <li><a href="staff_create.jsp">Add New Staff</a></li>
+                        <li><a href="/staffs">Staff List</a></li>
+                        <li><a href="/staffs?action=create">Add New Staff</a></li>
                     </ul>
                 </li>
                 <li class="mm-active">
@@ -74,8 +74,8 @@
                         <span class="nav-text">Product</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Product List</a></li>
-                        <li class="mm-active"><a href="page-analytics.html" class="mm-active">Add New Product</a></li>
+                        <li><a href="/products">Product List</a></li>
+                        <li class="mm-active"><a href="/products?action=create" class="mm-active">Add New Product</a></li>
                     </ul>
                 </li>
                 <li>
@@ -110,11 +110,11 @@
                                 <div class="img-bx d-flex d-inline">
                                     <img class="me-3 img-fluid rounded" width="100"
                                          src="/assets/images/add_image-removebg-preview.png"
-                                         alt="DexignZone">
+                                         alt="DexignZone" id="preview_img">
                                 </div>
                                 <div class="input-group d-flex d-inline mx-3">
                                     <div class="form-file">
-                                        <input type="file" class="form-file-input form-control">
+                                        <input name="image" id="input_img"  type="file" class="form-file-input form-control">
                                     </div>
                                     <span class="input-group-text">Upload</span>
                                 </div>
@@ -124,7 +124,7 @@
                                     <div class="row m-3 align-items-center">
                                         <label class="col-sm-4 col-form-label">Product Name</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="fullName">
+                                            <input type="text" class="form-control" name="productName">
                                         </div>
                                     </div>
                                     <div class="row m-3 align-items-center">
@@ -142,9 +142,13 @@
                                     <div class="row m-3 align-items-center">
                                         <label class="col-sm-4 col-form-label">Status</label>
                                         <div class="col-sm-8">
-                                                <input type="checkbox" class="form-check-input" id="customCheckBox1"
-                                                       required>
-                                                <label class="form-check-label" for="customCheckBox1">Feature</label>
+                                            <input type="radio" class="form-check-input" id="prodStatus"
+                                                   required name="productStatus" value="Nomal">
+                                            <label class="form-check-label" for="prodStatus">Normal
+                                                <input type="radio" class="form-check-input" id="productStatus"
+                                                       required name="productStatus" value="Feature">
+                                                <label class="form-check-label" for="productStatus">Feature</label>
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
@@ -152,7 +156,7 @@
                                     <div class="row m-3 align-items-center">
                                         <label class="col-sm-3 col-form-label">Category</label>
                                         <div class="col-sm-9">
-                                            <select class="default-select form-control wide mb-3" name="roleId">
+                                            <select class="default-select form-control wide mb-3" name="categoryId">
                                                 <option value="1">Coffee</option>
                                                 <option value="2">Smoothie - Yogurt</option>
                                                 <option value="3">Juice</option>
@@ -164,7 +168,7 @@
                                     <div class="row m-3 align-items-center">
                                         <label class="col-sm-3 col-form-label">Description</label>
                                         <div class="col-sm-9">
-                                            <textarea class="form-control" rows="4" id="description"></textarea>
+                                            <textarea class="form-control" rows="4" id="description" name="description"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -201,6 +205,19 @@
 
 <!-- Datatable -->
 <script src="../template/vendor/datatables/js/jquery.dataTables.min.js"></script>
+
+<script>
+    var input_img = document.getElementById("input_img");
+    var preview_img = document.getElementById("preview_img");
+    input_img.onchange = evt => {
+        const [file] = input_img.files
+        if (file) {
+            preview_img.src = URL.createObjectURL(file);
+            preview_img.style.height = "100px";
+            preview_img.style.width = "100px";
+        }
+    }
+</script>
 
 <script>
     (function ($) {

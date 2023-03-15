@@ -1,59 +1,65 @@
 package mvc.model;
 
+
 import java.util.Date;
 
 public class Order {
-    private int orderId;
-    private Customer customer;
-    private Date orderDate;
-    private String orderStatus;
-    private Staff staff;
+private int orderId;
+private  Customer customerId;
+private Date orderDate;
+private String orderStatus;
+private Staff processBy;
 
-    public Order(int orderId, Customer customer, Date orderDate, String orderStatus, Staff staff) {
-        this.orderId = orderId;
-        this.customer = customer;
-        this.orderDate = orderDate;
-        this.orderStatus = orderStatus;
-        this.staff = staff;
-    }
+        public Order() {
+        }
 
-    public int getOrderId() {
-        return orderId;
-    }
+        public Order(int orderId, Customer customerId, Date orderDate, String orderStatus, Staff processBy) {
+                this.orderId = orderId;
+                this.customerId = customerId;
+                this.orderDate = orderDate;
+                this.orderStatus = orderStatus;
+                this.processBy = processBy;
+        }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
-    }
 
-    public Customer getCustomer() {
-        return customer;
-    }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+        public int getOrderId() {
+                return orderId;
+        }
 
-    public Date getOrderDate() {
-        return orderDate;
-    }
+        public void setOrderId(int orderId) {
+                this.orderId = orderId;
+        }
 
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
-    }
+        public Customer getCustomerId() {
+                return customerId;
+        }
 
-    public String getOrderStatus() {
-        return orderStatus;
-    }
+        public void setCustomerId(Customer customerId) {
+                this.customerId = customerId;
+        }
 
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
-    }
+        public Date getOrderDate() {
+                return orderDate;
+        }
 
-    public Staff getStaff() {
-        return staff;
-    }
+        public void setOrderDate(Date orderDate) {
+                this.orderDate = orderDate;
+        }
 
-    public void setStaff(Staff staff) {
-        this.staff = staff;
-    }
+        public String getOrderStatus() {
+                return orderStatus;
+        }
+
+        public void setOrderStatus(String orderStatus) {
+                this.orderStatus = orderStatus;
+        }
+
+        public Staff getProcessBy() {
+                return processBy;
+        }
+
+        public void setProcessBy(Staff processBy) {
+                this.processBy = processBy;
+        }
 }

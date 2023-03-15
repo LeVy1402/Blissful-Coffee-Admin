@@ -11,7 +11,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "DashboardServlet", value = "/dashboard")
+@WebServlet(name = "DashboardServlet", value = "/dashboards")
 public class DashboardServlet extends HttpServlet {
     private IDashboardService dashboardService = new DashboardService();
     @Override

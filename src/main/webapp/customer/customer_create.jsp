@@ -28,7 +28,7 @@
         <div class="deznav-scroll ps ps--active-y mm-active">
             <ul class="metismenu mm-show" id="menu">
                 <li>
-                    <a href="/dashboard" class="ai-icon" aria-expanded="false">
+                    <a href="/dashboards" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-networking"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
@@ -40,7 +40,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/home/review.jsp" class="ai-icon" aria-expanded="false">
+                    <a href="/reviews" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-heart"></i>
                         <span class="nav-text">Review</span>
                     </a>
@@ -52,9 +52,9 @@
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li>
-                            <a href="./app-profile.html">Order List</a>
+                            <a href="/orders">Order List</a>
                         </li>
-                        <li><a href="./post-details.html">Add New Order</a></li>
+                        <li><a href="/orders?action=create">Add New Order</a></li>
                     </ul>
                 </li>
                 <li class="mm-active">
@@ -73,8 +73,8 @@
                         <span class="nav-text">Staff</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Staff List</a></li>
-                        <li><a href="page-analytics.html">Add New Order</a></li>
+                        <li><a href="staffs">Staff List</a></li>
+                        <li><a href="/orders?action=crete">Add New Order</a></li>
                     </ul>
                 </li>
                 <li>
@@ -83,8 +83,8 @@
                         <span class="nav-text">Product</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="index.html">Product List</a></li>
-                        <li><a href="page-analytics.html">Add New Product</a></li>
+                        <li><a href="/products">Product List</a></li>
+                        <li><a href="/products?action=create">Add New Product</a></li>
                     </ul>
                 </li>
                 <li>
