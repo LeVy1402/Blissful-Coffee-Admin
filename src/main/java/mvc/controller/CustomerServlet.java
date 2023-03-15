@@ -130,8 +130,7 @@ public class CustomerServlet extends HttpServlet {
         Customer newCustomer = new Customer(fullName, dateOfBirth, gender, contact, email, password, profileCustomer, address);
         customerService.addCustomer(newCustomer);
         request.setAttribute("customerList", customerService.selectAllCustomer());
-        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/customer_list.jsp");
-        dispatcher.forward(request, response);
+        response.sendRedirect("customer/customer_create.jsp");
     }
 
 }

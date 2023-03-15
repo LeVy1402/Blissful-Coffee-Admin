@@ -74,8 +74,8 @@
                         <span class="nav-text">Staff</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li><a href="/staffsl">Staff List</a></li>
-                        <li><a href="page-analytics.html">Add New Order</a></li>
+                        <li><a href="/staffs">Staff List</a></li>
+                        <li><a href="/staffs">Add New Order</a></li>
                     </ul>
                 </li>
                 <li>
