@@ -1,6 +1,7 @@
 package mvc.controller;
 
 import mvc.model.Customer;
+import mvc.model.Product;
 import mvc.service.ICustomerService;
 import mvc.service.impl.CustomerService;
 
@@ -14,6 +15,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "CustomerServlet", value = "/customers")
 public class CustomerServlet extends HttpServlet {
@@ -31,6 +33,9 @@ public class CustomerServlet extends HttpServlet {
             case "create":
                 showNewFormCustomer(request, response);
                 break;
+                case "search":
+                showSearchFormCustomer(request, response);
+                break;
             case "delete":
                 try {
                     showDeleteCustomer(request, response);
@@ -46,6 +51,16 @@ public class CustomerServlet extends HttpServlet {
                 }
                 break;
         }
+    }
+
+    private void showSearchFormCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String search = request.getParameter("search");
+        List<Customer> customerList ;
+        customerList = customerService. searchCusNameLocation(search);
+        RequestDispatcher dispatcher;
+        request.setAttribute("customerList", customerList);
+        dispatcher = request.getRequestDispatcher("customer/customer_list.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void showNewFormCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -65,6 +80,8 @@ public class CustomerServlet extends HttpServlet {
 
     private void listCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         List<Customer> customerList = customerService.selectAllCustomer();
+//        Map<String,Double> customerLists = customerService.selectAllTotalSpent();
+//        request.setAttribute("customerLists", customerLists);
         request.setAttribute("customerList", customerList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/customer_list.jsp");
         dispatcher.forward(request, response);

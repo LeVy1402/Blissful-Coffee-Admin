@@ -32,6 +32,9 @@ public class ProductServlet extends HttpServlet {
             case "create":
                 showNewFormProduct(request, response);
                 break;
+                case "search":
+                showSearchFormProduct(request, response);
+                break;
             case "del":
                 int id = Integer.parseInt(request.getParameter("id"));
                 iProductService.del(id);
@@ -53,12 +56,23 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
+    private void showSearchFormProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String search = request.getParameter("search");
+        List<Product> productList ;
+        productList = iProductService. searchStaffNamePrice(search);
+        RequestDispatcher dispatcher;
+        request.setAttribute("productList", productList);
+        dispatcher = request.getRequestDispatcher("/product/product_list.jsp");
+        dispatcher.forward(request, response);
+    }
+
     private void showNewFormProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/product/product_add.jsp");
         dispatcher.forward(request, response);
     }
 
     protected void listProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         List<Product> productList = iProductService.getProduct();
         List<Product> listDetailProduct = new ArrayList<>();
         Product detailProduct = null;

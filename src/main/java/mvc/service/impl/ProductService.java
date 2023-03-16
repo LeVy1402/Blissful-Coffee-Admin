@@ -7,9 +7,11 @@ import mvc.service.IProductService;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductService implements IProductService {
     private IProductRepository iProductRepository = new ProductRepository();
+
     @Override
     public ArrayList<Product> getProduct() {
         return iProductRepository.getProduct();
@@ -38,6 +40,11 @@ public class ProductService implements IProductService {
     @Override
     public void editProduct(Product product) {
         iProductRepository.editProduct(product);
+    }
+
+    @Override
+    public List<Product> searchStaffNamePrice(String search) {
+        return iProductRepository.searchStaffNamePrice(search);
     }
 
 

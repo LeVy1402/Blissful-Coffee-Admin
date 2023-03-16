@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LoginAdminRepository implements ILoginAdminRepository {
-    private static final String SELECT_LOGIN = "select * from `staff` where `email` = ? and `password` = ?";
+    private static final String SELECT_LOGIN = "select * from `staff` where `email` = ? and `password` = ?  and `role_id` =2";
 
     @Override
     public Staff checkLogin(String email, String password) {

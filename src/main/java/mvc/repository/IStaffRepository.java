@@ -11,4 +11,5 @@ public interface IStaffRepository {
      public boolean updateStaff(Staff staff) throws SQLException;
      public boolean deleteStaff(int idStaff) throws SQLException;
      void addStaff(Staff staff);
+     List<Staff> searchStaffName(String searchName);
 }

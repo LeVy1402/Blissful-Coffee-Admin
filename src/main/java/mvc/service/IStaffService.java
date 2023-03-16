@@ -1,5 +1,6 @@
 package mvc.service;
 
+
 import mvc.model.Staff;
 
 import java.sql.SQLException;
@@ -11,4 +12,5 @@ public interface IStaffService {
     public boolean updateStaff(Staff staff) throws SQLException;
     public boolean deleteStaff(int idStaff) throws SQLException;
     void addStaff(Staff staff);
+    List<Staff> searchStaffName(String searchName);
 }

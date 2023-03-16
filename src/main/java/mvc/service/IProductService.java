@@ -5,6 +5,7 @@ import mvc.model.Staff;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public interface IProductService {
     ArrayList<Product> getProduct();
@@ -18,4 +19,6 @@ public interface IProductService {
     public boolean updateProduct(Product product) throws SQLException;
 
     void editProduct(Product product);
+
+    List<Product> searchStaffNamePrice(String search);
 }

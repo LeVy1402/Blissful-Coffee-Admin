@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class StaffRepository implements IStaffRepository {
@@ -18,11 +19,12 @@ public class StaffRepository implements IStaffRepository {
             "             from `staff` inner join `role` using(role_id) join `site_inf`\n" +
             "\t\t using(site_inf_id);\n";
     private static final String SELECT_STAFF_BY_ID = "SELECT `staff_id` ,`full_name`,`contact`,`email`,`role_id`,`site_inf_id` from `staff` where `staff_id` = ?";
-    private static final String UPDATE_STAFF_SQL =  "update `staff` set `fullname` = ?,`contact`= ?,`email` =?,`role_id` =?  where `staff_id` = ?;";
+    private static final String UPDATE_STAFF_SQL = "update `staff` set `fullname` = ?,`contact`= ?,`email` =?,`role_id` =?  where `staff_id` = ?;";
 
     private static final String DELETE_STAFF_BY_ID = "delete from `staff` where `staff_id` = ?";
     private static final String INSERT_STAFF_SQL = "INSERT INTO `staff`" + "  (`staff_id`,`fullname`,`contact`,`gender`,`email`,`password`,`profile_staff`,`role_id`,`site_inf_id`) VALUES " +
             " (?, ?, ?, ?, ?, ?, ?, ?,?)";
+    private static final String SEARCH_STAFF_NAME = "select * from `staff`  inner join `role` using(role_id) join `site_inf`\n where `fullname` like ? ";
 
     @Override
     public List<Staff> selectAllStaff() {
@@ -190,5 +192,33 @@ public class StaffRepository implements IStaffRepository {
         }
     }
 
+    @Override
+    public List<Staff> searchStaffName(String searchName) {
+        List<Staff> staffList = new ArrayList<>();
+        Connection connection = DBConnection.getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_STAFF_NAME);
+            preparedStatement.setString(1, "%" + searchName + "%");
 
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int staffId = rs.getInt("staff_id");
+                String fullName = rs.getString("fullname");
+                boolean gender = rs.getBoolean("gender");
+                String contact = rs.getString("contact");
+                String email = rs.getString("email");
+                String password = rs.getString("password");
+                String profileStaff = rs.getString("profile_staff");
+                Role roleId = new Role(rs.getInt("role_id"), rs.getString("role_mame"));
+                SiteInf siteInfId = new SiteInf(rs.getInt("site_inf_id"), rs.getString("site_name"),
+                        rs.getString("description"), rs.getString("contact_info"),
+                        rs.getString("address"), rs.getDate("last_update"));
+                Staff staff = new Staff(staffId, fullName, gender, contact, email, password, profileStaff, roleId, siteInfId);
+                staffList.add(staff);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return staffList;
+    }
 }

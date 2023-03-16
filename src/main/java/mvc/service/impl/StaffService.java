@@ -35,4 +35,9 @@ public class StaffService implements IStaffService {
     public void addStaff(Staff staff) {
         iStaffRepository.addStaff(staff);
     }
+
+    @Override
+    public List<Staff> searchStaffName(String searchName) {
+        return iStaffRepository.searchStaffName(searchName);
+    }
 }

@@ -70,7 +70,7 @@
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li><a href="staffs?action">Staff List</a></li>
-                        <li><a href="staffs?action=create">Add New Order</a></li>
+                        <li><a href="staffs?action=create">Add New Staff</a></li>
                     </ul>
                 </li>
                 <li>

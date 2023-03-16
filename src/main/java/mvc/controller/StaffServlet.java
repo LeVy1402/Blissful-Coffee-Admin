@@ -35,6 +35,9 @@ public class StaffServlet extends HttpServlet {
             case "create":
                 showNewFormStaff(request, response);
                 break;
+//                case "search":
+//                showSearchFormStaff(request, response);
+//                break;
             case "delete":
                 try {
                     showDeleteStaff(request, response);
@@ -50,6 +53,16 @@ public class StaffServlet extends HttpServlet {
                 }
                 break;
         }
+    }
+
+    private void showSearchFormStaff(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String  search =request.getParameter("search");
+
+        List<Staff> staffList = staffService.searchStaffName(search);
+        RequestDispatcher dispatcher;
+        request.setAttribute("staffList", staffList);
+        dispatcher = request.getRequestDispatcher("staff/staff_list.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void showNewFormStaff(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -68,7 +81,14 @@ public class StaffServlet extends HttpServlet {
     }
 
     private void listStaff(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        List<Staff> staffList = staffService.selectAllStaff();
+        String search = request.getParameter("search");
+        System.out.println(search);
+        List<Staff> staffList;
+        if(search!=null){
+            staffList =staffService.searchStaffName(search);
+        }else{
+            staffList= staffService.selectAllStaff();
+        }
         request.setAttribute("staffList", staffList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("staff/staff_list.jsp");
         dispatcher.forward(request, response);

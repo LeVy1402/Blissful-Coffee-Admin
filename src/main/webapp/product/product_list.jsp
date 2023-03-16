@@ -27,11 +27,11 @@
                         <span class="nav-text">Dashboard</span>
                     </a>
                 </li>
-<%--                <li><a href="/home/analytics.jsp" class="ai-icon" aria-expanded="false">--%>
-<%--                    <i class="flaticon-381-controls-3"></i>--%>
-<%--                    <span class="nav-text">Analytics</span>--%>
-<%--                </a>--%>
-<%--                </li>--%>
+                <%--                <li><a href="/home/analytics.jsp" class="ai-icon" aria-expanded="false">--%>
+                <%--                    <i class="flaticon-381-controls-3"></i>--%>
+                <%--                    <span class="nav-text">Analytics</span>--%>
+                <%--                </a>--%>
+                <%--                </li>--%>
                 <li><a href="/reviews" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-heart"></i>
                     <span class="nav-text">Review</span>
@@ -79,12 +79,12 @@
                         <li><a href="/products?action=create">Add New Product</a></li>
                     </ul>
                 </li>
-<%--                <li>--%>
-<%--                    <a href="widget-basic.html" class="ai-icon" aria-expanded="false">--%>
-<%--                        <i class="flaticon-381-heart"></i>--%>
-<%--                        <span class="nav-text">Category</span>--%>
-<%--                    </a>--%>
-<%--                </li>--%>
+                <%--                <li>--%>
+                <%--                    <a href="widget-basic.html" class="ai-icon" aria-expanded="false">--%>
+                <%--                        <i class="flaticon-381-heart"></i>--%>
+                <%--                        <span class="nav-text">Category</span>--%>
+                <%--                    </a>--%>
+                <%--                </li>--%>
             </ul>
         </div>
     </div>
@@ -101,7 +101,7 @@
                 <div class="d-none d-lg-block">
                     <h2 class="text-primary font-w600 mb-0">Product List</h2>
                 </div>
-                <div class="col-10">
+                <div class="col-5">
 
                     <a href="/products?action=create">
                         <button type="button" class="btn btn-primary" aria-expanded="false">
@@ -109,6 +109,18 @@
                             <span class="fs-16 ms-0">Add New Product</span>
                         </button>
                     </a>
+                </div>
+                <div class="col-5">
+                    <form method="get" action="/products">
+                        <input type="hidden" name="action" value="search">
+                        <div class="input-group search-area">
+                            <input type="text" class="form-control" name="search">
+                            <span class="input-group-text">
+                                <button type="submit">
+                                    <i class="flaticon-381-search-2"></i></button></span>
+                        </div>
+                    </form>
+
                 </div>
             </div>
             <div class="row">
@@ -153,9 +165,14 @@
                                                 </svg>
                                             </div>
                                             <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#idpro${product.getProductId()}" href="#">View Detail</a>
-                                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editProduct${product.getProductId()}" href="#">Edit</a>
-                                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteProduct${product.getProductId()}" href="#">Delete</a>
+                                                <a class="dropdown-item" data-bs-toggle="modal"
+                                                   data-bs-target="#idpro${product.getProductId()}" href="#">View
+                                                    Detail</a>
+                                                <a class="dropdown-item" data-bs-toggle="modal"
+                                                   data-bs-target="#editProduct${product.getProductId()}"
+                                                   href="#">Edit</a>
+                                                <a class="dropdown-item" data-bs-toggle="modal"
+                                                   data-bs-target="#deleteProduct${product.getProductId()}" href="#">Delete</a>
                                             </div>
 
                                             <!-- Modal Detail-->
@@ -243,13 +260,15 @@
 
                                             <!-- Modal Edit-->
                                             <div class="modal fade" id="editProduct${product.getProductId()}">
-                                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                <div class="modal-dialog modal-dialog-centered modal-lg"
+                                                     role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title">
                                                                 <c:out value="${product.getProductId()}"></c:out>
                                                             </h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                                            <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal">
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
@@ -257,12 +276,25 @@
                                                                 <div class="mb-3 row">
                                                                     <div class="col-4 mt-3 align-items-center">
                                                                         <div class="img-bx d-flex justify-content-center">
-                                                                            <img id="img_avatar" class="img-fluid rounded" width="200" src="/img/${product.getImage()}" alt="Product avatar">
+                                                                            <img id="img_avatar"
+                                                                                 class="img-fluid rounded" width="200"
+                                                                                 src="/img/${product.getImage()}"
+                                                                                 alt="Product avatar">
                                                                         </div>
                                                                         <div class="m-3 d-flex justify-content-center">
-                                                                            <button id="img_delete${product.getProductId()}" type="button" class="btn light btn-danger btn-sm col ">Delete</button>
-                                                                            <label for="img_input${product.getProductId()}" type="button" class="btn btn-primary btn-sm mx-3 col">Upload</label>
-                                                                            <input accept="image/*" type="file" id="img_input${product.getProductId()}" name="image" class="form-file-input form-control" hidden>
+                                                                            <button id="img_delete${product.getProductId()}"
+                                                                                    type="button"
+                                                                                    class="btn light btn-danger btn-sm col ">
+                                                                                Delete
+                                                                            </button>
+                                                                            <label for="img_input${product.getProductId()}"
+                                                                                   type="button"
+                                                                                   class="btn btn-primary btn-sm mx-3 col">Upload</label>
+                                                                            <input accept="image/*" type="file"
+                                                                                   id="img_input${product.getProductId()}"
+                                                                                   name="image"
+                                                                                   class="form-file-input form-control"
+                                                                                   hidden>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-8 d-flex align-items-center">
@@ -270,7 +302,8 @@
                                                                             <div class="basic-form">
 
                                                                                 <c:if test="${product != null}">
-                                                                                    <input type="hidden" name="productId"
+                                                                                    <input type="hidden"
+                                                                                           name="productId"
                                                                                            value="<c:out value='${product.getProductId()}'/>"/>
                                                                                 </c:if>
                                                                                 <div class="mb-3 row">
@@ -329,16 +362,32 @@
 
                                                                                 <fieldset class="mb-3">
                                                                                     <div class="row">
-                                                                                            <label class="col-sm-3 col-form-label">Category</label>
-                                                                                            <div class="col-sm-9">
-                                                                                                <select class="default-select form-control wide mb-3" name="categoryId">
-                                                                                                    <option value="1" <c:if test='${product.category.categoryId == 1}'>selected</c:if>>Coffee</option>
-                                                                                                    <option value="2" <c:if test='${product.category.categoryId == 2}'>selected</c:if>>Smoothie - Yogurt</option>
-                                                                                                    <option value="3" <c:if test='${product.category.categoryId == 3}'>selected</c:if>>Juice</option>
-                                                                                                    <option value="4" <c:if test='${product.category.categoryId == 4}'>selected</c:if>>Tea</option>
-                                                                                                    <option value="5" <c:if test='${product.category.categoryId == 5}'>selected</c:if>>Soft Drink</option>
-                                                                                                </select>
-                                                                                            </div>
+                                                                                        <label class="col-sm-3 col-form-label">Category</label>
+                                                                                        <div class="col-sm-9">
+                                                                                            <select class="default-select form-control wide mb-3"
+                                                                                                    name="categoryId">
+                                                                                                <option value="1"
+                                                                                                        <c:if test='${product.category.categoryId == 1}'>selected</c:if>>
+                                                                                                    Coffee
+                                                                                                </option>
+                                                                                                <option value="2"
+                                                                                                        <c:if test='${product.category.categoryId == 2}'>selected</c:if>>
+                                                                                                    Smoothie - Yogurt
+                                                                                                </option>
+                                                                                                <option value="3"
+                                                                                                        <c:if test='${product.category.categoryId == 3}'>selected</c:if>>
+                                                                                                    Juice
+                                                                                                </option>
+                                                                                                <option value="4"
+                                                                                                        <c:if test='${product.category.categoryId == 4}'>selected</c:if>>
+                                                                                                    Tea
+                                                                                                </option>
+                                                                                                <option value="5"
+                                                                                                        <c:if test='${product.category.categoryId == 5}'>selected</c:if>>
+                                                                                                    Soft Drink
+                                                                                                </option>
+                                                                                            </select>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </fieldset>
 
@@ -347,12 +396,13 @@
                                                                                     <textarea id="description"
                                                                                               name="description"
                                                                                               rows="7"
-                                                                                              cols="50">   ${product.getDescription()}</textarea>
+                                                                                              cols="50"> ${product.getDescription()}</textarea>
                                                                                 </div>
 
                                                                                 <div class="modal-footer">
                                                                                     <button type="button"
-                                                                                            class="btn light btn-danger" data-bs-dismiss="modal">
+                                                                                            class="btn light btn-danger"
+                                                                                            data-bs-dismiss="modal">
                                                                                         Cancel
                                                                                     </button>
                                                                                     <input type="submit"
@@ -444,16 +494,16 @@
 
 <script>
     <c:forEach items="${productList}" var="product">
-    document.querySelector(" #img_input${product.getProductId()}").addEventListener('change', function(e){
+    document.querySelector(" #img_input${product.getProductId()}").addEventListener('change', function (e) {
         const [file] = this.files
-        var preview_img =  this.parentNode.parentNode.querySelector("#img_avatar");
-        if (file){
+        var preview_img = this.parentNode.parentNode.querySelector("#img_avatar");
+        if (file) {
             preview_img.src = URL.createObjectURL(file);
             preview_img.style.height = "100px";
             preview_img.style.width = "100px";
         }
     })
-    document.querySelector(" #img_delete${product.getProductId()}").addEventListener('click', function(e){
+    document.querySelector(" #img_delete${product.getProductId()}").addEventListener('click', function (e) {
         console.log(this);
         this.parentNode.parentNode.querySelector("#img_avatar").src = "/assets/images/add_image-removebg-preview.png";
     })

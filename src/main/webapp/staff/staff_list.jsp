@@ -46,7 +46,7 @@ Main wrapper start
                         <li>
                             <a href="/orders">Order List</a>
                         </li>
-                        <li><a href="/orders?action=create">Add New Order</a></li>
+                        <li><a href="/orders?action=approve">Approve Order</a></li>
                     </ul>
                 </li>
                 <li>
@@ -101,13 +101,22 @@ Main wrapper start
                 <div class="d-none d-lg-block">
                     <h2 class="text-primary font-w600 mb-0">Staff List</h2>
                 </div>
-                <div class="col-10">
+                <div class="col-5">
                     <a class="btn btn-primary ms-sm-0"  href="/staffs?action=create"
                        aria-expanded="false">
                         <i class="fa fa-plus scale5 ms-3"></i>
                         <span class="fs-16 ms-3 " >Add New Staff</span>
                     </a>
-
+                </div>
+                <div class="col-5">
+                    <form action="/staffs" >
+                        <div class="input-group search-area">
+                            <input type="text" class="form-control" name="search">
+                            <span class="input-group-text">
+                <button type="submit" >
+                                    <i class="flaticon-381-search-2"></i></button></span>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="row">

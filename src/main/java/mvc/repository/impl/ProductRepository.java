@@ -9,13 +9,15 @@ import mvc.repository.IProductRepository;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class ProductRepository implements IProductRepository {
     private static final String INSERT_PRODUCT_SQL = "INSERT INTO `product` (`product_id`,`product_name`,`price`,`quantity`,`description`,`product_status`,`image`,`date_update`,`category_id`) \n" +
             "VALUES\n" +
             "(?, ?, ?, ?, ?, ?, ?, ?, ?);";
-    private static final String UPDATE_PRODUCT_SQL =  "UPDATE `product` set `product_name` = ?,`price`= ?,`quantity` =?,`description` =?, `product_status` = ?, `image`=?, `category_id`=?\n" +
+    private static final String UPDATE_PRODUCT_SQL = "UPDATE `product` set `product_name` = ?,`price`= ?,`quantity` =?,`description` =?, `product_status` = ?, `image`=?, `category_id`=?\n" +
             "where `product_id` = ?;";
+    private static final String SEARCH_TWO = "select * from `product` inner join `category` using(`category_id`) where `product_name` like ? or `price` = ?";
 //    private static final String UPDATE_PRODUCT_SQL =  "UPDATE `product` set `product_name` = ?,`price`= ?,`quantity` =?,`description` =?, `product_status` = ?, `category_id`=?\n" +
 //            "where `product_id` = ?;";
 
@@ -166,7 +168,7 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public boolean updateProduct(Product product) throws SQLException{
+    public boolean updateProduct(Product product) throws SQLException {
         boolean rowUpdate = false;
         Connection connection = DBConnection.getConnection();
         PreparedStatement preparedStatement = null;
@@ -228,5 +230,39 @@ public class ProductRepository implements IProductRepository {
                 DBConnection.close();
             }
         }
+    }
+
+    @Override
+    public List<Product> searchStaffNamePrice(String search) {
+        List<Product> productList = new ArrayList<>();
+        Connection connection = DBConnection.getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_TWO);
+
+            preparedStatement.setString(1, "%" + search + "%");
+            preparedStatement.setString(2,  search);
+//            preparedStatement.setString(2, search);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int productId = rs.getInt("product_id");
+                String productName = rs.getString("product_name");
+                double price = rs.getDouble("price");
+                int quantity = rs.getInt("quantity");
+                String description = rs.getString("description");
+                String productStatus = rs.getString("product_status");
+                String image = rs.getString("image");
+                Date dateUpdate = rs.getDate("date_update");
+                Category category = new Category(rs.getInt("category_id"), rs.getString("category_name"));
+
+                Product product = new Product(productId, productName, price, quantity, description, productStatus, image, dateUpdate, category);
+
+                productList.add(product);
+                System.out.println(productList.size());
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return productList;
     }
 }
