@@ -35,5 +35,10 @@ public class ProductService implements IProductService {
         return iProductRepository.updateProduct(product);
     }
 
+    @Override
+    public void editProduct(Product product) {
+        iProductRepository.editProduct(product);
+    }
+
 
 }

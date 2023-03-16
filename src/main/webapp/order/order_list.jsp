@@ -42,10 +42,10 @@
                     <span class="nav-text">Order</span>
                 </a>
                     <ul aria-expanded="false" class="mm-collapse mm-show">
-                        <li class="mm-active">
-                            <a href="approve_order.jsp">Approve Order</a>
-                        </li>
                         <li><a href="" class="mm-active">Order List</a></li>
+                        <li class="mm-active">
+                            <a href="/orders?action=approve">Approve Order</a>
+                        </li>
                     </ul>
                 </li>
                 <li>
@@ -65,7 +65,7 @@
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li><a href="/staffs">Staff List</a></li>
-                        <li><a href="staffs?action=create">Add New Order</a></li>
+                        <li><a href="staffs?action=create">Add New Staff</a></li>
                     </ul>
                 </li>
                 <li>

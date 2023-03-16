@@ -196,4 +196,37 @@ public class ProductRepository implements IProductRepository {
         }
         return rowUpdate;
     }
+
+    @Override
+    public void editProduct(Product product) {
+        int result = 0;
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement preparedStatement = null;
+        if (connection != null) {
+            try {
+                preparedStatement = connection.prepareStatement(UPDATE_PRODUCT_SQL);
+                preparedStatement.setString(1, product.getProductName());
+                preparedStatement.setDouble(2, product.getPrice());
+                preparedStatement.setInt(3, product.getQuantity());
+                preparedStatement.setString(4, product.getDescription());
+                preparedStatement.setString(5, product.getProductStatus());
+                preparedStatement.setString(6, product.getImage());
+                preparedStatement.setInt(7, product.getCategory().getCategoryId());
+                preparedStatement.setInt(8, product.getProductId());
+//                "UPDATE `product` set `product_name` = ?,`price`= ?,`quantity` =?,`description` =?, `product_status` = ?, `image`=?, `category_id`=?\n" +
+//                        "where `product_id` = ?;";
+
+                result = preparedStatement.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                DBConnection.close();
+            }
+        }
+    }
 }

@@ -54,7 +54,7 @@
                         <li>
                             <a href="/orders">Order List</a>
                         </li>
-                        <li><a href="/orders?action=create">Add New Order</a></li>
+                        <li><a href="/orders?action=approve">Approve Order</a></li>
                     </ul>
                 </li>
                 <li class="mm-active">
@@ -63,8 +63,8 @@
                         <span class="nav-text">Customer</span>
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
-                        <li class="mm-active"><a href="/customers" class="mm-active">Customer List</a></li>
-                        <li><a href="/customers?action=create">Add New Customer</a></li>
+                        <li class="mm-active"><a href="/customers" >Customer List</a></li>
+                        <li class="mm-active"><a href="/customers?action=create" class="mm-active">Add New Customer</a></li>
                     </ul>
                 </li>
                 <li>

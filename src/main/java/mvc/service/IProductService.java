@@ -17,4 +17,5 @@ public interface IProductService {
 
     public boolean updateProduct(Product product) throws SQLException;
 
+    void editProduct(Product product);
 }

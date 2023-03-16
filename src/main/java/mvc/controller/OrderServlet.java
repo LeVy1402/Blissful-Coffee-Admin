@@ -45,7 +45,9 @@ public class OrderServlet extends HttpServlet {
         }
     }
 
-    private void showApprove(HttpServletRequest request, HttpServletResponse response) {
+    private void showApprove(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("order/approve_order.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void showDeleteOrder(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {

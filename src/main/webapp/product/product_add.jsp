@@ -45,7 +45,9 @@
                         <li>
                             <a href="/orders">Order List</a>
                         </li>
-                        <li><a href="/orders?action=create">Add New Order</a></li>
+                        <li>
+                            <a href="/orders?action=approve">Approve Order</a>
+                        </li>
                     </ul>
                 </li>
                 <li>

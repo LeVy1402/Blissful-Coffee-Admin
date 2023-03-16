@@ -49,7 +49,9 @@
                     </a>
                     <ul aria-expanded="false" class="mm-collapse">
                         <li><a href="/orders">Order List</a></li>
-                        <li><a href="/orders?action=create">Add New order</a></li>
+                        <li>
+                            <a href="/orders?action=approve">Approve Order</a>
+                        </li>
                     </ul>
                 </li>
                 <li>

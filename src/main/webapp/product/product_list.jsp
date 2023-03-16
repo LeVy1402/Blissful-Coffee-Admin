@@ -46,7 +46,7 @@
                         <li>
                             <a href="/orders">Order List</a>
                         </li>
-                        <li><a href="/orders?action=create">Add New Order</a></li>
+                        <li><a href="/orders?action=approve">Approve Order</a></li>
                     </ul>
                 </li>
                 <li>
@@ -253,7 +253,7 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form method="post" action="/products">
+                                                            <form method="post" action="/products?action=update">
                                                                 <div class="mb-3 row">
                                                                     <div class="col-4 mt-3 align-items-center">
                                                                         <div class="img-bx d-flex justify-content-center">
@@ -269,7 +269,6 @@
                                                                         <div class="card-body">
                                                                             <div class="basic-form">
 
-                                                                                <input type="hidden" name="action" value="update">
                                                                                 <c:if test="${product != null}">
                                                                                     <input type="hidden" name="productId"
                                                                                            value="<c:out value='${product.getProductId()}'/>"/>
@@ -327,119 +326,33 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </fieldset>
-                                                                                    <%--                                                                            <div class="mb-3 row">--%>
-                                                                                    <%--                                                                                <label class="col-sm-4 col-form-label">Category</label>--%>
-                                                                                    <%--                                                                                <div class="col-sm-8">--%>
-                                                                                    <%--                                                                                    <select class="default-select form-control wide mb-3"--%>
-                                                                                    <%--                                                                                            name="categoryId">--%>
-                                                                                    <%--                                                                                        <option value="1">Coffee--%>
-                                                                                    <%--                                                                                        </option>--%>
-                                                                                    <%--                                                                                        <option value="2">Smoothie--%>
-                                                                                    <%--                                                                                            -Yogurt--%>
-                                                                                    <%--                                                                                        </option>--%>
-                                                                                    <%--                                                                                        <option value="3">Juice</option>--%>
-                                                                                    <%--                                                                                        <option value="4">Tea</option>--%>
-                                                                                    <%--                                                                                        <option value="5">Soft Drink--%>
-                                                                                    <%--                                                                                        </option>--%>
-                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "1"}'>checked</c:if>--%>
-                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "2"}'>checked</c:if>--%>
-                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "3"}'>checked</c:if>--%>
-                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "4"}'>checked</c:if>--%>
-                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "5"}'>checked</c:if>--%>
-                                                                                    <%--                                                                                    </select>--%>
-                                                                                    <%--                                                                                </div>--%>
-                                                                                    <%--                                                                            </div>--%>
-                                                                                    <%--                                                                                <div class="row m-3 align-items-center">--%>
-                                                                                    <%--                                                                                    <label class="col-sm-3 col-form-label">Category</label>--%>
-                                                                                    <%--                                                                                    <div class="col-sm-9">--%>
-                                                                                    <%--                                                                                        <label class="radio-inline me-3"><input type="radio" name="categoryId" value="1">--%>
-                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "1"}'>checked</c:if>--%>
-                                                                                    <%--                                                                                            Coffee</label>--%>
-                                                                                    <%--                                                                                        <label class="radio-inline me-3"><input type="radio" name="categoryId" value="2">--%>
-                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "2"}'>checked</c:if>--%>
-                                                                                    <%--                                                                                            Smoothie - Yogurt</label>--%>
-                                                                                    <%--                                                                                        <label class="radio-inline me-3"><input type="radio" name="categoryId" value="3">--%>
-                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "3"}'>checked</c:if>--%>
-                                                                                    <%--                                                                                            Juice</label>--%>
-                                                                                    <%--                                                                                        <label class="radio-inline me-3"><input type="radio" name="categoryId" value="4">--%>
-                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "4"}'>checked</c:if>--%>
-                                                                                    <%--                                                                                            Tea</label>--%>
-                                                                                    <%--                                                                                        <label class="radio-inline me-3"><input type="radio" name="categoryId" value="5">--%>
-                                                                                    <%--                                                                                            <c:if test='${product.getCategory().getCategoryId()== "5"}'>checked</c:if>--%>
-                                                                                    <%--                                                                                            Sort Drink</label>--%>
 
-                                                                                    <%--                                                                                    </div>--%>
-                                                                                    <%--                                                                                </div>--%>
                                                                                 <fieldset class="mb-3">
                                                                                     <div class="row">
-                                                                                        <label class="col-form-label col-sm-4 pt-0">Staff
-                                                                                            role</label>
-                                                                                        <div class="col-sm-8">
-                                                                                            <div class="form-check">
-                                                                                                <input class="form-check-input"
-                                                                                                       type="radio"
-                                                                                                       name="categoryId"
-                                                                                                       value="1"
-                                                                                                       <c:if test='${product.getCategory().getCategoryId()=="1"}'>checked</c:if>>
-                                                                                                <label class="form-check-label ">
-                                                                                                    Coffee
-                                                                                                </label>
+                                                                                            <label class="col-sm-3 col-form-label">Category</label>
+                                                                                            <div class="col-sm-9">
+                                                                                                <select class="default-select form-control wide mb-3" name="categoryId">
+                                                                                                    <option value="1" <c:if test='${product.category.categoryId == 1}'>selected</c:if>>Coffee</option>
+                                                                                                    <option value="2" <c:if test='${product.category.categoryId == 2}'>selected</c:if>>Smoothie - Yogurt</option>
+                                                                                                    <option value="3" <c:if test='${product.category.categoryId == 3}'>selected</c:if>>Juice</option>
+                                                                                                    <option value="4" <c:if test='${product.category.categoryId == 4}'>selected</c:if>>Tea</option>
+                                                                                                    <option value="5" <c:if test='${product.category.categoryId == 5}'>selected</c:if>>Soft Drink</option>
+                                                                                                </select>
                                                                                             </div>
-                                                                                            <div class="form-check">
-                                                                                                <input class="form-check-input"
-                                                                                                       type="radio"
-                                                                                                       name="categoryId"
-                                                                                                       value="2"
-                                                                                                       <c:if test='${product.getCategory().getCategoryId()=="2"}'>checked</c:if>>
-                                                                                                <label class="form-check-label  ">
-                                                                                                    Smoothie - Yogurt
-                                                                                                </label>
-                                                                                            </div>
-                                                                                            <div class="form-check">
-                                                                                                <input class="form-check-input"
-                                                                                                       type="radio"
-                                                                                                       name="categoryId"
-                                                                                                       value="3"
-                                                                                                       <c:if test='${product.getCategory().getCategoryId()=="3"}'>checked</c:if>>
-                                                                                                <label class="form-check-label  ">
-                                                                                                    Juice
-                                                                                                </label>
-                                                                                            </div>
-                                                                                            <div class="form-check">
-                                                                                                <input class="form-check-input"
-                                                                                                       type="radio"
-                                                                                                       name="categoryId"
-                                                                                                       value="4"
-                                                                                                       <c:if test='${product.getCategory().getCategoryId()=="4"}'>checked</c:if>>
-                                                                                                <label class="form-check-label  ">
-                                                                                                    Tea
-                                                                                                </label>
-                                                                                            </div>
-                                                                                            <div class="form-check">
-                                                                                                <input class="form-check-input"
-                                                                                                       type="radio"
-                                                                                                       name="categoryId"
-                                                                                                       value="5"
-                                                                                                       <c:if test='${product.getCategory().getCategoryId()=="5"}'>checked</c:if>>
-                                                                                                <label class="form-check-label  ">
-                                                                                                    Sort Drink
-                                                                                                </label>
-                                                                                            </div>
-                                                                                        </div>
                                                                                     </div>
                                                                                 </fieldset>
-                                                                                <div class="mb-3 row">
-                                                                                    <label class="col-sm-2 col-form-label">Description</label>
-                                                                                    <div class="col-sm-10">
-                                                                                        <textarea id="description"
-                                                                                                  name="description"
-                                                                                                  rows="7"
-                                                                                                  cols="71">${product.getDescription()}"</textarea>
-                                                                                    </div>
+
+                                                                                <label class="col-sm-2 col-form-label">Description</label>
+                                                                                <div class="col-sm-7">
+                                                                                    <textarea id="description"
+                                                                                              name="description"
+                                                                                              rows="7"
+                                                                                              cols="50">   ${product.getDescription()}</textarea>
                                                                                 </div>
+
                                                                                 <div class="modal-footer">
                                                                                     <button type="button"
-                                                                                            class="btn light btn-danger">
+                                                                                            class="btn light btn-danger" data-bs-dismiss="modal">
                                                                                         Cancel
                                                                                     </button>
                                                                                     <input type="submit"

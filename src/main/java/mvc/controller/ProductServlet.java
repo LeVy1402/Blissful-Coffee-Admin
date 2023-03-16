@@ -96,23 +96,33 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        int productId = Integer.parseInt(request.getParameter("productId"));
+        int productId = 0;
+        try {
+            productId = Integer.parseInt(request.getParameter("productId"));
+        }catch (NumberFormatException e){
+
+        }
         String productName = request.getParameter("productName");
         double price = Double.parseDouble(request.getParameter("price"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
+        System.out.println(quantity);
         String description = request.getParameter("description");
         String productStatus = request.getParameter("productStatus");
         String image =  request.getParameter("image");
-//        Date dateUpdate = new SimpleDateFormat("yyyy-mm-dd").parse(request.getParameter("dateUpdate"));
+        if(image == null || image.equals("")){
+            Product getimg = iProductService.detailProduct(productId);
+            image = getimg.getImage();
+        }
+//        Date dateUpdate = request.getParameter("datUpdate");
         int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+        System.out.println(categoryId);
         Category category = new Category(categoryId, null);
 
-        Product productUpdate = new Product(productId, productName, price, quantity, description, productStatus, image, category) ;
-//        Product productUpdate = new Product(productId, productName, price, quantity, description, productStatus, category) ;
-        iProductService.updateProduct(productUpdate);
-        request.setAttribute("productList", iProductService.getProduct());
-        RequestDispatcher dispatcher = request.getRequestDispatcher("product/product_list.jsp");
-        dispatcher.forward(request, response);
+
+        Product product = new Product(productId,productName, price, quantity, description, productStatus, image, category) ;
+        System.out.println(product.toString());
+        iProductService.editProduct(product);
+        response.sendRedirect(request.getContextPath()+"/products");
     }
 
     private void createProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

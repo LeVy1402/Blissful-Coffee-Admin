@@ -16,4 +16,6 @@ public interface IProductRepository {
     void addProduct(Product product);
 
     boolean updateProduct(Product product) throws SQLException;
+
+    void editProduct(Product product);
 }

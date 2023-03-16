@@ -47,10 +47,10 @@
                     <span class="nav-text">Order</span>
                 </a>
                     <ul aria-expanded="false" class="mm-collapse mm-show">
+                        <li><a href="/orders">Order List</a></li>
                         <li class="mm-active">
-                            <a href="approve_order.jsp" class="mm-active">Approve Order</a>
+                            <a href="/orders?action=approve" class="mm-active">Approve Order</a>
                         </li>
-                        <li><a href="order_list.jsp">Order List</a></li>
                     </ul>
                 </li>
                 <li>
